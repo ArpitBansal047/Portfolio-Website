@@ -3,6 +3,21 @@ import { MdSend } from "react-icons/md";
 
 type FormStatus = "idle" | "sending" | "success" | "error";
 
+const toUrlEncodedBody = (form: HTMLFormElement) => {
+  const params = new URLSearchParams();
+  const formData = new FormData(form);
+
+  for (const [key, value] of formData.entries()) {
+    params.append(key, typeof value === "string" ? value : value.name);
+  }
+
+  if (!params.has("form-name")) {
+    params.set("form-name", "contact");
+  }
+
+  return params.toString();
+};
+
 const ContactForm = () => {
   const [status, setStatus] = useState<FormStatus>("idle");
 
@@ -11,17 +26,17 @@ const ContactForm = () => {
     setStatus("sending");
 
     const form = event.currentTarget;
-    const formData = new FormData(form);
 
     try {
       const response = await fetch("/", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: new URLSearchParams(formData as unknown as Record<string, string>).toString(),
+        body: toUrlEncodedBody(form),
       });
 
-      // Netlify returns 200/302 on success; only fail on real HTTP errors
-      if (response.status >= 400) throw new Error(`HTTP ${response.status}`);
+      if (response.status === 404) {
+        throw new Error("Form not registered on Netlify");
+      }
 
       form.reset();
       setStatus("success");
@@ -55,7 +70,7 @@ const ContactForm = () => {
           <input type="hidden" name="form-name" value="contact" />
           <p className="contact-form-honeypot" hidden>
             <label>
-              Don&apos;t fill this out: <input name="bot-field" />
+              Don&apos;t fill this out: <input name="bot-field" tabIndex={-1} autoComplete="off" />
             </label>
           </p>
 

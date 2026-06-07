@@ -10,7 +10,7 @@
   from = "/*"
   to = "/index.html"
   status = 200
-  conditions = {Method = ["GET"]}
+  conditions = {Method = ["GET", "HEAD"]}
 
 [[headers]]
   for = "/images/*"
