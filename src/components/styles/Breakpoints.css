@@ -1,0 +1,68 @@
+/*
+  Site-wide breakpoints (mobile-first helpers)
+  xs  < 480px   phone
+  sm  480–767   large phone
+  md  768–1023 tablet
+  lg  1024–1399 desktop
+  xl  ≥ 1400    wide
+*/
+
+:root {
+  --bp-xs: 480px;
+  --bp-sm: 768px;
+  --bp-md: 1024px;
+  --bp-lg: 1400px;
+  --page-pad: clamp(16px, 3.5vw, 32px);
+  --section-pad-y: clamp(40px, 8vw, 96px);
+  --nav-scroll-offset: clamp(88px, 11vh, 112px);
+}
+
+.nav-scroll-target {
+  scroll-margin-top: var(--nav-scroll-offset);
+}
+
+@media screen and (max-width: 767px) {
+  body {
+    --cWidth: calc(100% - 24px);
+  }
+
+  .section-container {
+    width: 100%;
+    max-width: 100%;
+    padding-left: var(--page-pad);
+    padding-right: var(--page-pad);
+    box-sizing: border-box;
+  }
+
+  .section-heading,
+  .section-heading-left {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  body {
+    --cWidth: calc(100% - 40px);
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  body {
+    --cWidth: min(96%, 1280px);
+  }
+}
+
+@media screen and (min-width: 1400px) {
+  body {
+    --cWidth: min(96%, 1560px);
+    --page-pad: clamp(20px, 2.5vw, 40px);
+  }
+}
+
+@media screen and (min-width: 1800px) {
+  body {
+    --cWidth: min(96%, var(--cMaxWidth));
+    --page-pad: clamp(24px, 2vw, 48px);
+  }
+}

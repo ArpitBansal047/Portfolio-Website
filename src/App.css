@@ -1,0 +1,10 @@
+.title,
+.para {
+  font-kerning: none;
+  -webkit-text-rendering: optimizeSpeed;
+  text-rendering: optimizeSpeed;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+}
+
+/* Legacy alias — fluid widths live in index.css + breakpoints.css */

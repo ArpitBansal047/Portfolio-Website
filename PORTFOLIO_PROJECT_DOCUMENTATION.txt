@@ -1,0 +1,275 @@
+================================================================================
+              ARPIT BANSAL — PORTFOLIO WEBSITE DOCUMENTATION
+              Resume, Portfolio & Interview Preparation Guide
+================================================================================
+Last Updated: May 2026
+Project Path: C:\Apps\Portfolio-Website
+Template Base: https://github.com/MoncyDev/Portfolio-Website (customized)
+Live Stack: React 18 | TypeScript | Vite | GSAP | Three.js / React Three Fiber
+
+================================================================================
+1. PROJECT OVERVIEW (ELEVATOR PITCH)
+================================================================================
+
+Personal portfolio site for Arpit Bansal — Software Developer at Amdocs, Pune.
+Showcases production work at Amdocs (ComcastHub, GenAI tools, Cipher EOC, APEye),
+personal projects (Cryptoverse, Streamer, Cyberpunks), WIP apps (YOU, RavenSwift),
+certificates, and beyond-code interests.
+
+RESUME ONE-LINER:
+"Built a React 18 + TypeScript portfolio with GSAP scroll animations, 3D tech
+stack physics, and structured project showcases highlighting Amdocs production
+tools and full-stack side projects."
+
+================================================================================
+2. TECH STACK (FULL LIST)
+================================================================================
+
+FRONTEND:
+  - React 18.3
+  - TypeScript 5.5
+  - Vite 5.4 (dev server port 5173)
+
+ANIMATION / 3D:
+  - GSAP 3 + ScrollTrigger + ScrollSmoother (gsap-trial)
+  - Three.js 0.168
+  - @react-three/fiber, @react-three/drei
+  - @react-three/rapier (physics tech balls)
+
+ICONS / UI:
+  - react-icons
+  - react-fast-marquee (loading screen)
+
+CONTENT:
+  - Single source of truth: src/data/portfolio.ts
+
+DEPLOYMENT:
+  - Netlify (netlify.toml → build dist/, SPA redirects)
+  - Node 20 on Netlify build
+
+================================================================================
+3. SITE SECTIONS (PAGE ORDER)
+================================================================================
+
+  1. Hero / Landing        — Name (left), coding image (center), role/metrics (right)
+  2. About                 — Bio + profile photo
+  3. Career                — Amdocs horizontal scroll, then YHills internship
+  4. Skills & Stack        — Skill categories + personal projects + apps + tech balls + certs
+  5. Education             — Horizontal timeline (Thapar, school)
+  6. Beyond Code           — Interests + Duolingo flying owl
+  7. Contact               — Email, social, site tech stack + credit
+
+HERO IMAGE: public/images/hero-coding.jfif (from src/assets/download.jfif)
+
+CERTIFICATES GRID: 4 columns × 2 rows (8 certificates)
+
+APPS SECTION: YOU + RavenSwift side-by-side with equal-height columns
+
+================================================================================
+4. KEY FILES & FOLDER STRUCTURE
+================================================================================
+
+  Portfolio-Website/
+  ├── public/
+  │   ├── images/           Profile, project & Amdocs screenshots
+  │   ├── certificates/     PDF/PNG certificate files
+  │   ├── models/           character.glb (3D avatar)
+  │   └── resume/           Arpit_Bansal_Resume.pdf
+  ├── src/
+  │   ├── data/portfolio.ts ← EDIT ALL CONTENT HERE
+  │   ├── components/
+  │   │   ├── Career.tsx           Amdocs intro + ProjectShowcase
+  │   │   ├── CareerTimeline.tsx   Internships + education
+  │   │   ├── ProjectShowcase.tsx  Horizontal scroll project cards
+  │   │   ├── Work.tsx             Personal projects wrapper
+  │   │   ├── TechStack.tsx        3D physics balls
+  │   │   ├── BeyondCode.tsx       Interests grid
+  │   │   └── ...
+  │   ├── index.css
+  │   └── main.tsx
+  ├── netlify.toml
+  └── package.json
+
+================================================================================
+5. HOW TO RUN LOCALLY
+================================================================================
+
+PREREQUISITES:
+  - Node.js 18+ (Node 20 recommended)
+  - npm
+
+STEPS:
+
+  cd C:\Apps\Portfolio-Website
+  npm install
+
+  # If npm registry issues (corporate proxy), use:
+  npm install --registry=https://registry.npmjs.org/
+
+  npm run dev
+
+  → Open http://localhost:5173
+  → Use --host flag is already in package.json for LAN access
+
+OTHER COMMANDS:
+
+  npm run build     → TypeScript check + Vite production build → dist/
+  npm run preview   → Serve dist/ locally (test before deploy)
+  npm run lint      → ESLint
+
+3D CHARACTER (DESKTOP ONLY, width > 1024px):
+  - Model: public/models/character.glb
+  - Loads directly (no .enc encryption required for local/dev)
+  - If avatar missing, verify character.glb exists in public/models/
+
+================================================================================
+6. HOW TO HOST FOR FREE (NETLIFY)
+================================================================================
+
+RECOMMENDED: Netlify — $0/month for personal portfolio SPA.
+
+STEP 1 — Push to GitHub
+  cd C:\Apps\Portfolio-Website
+  git init
+  git add .
+  git commit -m "Arpit Bansal portfolio website"
+  git branch -M main
+  git remote add origin https://github.com/ArpitBansal047/portfolio.git
+  git push -u origin main
+
+STEP 2 — Netlify deploy
+  1. https://www.netlify.com/ → Sign up with GitHub
+  2. Add new site → Import from Git → select portfolio repo
+  3. Auto-detected from netlify.toml:
+       Build command:  npm run build
+       Publish dir:    dist
+       Node version:   20
+  4. Deploy site
+  5. Site settings → Domain management → rename (e.g. arpit-bansal.netlify.app)
+
+STEP 3 — Link personal project demos
+  After deploying Cryptoverse / Cyberpunks / Streamer, update liveUrl in
+  src/data/portfolio.ts → projects[].liveUrl → redeploy portfolio.
+
+NO ENV VARS REQUIRED for the portfolio itself (static site).
+
+ALTERNATIVES (also free):
+  - Vercel: import repo, framework Vite, output dist/
+  - GitHub Pages: needs base path config in vite.config if not custom domain
+
+Master deploy guide for all apps:
+  C:\Apps\PORTFOLIO_DEPLOY_ALL_APPS.txt
+
+================================================================================
+7. CUSTOMIZATION CHECKLIST
+================================================================================
+
+  Edit src/data/portfolio.ts:
+
+  [ ] site.email, site.phone, site.linkedin, site.github, site.youtube
+  [ ] aboutParagraphs — keep factual, avoid "ship" wording
+  [ ] amdocsProjects — Amdocs tools (ComcastHub highlighted first)
+  [ ] experiences — internships + education only
+  [ ] projects — personal projects + liveUrl after deploy
+  [ ] wipProjects — YOU / RavenSwift screenshots
+  [ ] beyondCode — interests (Duolingo streak, CSL, etc.)
+  [ ] certificates — add/remove as needed
+
+  Assets:
+  [ ] public/images/profile.jpg
+  [ ] public/images/amdocs/*.png
+  [ ] public/images/projects/*.png
+  [ ] public/resume/Arpit_Bansal_Resume.pdf
+
+================================================================================
+8. AMDOCS SECTION (PRIMARY EXPERIENCE)
+================================================================================
+
+Featured as numbered horizontal-scroll cards (same format as personal projects):
+
+  01 ComcastHub        — Next.js account developer portal (highlighted)
+  02 BPT Charge Code   — GenAI Excel → SQL automation
+  03 Cipher EOC        — Streamlit billing automation
+  04 APEye             — Jenkins job orchestration
+  05 CSL 2026 Auction  — React auction app (moved from Beyond Code)
+
+Key metrics (also in hero):
+  - 15–20% productivity boost (ComcastHub)
+  - 90% manual effort reduction (GenAI tools)
+  - 5hr → 1hr test cycles (APEye)
+  - 10+ developers use APEye daily
+
+================================================================================
+9. KNOWN ISSUES & TROUBLESHOOTING
+================================================================================
+
+ISSUE: Loading screen stuck at ~92%
+  CAUSE: 3D character failed to load (.enc or missing GLB)
+  FIX:   Use public/models/character.glb directly; verify file exists
+
+ISSUE: 3D character not visible
+  CAUSE: Template hides character on viewports ≤ 1024px
+  FIX:   Test on desktop width or resize browser wider
+
+ISSUE: Scroll feels stuck after closing image lightbox
+  FIX:   Already handled — lightbox pauses ScrollSmoother via utils/lightboxScroll.ts
+
+ISSUE: npm install fails / GSAP not found
+  FIX:   npm install --registry=https://registry.npmjs.org/
+
+ISSUE: Tech stack balls move too fast / labels too small
+  FIX:   Tune TechStack.tsx (gravity, damping, impulse) and .tech-ball-label in index.css
+
+ISSUE: Horizontal project scroll doesn't pin on mobile
+  EXPECTED: GSAP pin disabled at ≤1024px — cards stack vertically
+
+ISSUE: BPT Charge Code has placeholder image
+  NOTE:   Internal tool — no public screenshot; uses placeholder.svg
+
+ISSUE: Netlify build fails on TypeScript
+  FIX:   Run npm run build locally, fix TS errors, push again
+
+ISSUE: Large bundle / slow first load
+  NOTE:   Three.js + GSAP add weight; TechStack is lazy-loaded via React.lazy
+
+================================================================================
+10. INTERVIEW TALKING POINTS
+================================================================================
+
+COMCASTHUB:
+  "Led design and development of the official Amdocs account website — unified
+   scattered dev tools into one Next.js hub, projecting 15–20% productivity gain."
+
+BPT CHARGE CODE TOOL:
+  "GenAI Python script: Excel in → SQL out, 90% less manual work, 75% faster setup."
+
+CIPHER EOC:
+  "Streamlit automation for daily billing EOC — 90min to 40min using Oracle,
+   Paramiko, Selenium, pandas."
+
+APEYE:
+  "Jenkins 1-click orchestration — regression cycles from 5 hours to 1 hour;
+   10+ devs use it daily."
+
+PERSONAL PROJECTS:
+  Cryptoverse — RTK Query + multi-API crypto dashboard
+  Streamer — RTMP live streaming prototype (React + Node)
+  Cyberpunks — NFT gallery with offline fallback
+
+================================================================================
+11. CONTACT & LINKS
+================================================================================
+
+  Email:    bansal.arpit02@gmail.com
+  Phone:    +91-8146126152
+  GitHub:   https://github.com/ArpitBansal047
+  LinkedIn: https://www.linkedin.com/in/arpit0291
+  YouTube:  https://www.youtube.com/@arpitbansal3263
+  Location: Pune, Maharashtra, India
+
+Template credit: MoncyDev/Portfolio-Website
+Content & customization: Arpit Bansal
+
+================================================================================
+END OF DOCUMENTATION
+================================================================================

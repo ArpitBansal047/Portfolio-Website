@@ -1,0 +1,149 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: clamp(8px, 2vw, 20px);
+  max-width: var(--cMaxWidth);
+  width: min(var(--cWidth), calc(100% - var(--page-pad, 24px) * 2));
+  padding: 12px var(--page-pad, 16px);
+  margin-bottom: -80px;
+  box-sizing: border-box;
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 0;
+  z-index: 9999;
+}
+
+.navbar-left {
+  display: flex;
+  align-items: center;
+  gap: clamp(6px, 1.5vw, 12px);
+  min-width: 0;
+  flex: 0 1 auto;
+}
+
+.header ul {
+  font-size: clamp(9px, 1.6vw, 14px);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-end;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  column-gap: clamp(6px, 1.8vw, 32px);
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.header ul li {
+  margin: 0;
+  letter-spacing: 0.06em;
+  color: #eae5ec;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+/* Email in navbar — desktop only; mobile uses hero contact block */
+.navbar-email {
+  display: none;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: #fff;
+  text-decoration: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 0;
+  line-height: 1.2;
+  max-width: min(280px, 28vw);
+}
+
+.navbar-email:hover {
+  color: var(--accentColor);
+}
+
+.navbar-avatar-clickable {
+  padding: 0;
+  border: none;
+  background: none;
+  line-height: 0;
+  flex-shrink: 0;
+  cursor: pointer;
+}
+
+.navbar-avatar-clickable img,
+.navbar-avatar {
+  width: clamp(34px, 8vw, 42px);
+  height: clamp(34px, 8vw, 42px);
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--accentColor);
+  box-shadow: 0 0 0 2px rgba(194, 164, 255, 0.15);
+  display: block;
+}
+
+.navbar-avatar-clickable .clickable-image__hint {
+  display: none;
+}
+
+@media only screen and (min-width: 640px) {
+  .header {
+    padding: 16px var(--page-pad, 16px);
+  }
+}
+
+@media only screen and (min-width: 1280px) {
+  .header {
+    padding: 20px var(--page-pad, 20px);
+    margin-bottom: -100px;
+  }
+
+  .navbar-left {
+    max-width: min(55%, 480px);
+  }
+
+  .navbar-email {
+    display: inline-block;
+    font-size: 14px;
+  }
+
+  .header ul {
+    font-size: 14px;
+    column-gap: clamp(16px, 2.5vw, 40px);
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .header {
+    padding: 28px var(--page-pad, 24px);
+  }
+
+  .header ul {
+    column-gap: clamp(24px, 4vw, 56px);
+    font-size: 15px;
+  }
+
+  .navbar-email {
+    font-size: 15px;
+    max-width: 320px;
+  }
+}
+
+@media only screen and (max-width: 520px) {
+  .header {
+    gap: 6px;
+  }
+
+  .header ul {
+    column-gap: clamp(3px, 1vw, 6px);
+    font-size: clamp(7px, 1.85vw, 9px);
+  }
+
+  .header ul li {
+    letter-spacing: 0.03em;
+  }
+}

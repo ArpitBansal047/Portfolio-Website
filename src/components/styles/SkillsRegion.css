@@ -1,0 +1,32 @@
+.skills-region {
+  position: relative;
+  width: 100%;
+  background: var(--backgroundColor);
+  z-index: 1;
+  margin-top: 0;
+}
+
+.skills-region-body {
+  display: flex;
+  flex-direction: column;
+}
+
+.skills-region-body .project-carousel,
+.skills-region-body .wip-section,
+.skills-region-body .techstack,
+.skills-region-body .certs-section {
+  padding-top: 0;
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+
+.skills-region-body .techstack {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media only screen and (max-width: 900px) {
+  .skills-region-body {
+    gap: var(--gap-subsection, clamp(25px, 4.8vw, 38px));
+  }
+}

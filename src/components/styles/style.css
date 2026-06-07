@@ -1,0 +1,38 @@
+.hover-link {
+  position: relative;
+  display: flex;
+  text-wrap: nowrap;
+  overflow: hidden;
+}
+.hover-in {
+  position: relative;
+  transition: 0.3s;
+}
+.hover-in div {
+  display: flex;
+  position: absolute;
+  top: 100%;
+  left: 0;
+}
+.hover-link:hover .hover-in {
+  transform: translateY(-100%);
+  color: var(--accentColor);
+}
+
+.hover-link-strike {
+  position: relative;
+  display: inline-block;
+  text-decoration: none;
+}
+
+.hover-link-strike::after {
+  content: "";
+  position: absolute;
+  left: -0.72em;
+  right: -0.72em;
+  top: 50%;
+  height: 2px;
+  background: currentColor;
+  transform: translateY(-50%);
+  pointer-events: none;
+}

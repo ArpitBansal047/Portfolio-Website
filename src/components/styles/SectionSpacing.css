@@ -1,0 +1,229 @@
+/*
+  Unified vertical rhythm — equal space between major sections
+  (same total gap as Beyond Code ↔ Contact: half + half = --gap-section).
+*/
+:root {
+  --gap-section: clamp(134px, 16.8vw, 212px);
+  --gap-major-half: calc(var(--gap-section) * 0.5);
+  --gap-subsection: clamp(58px, 8.4vw, 96px);
+  --gap-subsection-lg: clamp(88px, 11vw, 144px);
+}
+
+@media screen and (max-width: 1279px) {
+  .landing-section {
+    padding-bottom: clamp(12px, 2vh, 24px);
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .landing-section {
+    padding-bottom: clamp(12px, 2vh, 20px);
+  }
+}
+
+.landing-section {
+  padding-bottom: var(--gap-major-half);
+}
+
+.about-section {
+  margin-bottom: 0;
+  padding-top: var(--gap-major-half);
+  padding-bottom: var(--gap-major-half);
+}
+
+.career-block {
+  margin-top: 0;
+  padding-top: var(--gap-major-half);
+  padding-bottom: 0;
+}
+
+.career-yhills {
+  padding-bottom: var(--gap-major-half);
+}
+
+.skills-region {
+  margin-top: 0;
+  padding-top: var(--gap-major-half);
+  padding-bottom: 0;
+}
+
+.skills-region-body {
+  gap: var(--gap-subsection);
+  padding-top: 0;
+  padding-bottom: var(--gap-major-half);
+}
+
+.skills-region-body .project-carousel,
+.skills-region-body .wip-section,
+.skills-region-body .techstack,
+.skills-region-body #projects,
+.skills-region-body #apps,
+.skills-region-body #websites {
+  padding-top: 0;
+  padding-bottom: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.skills-region-body .certs-section {
+  padding-top: 0;
+  padding-bottom: 0;
+  margin-bottom: 0;
+  margin-top: var(--gap-subsection);
+}
+
+.skills-region-body .techstack {
+  padding-top: var(--gap-subsection);
+  padding-bottom: 0;
+}
+
+.education-section {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: var(--gap-major-half);
+  padding-bottom: calc(var(--gap-major-half) * 1.35);
+}
+
+.beyond-section {
+  margin-top: 0;
+  padding-top: var(--gap-major-half);
+  padding-bottom: var(--gap-major-half);
+}
+
+.duo-flight-corridor {
+  margin-top: calc(var(--gap-major-half) * -1.35);
+  margin-bottom: calc(var(--gap-major-half) * -1.35);
+}
+
+.duo-flight-corridor .beyond-section {
+  padding-top: clamp(36px, 6vw, 64px);
+  padding-bottom: clamp(36px, 6vw, 64px);
+}
+
+.contact-section {
+  margin-top: 0;
+  padding-top: calc(var(--gap-major-half) * 1.35);
+}
+
+.company-logo {
+  display: block;
+  object-fit: contain;
+  background: #fff;
+  border-radius: 12px;
+  padding: 8px;
+}
+
+.company-logo-clickable {
+  display: inline-flex;
+  flex-shrink: 0;
+  padding: 0;
+  border: none;
+  background: none;
+  line-height: 0;
+  width: auto;
+  max-width: none;
+  justify-content: center;
+  align-items: center;
+  margin-inline: auto;
+}
+
+.clickable-image.company-logo-clickable {
+  width: auto;
+  display: inline-flex;
+}
+
+.company-logo-clickable img {
+  display: block;
+  object-fit: contain;
+  background: #fff;
+  border-radius: 12px;
+  padding: 8px;
+  box-sizing: border-box;
+}
+
+.company-logo-clickable--md img {
+  width: 56px;
+  height: 56px;
+}
+
+.company-logo-clickable--lg img {
+  width: 72px;
+  height: 72px;
+}
+
+.company-logo-clickable .clickable-image__hint {
+  display: none;
+}
+
+.career-company-row {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 8px;
+}
+
+.career-company-row h3 {
+  margin: 0;
+  text-align: center;
+}
+
+.career-company-row--card {
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  text-align: left;
+  margin-bottom: 12px;
+}
+
+.career-company-row--card h4,
+.career-company-row--card h5 {
+  text-align: left;
+}
+
+.yhills-summary {
+  color: #9ca3af;
+  font-size: 14px;
+  line-height: 1.5;
+  margin: 0 0 12px;
+  max-width: 520px;
+}
+
+.yhills-metrics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+  margin-bottom: 14px;
+}
+
+.yhills-metrics span {
+  font-size: 11px;
+  padding: 5px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(194, 164, 255, 0.35);
+  color: var(--accentColor);
+  letter-spacing: 0.04em;
+}
+
+.project-carousel-glance {
+  color: var(--accentColor);
+  font-size: 14px;
+  font-weight: 400;
+  margin: 4px 0 12px;
+  line-height: 1.45;
+  text-align: left;
+}
+
+.open-roles-pill {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #0b080c;
+  background: var(--accentColor);
+}

@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500" viewBox="0 0 800 500">
+  <rect width="800" height="500" fill="#111827"/>
+  <text x="400" y="240" fill="#6b7280" font-family="Arial,sans-serif" font-size="20" text-anchor="middle">Screenshot coming soon</text>
+  <text x="400" y="270" fill="#4b5563" font-family="Arial,sans-serif" font-size="14" text-anchor="middle">Open local app ’ capture ’ replace image</text>
+</svg>

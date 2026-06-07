@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500" viewBox="0 0 800 500">
+  <rect width="800" height="500" fill="#1a1a24"/>
+  <text x="400" y="240" fill="#6366f1" font-family="Arial,sans-serif" font-size="36" font-weight="700" text-anchor="middle">RavenSwift</text>
+  <text x="400" y="280" fill="#71717a" font-family="Arial,sans-serif" font-size="16" text-anchor="middle">Social Media · In Progress</text>
+</svg>

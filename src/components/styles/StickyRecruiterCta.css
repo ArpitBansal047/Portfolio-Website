@@ -1,0 +1,56 @@
+.sticky-recruiter-cta {
+  position: fixed;
+  right: clamp(12px, 2vw, 24px);
+  bottom: clamp(16px, 4vh, 32px);
+  z-index: 9990;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  pointer-events: none;
+}
+
+.sticky-recruiter-cta__btn {
+  pointer-events: auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 10px 14px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+  transition: 0.2s;
+}
+
+.sticky-recruiter-cta__btn--primary {
+  background: var(--accentColor);
+  color: #0b080c;
+}
+
+.sticky-recruiter-cta__btn--ghost {
+  background: rgba(11, 8, 12, 0.92);
+  color: #fff;
+  border: 1px solid rgba(194, 164, 255, 0.45);
+}
+
+.sticky-recruiter-cta__btn:hover {
+  filter: brightness(1.08);
+  transform: translateY(-2px);
+}
+
+@media only screen and (max-width: 720px) {
+  .sticky-recruiter-cta {
+    flex-direction: row;
+    right: 50%;
+    transform: translateX(50%);
+    bottom: 12px;
+  }
+
+  .sticky-recruiter-cta__btn {
+    padding: 8px 12px;
+    font-size: 11px;
+  }
+}
