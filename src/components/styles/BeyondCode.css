@@ -224,6 +224,29 @@
   align-self: flex-start;
 }
 
+.beyond-card--youtube {
+  border-color: rgba(255, 0, 0, 0.35);
+}
+
+.beyond-card--youtube:hover {
+  border-color: rgba(255, 0, 0, 0.55);
+}
+
+.beyond-link--youtube {
+  color: #ff0000;
+  font-weight: 600;
+  gap: 5px;
+}
+
+.beyond-link--youtube:hover {
+  color: #ff4444;
+}
+
+.beyond-link--youtube svg {
+  flex-shrink: 0;
+  font-size: 1.15em;
+}
+
 .duolingo-flyer {
   position: absolute;
   z-index: 50;

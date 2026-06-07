@@ -70,6 +70,7 @@ export type BeyondItem = {
   description: string;
   link?: string;
   linkLabel?: string;
+  linkVariant?: "youtube";
   image?: string;
   imageClass?: string;
   duolingo?: boolean;
@@ -422,11 +423,12 @@ export const beyondCode = {
       image: "/images/beyond/team-outing.jpg",
     },
     {
-      emoji: "▶️",
-      title: "Dance and Singing",
-      description: "Dance Mashups and Song Covers",
+      emoji: "🎬",
+      title: "Dance & Singing",
+      description: "Dance mashups and song covers on YouTube.",
       link: site.youtube,
-      linkLabel: "Watch @arpitbansal3263",
+      linkLabel: "Watch on YouTube",
+      linkVariant: "youtube",
       image: "/images/beyond/singing.webp",
     },
     {

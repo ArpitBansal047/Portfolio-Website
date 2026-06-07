@@ -39,8 +39,17 @@
 }
 
 .contact-social-row__link:hover {
-  color: var(--accentColor);
-  border-color: var(--accentColor);
+  border-color: currentColor;
+}
+
+.contact-social-row__link--github:hover {
+  color: #e6edf3;
+  border-color: #e6edf3;
+}
+
+.contact-social-row__link--linkedin:hover {
+  color: #0a66c2;
+  border-color: #0a66c2;
 }
 
 .contact-social-row__link--whatsapp:hover {
@@ -217,92 +226,55 @@
   margin-top: 32px;
   padding-top: 28px;
   border-top: 1px solid #363636;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 28px;
-  align-items: start;
-}
-
-.contact-portfolio-meta {
-  margin: 0;
-  padding: 0;
-  border: none;
-  max-width: none;
 }
 
 .contact-credit {
-  text-align: left;
-  justify-self: end;
-}
-
-.contact-credit-line {
   margin: 0;
-  font-weight: 400;
-  font-size: clamp(18px, 2.5vw, 23px);
-  line-height: 1.35;
-}
-
-.contact-credit-line--by span {
-  color: var(--accentColor);
-}
-
-.contact-credit h5 {
-  font-size: 18px;
-  font-weight: 500;
-  line-height: 20px;
   display: flex;
-  gap: 10px;
-  opacity: 0.5;
-  justify-content: flex-start;
-  margin-top: 12px;
-}
-
-.contact-portfolio-meta h4 {
-  margin: 0 0 8px;
-  font-size: 13px;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--accentColor);
-  opacity: 0.9;
-}
-
-.contact-portfolio-meta p {
-  margin: 0 0 12px;
-  color: #9ca3af;
-  line-height: 1.55;
-  font-size: 13px;
-  font-weight: 300;
-}
-
-.contact-portfolio-tags {
-  display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
   gap: 6px;
+  text-align: center;
 }
 
-.contact-portfolio-tags span {
-  font-size: 11px;
-  padding: 4px 10px;
-  border: 1px solid #363636;
-  border-radius: 999px;
+.contact-credit-lead {
+  font-size: clamp(12px, 1.6vw, 14px);
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #6b7280;
+  line-height: 1.3;
+}
+
+.contact-credit-name-row {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: center;
+  gap: 0.45em;
+  line-height: 1.25;
+}
+
+.contact-credit-name {
+  font-size: clamp(16px, 2.2vw, 20px);
+  font-weight: 600;
   color: var(--accentColor);
+}
+
+.contact-credit-sep {
+  color: #4b5563;
+  font-weight: 300;
+  user-select: none;
+}
+
+.contact-credit-year {
+  font-size: clamp(13px, 1.8vw, 15px);
+  font-weight: 400;
+  color: #9ca3af;
+  letter-spacing: 0.02em;
 }
 
 @media only screen and (max-width: 900px) {
-  .contact-footer-row {
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
-
-  .contact-credit {
-    text-align: left;
-    justify-self: start;
-  }
-
-  .contact-credit h5 {
-    justify-content: flex-start;
-  }
-
   .contact-details-grid {
     grid-template-columns: 1fr;
     gap: 16px;

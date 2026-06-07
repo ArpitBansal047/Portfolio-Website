@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import SectionTitle from "./SectionTitle";
 import { beyondCode, BeyondItem } from "../data/portfolio";
 import { MdArrowOutward } from "react-icons/md";
+import { SiYoutube } from "react-icons/si";
 import ClickableImage from "./ClickableImage";
 import "./styles/BeyondCode.css";
 import "./styles/SectionTitle.css";
@@ -33,7 +34,7 @@ const BeyondCard = ({ item }: { item: BeyondItem }) => {
 
   return (
     <article
-      className={`beyond-card ${expanded ? "beyond-card--expanded" : ""}`}
+      className={`beyond-card${item.linkVariant === "youtube" ? " beyond-card--youtube" : ""} ${expanded ? "beyond-card--expanded" : ""}`}
       data-cursor="disable"
     >
       <section className="beyond-card-media">
@@ -70,10 +71,11 @@ const BeyondCard = ({ item }: { item: BeyondItem }) => {
             href={item.link}
             target="_blank"
             rel="noopener noreferrer"
-            className="beyond-link"
+            className={`beyond-link${item.linkVariant === "youtube" ? " beyond-link--youtube" : ""}`}
             data-cursor="disable"
           >
-            {item.linkLabel} <MdArrowOutward />
+            {item.linkVariant === "youtube" && <SiYoutube aria-hidden="true" />}
+            {item.linkLabel} {item.linkVariant !== "youtube" && <MdArrowOutward />}
           </a>
         )}
       </section>

@@ -1,16 +1,24 @@
-import { MdArrowOutward, MdCopyright } from "react-icons/md";
-import { SiWhatsapp } from "react-icons/si";
+import { FaLinkedinIn } from "react-icons/fa6";
+import { SiGithub, SiWhatsapp } from "react-icons/si";
+import type { IconType } from "react-icons";
 import SectionTitle from "./SectionTitle";
 import ContactForm from "./ContactForm";
-import { portfolioSiteMeta, site } from "../data/portfolio";
+import { site } from "../data/portfolio";
 import "./styles/Contact.css";
 import "./styles/SectionTitle.css";
 
-const socialLinks = [
-  { label: "GitHub", href: site.github },
-  { label: "LinkedIn", href: site.linkedin },
-  { label: "YouTube", href: site.youtube },
-] as const;
+type SocialLink = {
+  label: string;
+  href: string;
+  icon: IconType;
+  variant: "github" | "linkedin" | "whatsapp";
+};
+
+const socialLinks: SocialLink[] = [
+  { label: "WhatsApp", href: site.whatsapp, icon: SiWhatsapp, variant: "whatsapp" },
+  { label: "LinkedIn", href: site.linkedin, icon: FaLinkedinIn, variant: "linkedin" },
+  { label: "GitHub", href: site.github, icon: SiGithub, variant: "github" },
+];
 
 const Contact = () => {
   return (
@@ -19,27 +27,21 @@ const Contact = () => {
         <SectionTitle id="contact" lead="C" accent="ONTACT" className="nav-scroll-target" />
 
         <nav className="contact-social-row" aria-label="Social profiles">
-          {socialLinks.map((link) => (
-            <a
-              key={link.label}
-              href={link.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="contact-social-row__link"
-              data-cursor="disable"
-            >
-              {link.label} <MdArrowOutward />
-            </a>
-          ))}
-          <a
-            href={site.whatsapp}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="contact-social-row__link contact-social-row__link--whatsapp"
-            data-cursor="disable"
-          >
-            WhatsApp <SiWhatsapp aria-hidden="true" />
-          </a>
+          {socialLinks.map((link) => {
+            const Icon = link.icon;
+            return (
+              <a
+                key={link.label}
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`contact-social-row__link contact-social-row__link--${link.variant}`}
+                data-cursor="disable"
+              >
+                {link.label} <Icon aria-hidden="true" />
+              </a>
+            );
+          })}
         </nav>
 
         <ContactForm />
@@ -52,23 +54,6 @@ const Contact = () => {
             </a>
           </article>
           <article className="contact-detail">
-            <h4>Phone</h4>
-            <a href={`tel:${site.phone.replace(/-/g, "")}`} data-cursor="disable">
-              {site.phone}
-            </a>
-          </article>
-          <article className="contact-detail">
-            <h4>WhatsApp</h4>
-            <a
-              href={site.whatsapp}
-              target="_blank"
-              rel="noopener noreferrer"
-              data-cursor="disable"
-            >
-              Chat on WhatsApp
-            </a>
-          </article>
-          <article className="contact-detail">
             <h4>Location</h4>
             <p>{site.location}</p>
           </article>
@@ -78,26 +63,18 @@ const Contact = () => {
           </article>
         </section>
 
-        <section className="contact-footer-row">
-          <section className="contact-portfolio-meta">
-            <h4>About this site</h4>
-            <p>{portfolioSiteMeta.description}</p>
-            <section className="contact-portfolio-tags">
-              {portfolioSiteMeta.stack.map((tech) => (
-                <span key={tech}>{tech}</span>
-              ))}
-            </section>
-          </section>
-          <section className="contact-credit">
-            <p className="contact-credit-line">Designed &amp; developed</p>
-            <p className="contact-credit-line contact-credit-line--by">
-              by <span>{site.name}</span>
-            </p>
-            <h5>
-              <MdCopyright /> 2026
-            </h5>
-          </section>
-        </section>
+        <footer className="contact-footer-row">
+          <p className="contact-credit">
+            <span className="contact-credit-lead">Designed &amp; developed by</span>
+            <span className="contact-credit-name-row">
+              <span className="contact-credit-name">{site.name}</span>
+              <span className="contact-credit-sep" aria-hidden="true">
+                ·
+              </span>
+              <span className="contact-credit-year">© 2026</span>
+            </span>
+          </p>
+        </footer>
       </section>
     </section>
   );

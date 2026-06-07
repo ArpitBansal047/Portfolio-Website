@@ -3,9 +3,6 @@ import { MdSend } from "react-icons/md";
 
 type FormStatus = "idle" | "sending" | "success" | "error";
 
-const encode = (data: Record<string, string>) =>
-  new URLSearchParams(data).toString();
-
 const ContactForm = () => {
   const [status, setStatus] = useState<FormStatus>("idle");
 
@@ -20,15 +17,11 @@ const ContactForm = () => {
       const response = await fetch("/", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: encode({
-          "form-name": "contact",
-          name: String(formData.get("name") ?? ""),
-          email: String(formData.get("email") ?? ""),
-          message: String(formData.get("message") ?? ""),
-        }),
+        body: new URLSearchParams(formData as unknown as Record<string, string>).toString(),
       });
 
-      if (!response.ok) throw new Error("Submit failed");
+      // Netlify returns 200/302 on success; only fail on real HTTP errors
+      if (response.status >= 400) throw new Error(`HTTP ${response.status}`);
 
       form.reset();
       setStatus("success");
@@ -43,8 +36,7 @@ const ContactForm = () => {
         Send a message
       </h3>
       <p className="contact-form-lead">
-        Recruiters and collaborators — drop a note here. I&apos;ll get it in my
-        Netlify inbox and by email once notifications are enabled.
+        Recruiters and collaborators — drop a note here and I&apos;ll get back to you.
       </p>
 
       {status === "success" ? (
@@ -104,7 +96,7 @@ const ContactForm = () => {
 
           {status === "error" && (
             <p className="contact-form-feedback contact-form-feedback--error" role="alert">
-              Something went wrong. Please email me directly or try WhatsApp below.
+              Something went wrong. Please email me directly or try WhatsApp above.
             </p>
           )}
 

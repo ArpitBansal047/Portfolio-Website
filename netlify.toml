@@ -5,11 +5,12 @@
 [build.environment]
   NODE_VERSION = "20"
 
-# SPA fallback — static files in dist/ (images, assets) are served first
+# SPA fallback for GET only — POST must reach Netlify Forms (not rewritten to index.html)
 [[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
+  conditions = {Method = ["GET"]}
 
 [[headers]]
   for = "/images/*"
