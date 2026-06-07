@@ -1,5 +1,7 @@
 import { MdArrowOutward, MdCopyright } from "react-icons/md";
+import { SiWhatsapp } from "react-icons/si";
 import SectionTitle from "./SectionTitle";
+import ContactForm from "./ContactForm";
 import { portfolioSiteMeta, site } from "../data/portfolio";
 import "./styles/Contact.css";
 import "./styles/SectionTitle.css";
@@ -29,7 +31,18 @@ const Contact = () => {
               {link.label} <MdArrowOutward />
             </a>
           ))}
+          <a
+            href={site.whatsapp}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="contact-social-row__link contact-social-row__link--whatsapp"
+            data-cursor="disable"
+          >
+            WhatsApp <SiWhatsapp aria-hidden="true" />
+          </a>
         </nav>
+
+        <ContactForm />
 
         <section className="contact-details-grid">
           <article className="contact-detail">
@@ -45,10 +58,21 @@ const Contact = () => {
             </a>
           </article>
           <article className="contact-detail">
+            <h4>WhatsApp</h4>
+            <a
+              href={site.whatsapp}
+              target="_blank"
+              rel="noopener noreferrer"
+              data-cursor="disable"
+            >
+              Chat on WhatsApp
+            </a>
+          </article>
+          <article className="contact-detail">
             <h4>Location</h4>
             <p>{site.location}</p>
           </article>
-          <article className="contact-detail">
+          <article className="contact-detail contact-detail--wide">
             <h4>Availability</h4>
             <p>{site.availability}</p>
           </article>

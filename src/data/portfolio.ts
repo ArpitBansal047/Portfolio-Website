@@ -118,6 +118,8 @@ export const site = {
   availability: "Open to full-time roles",
   email: "bansal.arpit02@gmail.com",
   phone: "+91-8146126152",
+  whatsapp:
+    "https://wa.me/918146126152?text=Hi%20Arpit%2C%20I%20visited%20your%20portfolio%20and%20would%20like%20to%20connect.",
   resumePath: "/resume/Arpit_Bansal_Resume.pdf",
   github: "https://github.com/ArpitBansal047",
   linkedin: "https://www.linkedin.com/in/arpit0291",
