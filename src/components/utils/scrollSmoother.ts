@@ -1,4 +1,4 @@
-import type { ScrollSmoother } from "gsap-trial/ScrollSmoother";
+import type { ScrollSmoother } from "gsap/ScrollSmoother";
 
 /** Shared ScrollSmoother instance — avoids circular imports with Navbar. */
 export let smoother: ScrollSmoother | undefined;

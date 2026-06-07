@@ -1,4 +1,4 @@
-import { SplitText } from "gsap-trial/SplitText";
+import { SplitText } from "gsap/SplitText";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { smoother } from "./scrollSmoother";
@@ -221,7 +221,9 @@ function loopText(text1: SplitText, text2: SplitText) {
       y: 0,
       stagger: 0.08,
       delay,
-      onStart: () => gsap.set(altEl, { autoAlpha: 1 }),
+      onStart: () => {
+        gsap.set(altEl, { autoAlpha: 1 });
+      },
     },
     0
   )
@@ -248,7 +250,9 @@ function loopText(text1: SplitText, text2: SplitText) {
         ease: "power3.inOut",
         stagger: 0.08,
         delay: delay2,
-        onComplete: () => gsap.set(altEl, { autoAlpha: 0 }),
+        onComplete: () => {
+          gsap.set(altEl, { autoAlpha: 0 });
+        },
       },
       1
     )
