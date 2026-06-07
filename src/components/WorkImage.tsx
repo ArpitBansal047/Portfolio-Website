@@ -14,7 +14,6 @@ interface Props {
 const WorkImage = (props: Props) => {
   const [isVideo, setIsVideo] = useState(false);
   const [video, setVideo] = useState("");
-  const [imgSrc] = useState(props.image);
 
   const handleMouseEnter = async () => {
     if (props.video) {
@@ -30,7 +29,7 @@ const WorkImage = (props: Props) => {
       <section className="work-image work-image--static-only">
         <section className="work-image-in work-image-in--static">
           <ClickableImage
-            src={imgSrc}
+            src={props.image}
             alt={props.alt || "Project screenshot"}
             downloadName={`${props.alt || "project"}.png`}
             externalUrl={props.link}
@@ -48,7 +47,7 @@ const WorkImage = (props: Props) => {
         onMouseLeave={() => setIsVideo(false)}
       >
         <ClickableImage
-          src={imgSrc}
+          src={props.image}
           alt={props.alt || "Project screenshot"}
           downloadName={`${props.alt || "project"}.png`}
           externalUrl={props.link}

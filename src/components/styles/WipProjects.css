@@ -233,6 +233,25 @@
   object-position: center center;
 }
 
+.wip-ss-arrow {
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  border: 1px solid #363636;
+  background: rgba(255, 255, 255, 0.04);
+  color: #fff;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 2;
+  pointer-events: auto;
+  touch-action: manipulation;
+}
+
 .wip-ss-controls {
   display: flex;
   align-items: center;
@@ -240,6 +259,9 @@
   gap: 6px;
   margin-top: 6px;
   flex-shrink: 0;
+  position: relative;
+  z-index: 2;
+  pointer-events: auto;
 }
 
 .wip-ss-meta {
@@ -264,21 +286,6 @@
 .wip-ss-counter {
   font-size: 10px;
   color: var(--accentColor);
-}
-
-.wip-ss-arrow {
-  width: 28px;
-  height: 28px;
-  border-radius: 6px;
-  border: 1px solid #363636;
-  background: rgba(255, 255, 255, 0.04);
-  color: #fff;
-  font-size: 18px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  flex-shrink: 0;
 }
 
 .wip-ss-arrow:hover:not(:disabled) {

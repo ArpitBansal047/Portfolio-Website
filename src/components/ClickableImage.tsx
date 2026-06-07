@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ImageLightbox from "./ImageLightbox";
 import "./styles/ImageLightbox.css";
 
@@ -20,7 +20,14 @@ const ClickableImage = ({
   externalUrl,
 }: ClickableImageProps) => {
   const [open, setOpen] = useState(false);
-  const [imgSrc, setImgSrc] = useState(src);
+  const [failedSrc, setFailedSrc] = useState<string | null>(null);
+
+  useEffect(() => {
+    setFailedSrc(null);
+    setOpen(false);
+  }, [src]);
+
+  const displaySrc = failedSrc === src ? PLACEHOLDER : src;
 
   return (
     <>
@@ -32,17 +39,15 @@ const ClickableImage = ({
         data-cursor="disable"
       >
         <img
-          src={imgSrc}
+          src={displaySrc}
           alt={alt}
           loading="lazy"
-          onError={() => {
-            if (imgSrc !== PLACEHOLDER) setImgSrc(PLACEHOLDER);
-          }}
+          onError={() => setFailedSrc(src)}
         />
         <span className="clickable-image__hint">Click to zoom</span>
       </button>
       <ImageLightbox
-        src={imgSrc}
+        src={displaySrc}
         alt={alt}
         open={open}
         onClose={() => setOpen(false)}

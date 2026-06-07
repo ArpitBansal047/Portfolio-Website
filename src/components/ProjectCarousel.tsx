@@ -105,6 +105,7 @@ const ProjectCarousel = ({
             </section>
           </section>
           <WorkImage
+            key={project.id}
             image={project.image}
             alt={project.name}
             link={project.liveUrl || project.githubUrl}

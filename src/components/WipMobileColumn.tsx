@@ -6,6 +6,7 @@ import {
 } from "react-icons/md";
 import { WipProject } from "../data/portfolio";
 import ClickableImage from "./ClickableImage";
+import { assetUrl } from "../utils/assetUrl";
 
 type WipMobileColumnProps = {
   project: WipProject;
@@ -72,7 +73,8 @@ const WipMobileColumn = ({ project }: WipMobileColumnProps) => {
         <section className="wip-app-ss">
           <figure className="wip-ss-frame">
             <ClickableImage
-              src={shot.src}
+              key={`${project.id}-${index}`}
+              src={assetUrl(shot.src)}
               alt={shot.label}
               downloadName={`${project.id}-${shot.label.replace(/\s+/g, "-").toLowerCase()}.png`}
             />

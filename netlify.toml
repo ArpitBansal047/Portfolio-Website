@@ -5,7 +5,14 @@
 [build.environment]
   NODE_VERSION = "20"
 
+# SPA fallback — static files in dist/ (images, assets) are served first
 [[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
+
+[[headers]]
+  for = "/images/*"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
