@@ -33,7 +33,6 @@ export type Certificate = {
   file: string;
   type: "pdf" | "png";
   emoji: string;
-  accent: string;
   topic: string;
 };
 
@@ -111,6 +110,7 @@ export const heroMetrics: HeroMetric[] = [
 
 export const site = {
   name: "Arpit Bansal",
+  tabTitle: "Arpit Bansal — Software Developer",
   headline:
     "I build full-stack apps, GenAI automation tools & developer platforms.",
   title: "Software Developer",
@@ -444,7 +444,6 @@ export const certificates: Certificate[] = [
     file: "/certificates/Udemy - Modern React With Redux (Stephen Grider).pdf",
     type: "pdf",
     emoji: "⚛️",
-    accent: "#61dafb",
     topic: "Frontend",
   },
   {
@@ -453,7 +452,6 @@ export const certificates: Certificate[] = [
     file: "/certificates/Udemy - The SQL Bootcamp (Jose Portilla).pdf",
     type: "pdf",
     emoji: "🗄️",
-    accent: "#00758f",
     topic: "Databases",
   },
   {
@@ -462,7 +460,6 @@ export const certificates: Certificate[] = [
     file: "/certificates/Udemy - Data Science and Machine Learning (Jose Portilla).pdf",
     type: "pdf",
     emoji: "🤖",
-    accent: "#ff6b6b",
     topic: "ML / AI",
   },
   {
@@ -471,7 +468,6 @@ export const certificates: Certificate[] = [
     file: "/certificates/Udemy - Software Engineering 101 (Kurt Anderson).pdf",
     type: "pdf",
     emoji: "🏗️",
-    accent: "#6366f1",
     topic: "Engineering",
   },
   {
@@ -480,7 +476,6 @@ export const certificates: Certificate[] = [
     file: "/certificates/Udemy - Entire MBA in 1 Course (Chris Haroun).pdf",
     type: "pdf",
     emoji: "📈",
-    accent: "#f59e0b",
     topic: "Business",
   },
   {
@@ -489,7 +484,6 @@ export const certificates: Certificate[] = [
     file: "/certificates/Coursera - The Science of Well Being.png",
     type: "png",
     emoji: "🧠",
-    accent: "#a78bfa",
     topic: "Psychology",
   },
   {
@@ -498,7 +492,6 @@ export const certificates: Certificate[] = [
     file: "/certificates/Coursera - Buddhism and Modern Psychology.png",
     type: "png",
     emoji: "🪷",
-    accent: "#ec4899",
     topic: "Mindfulness",
   },
   {
@@ -507,7 +500,6 @@ export const certificates: Certificate[] = [
     file: "/certificates/Coursera - Spanish (Meeting People).pdf",
     type: "pdf",
     emoji: "🇪🇸",
-    accent: "#ef4444",
     topic: "Language",
   },
 ];

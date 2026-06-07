@@ -55,7 +55,7 @@
 }
 
 .cert-card:hover {
-  border-color: var(--cert-accent, var(--accentColor));
+  border-color: var(--accentColor);
   transform: translateY(-3px);
 }
 
@@ -69,8 +69,8 @@
   overflow: hidden;
   background: linear-gradient(
     145deg,
-    color-mix(in srgb, var(--cert-accent, #c2a4ff) 35%, #0b080c),
-    #111 70%
+    rgba(194, 164, 255, 0.12),
+    #111 72%
   );
   display: flex;
   align-items: center;
@@ -88,7 +88,8 @@
   padding: calc(3px * var(--cert-scale)) calc(8px * var(--cert-scale));
   border-radius: 999px;
   background: rgba(0, 0, 0, 0.45);
-  color: var(--cert-accent, var(--accentColor));
+  color: var(--accentColor);
+  border: 1px solid rgba(194, 164, 255, 0.25);
 }
 
 .cert-emoji {
@@ -115,8 +116,9 @@
   padding: calc(4px * var(--cert-scale)) calc(8px * var(--cert-scale));
   border-radius: 6px;
   background: rgba(0, 0, 0, 0.55);
-  color: var(--cert-accent, var(--accentColor));
+  color: var(--accentColor);
   letter-spacing: 0.06em;
+  border: 1px solid rgba(194, 164, 255, 0.25);
 }
 
 .cert-zoom-hint {
@@ -164,7 +166,7 @@
   padding: calc(5px * var(--cert-scale)) calc(8px * var(--cert-scale));
   border-radius: 6px;
   text-decoration: none;
-  background: var(--cert-accent, var(--accentColor));
+  background: var(--accentColor);
   color: #0b080c;
   font-weight: 600;
 }
@@ -176,6 +178,6 @@
 }
 
 .cert-action--ghost:hover {
-  border-color: var(--cert-accent, var(--accentColor));
-  color: var(--cert-accent, var(--accentColor));
+  border-color: var(--accentColor);
+  color: var(--accentColor);
 }

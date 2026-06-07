@@ -1,0 +1,23 @@
+{
+  "name": "Arpit Bansal — Software Developer",
+  "short_name": "Arpit Bansal",
+  "description": "Portfolio of Arpit Bansal — full-stack developer, GenAI & automation at Amdocs.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0b080c",
+  "theme_color": "#0b080c",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/apple-touch-icon.svg",
+      "sizes": "180x180",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

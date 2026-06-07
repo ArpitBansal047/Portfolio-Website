@@ -21,11 +21,7 @@ const Certificates = () => {
       </p>
       <section className="certs-grid">
         {certificates.map((cert) => (
-          <article
-            className="cert-card"
-            key={cert.title}
-            style={{ "--cert-accent": cert.accent } as React.CSSProperties}
-          >
+          <article className="cert-card" key={cert.title}>
             <button
               type="button"
               className="cert-visual"

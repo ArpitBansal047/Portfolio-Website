@@ -96,7 +96,31 @@ Open **http://localhost:5173**
 3. Settings are auto-read from `netlify.toml`:
    - Build: `npm run build`
    - Publish: `dist`
+   - Node: `20`
 4. Optional: set a custom domain in Netlify site settings.
+
+### Before / after every deploy — checklist
+
+| Check | Why |
+|-------|-----|
+| `npm run build` passes locally | Catches TypeScript & Vite errors before Netlify fails |
+| `npm run preview` — test Apps carousel, Amdocs tools, mobile | Production build behaves differently from `dev` |
+| Hard refresh or incognito | Avoids cached JS/images from old deploys |
+| Chrome tab shows **AB** favicon + **Arpit Bansal — Software Developer** | Branding & SEO |
+| Resume PDF opens: `/resume/Arpit_Bansal_Resume.pdf` | Static file must exist in `public/` |
+| Project `liveUrl` links work | Update in `portfolio.ts` after deploying side projects |
+| **Deploys → Clear cache and deploy site** after image or favicon changes | Netlify CDN can serve stale assets |
+| Add `og:image` in `index.html` with full Netlify URL once live | LinkedIn/WhatsApp link previews need absolute image URL |
+| Netlify **Domain settings → HTTPS** enabled | Free SSL; verify green padlock |
+| Set site name e.g. `arpit-bansal.netlify.app` | Easier to share on resume & LinkedIn |
+
+### Browser tab branding
+
+- **Favicon:** `public/favicon.svg` — **AB** monogram on dark background (readable at 16×16 px). Portfolios use initials or a simple mark, not a photo.
+- **Tab title:** `Arpit Bansal — Software Developer` (name + current role; keep under ~55 characters).
+- **Theme color:** `#0b080c` matches the site background (mobile browser chrome).
+
+To replace the logo later: edit `public/favicon.svg` and `public/apple-touch-icon.svg`, then redeploy with cache clear.
 
 ---
 
