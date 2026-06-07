@@ -122,7 +122,6 @@ export const site = {
   github: "https://github.com/ArpitBansal047",
   linkedin: "https://www.linkedin.com/in/arpit0291",
   youtube: "https://www.youtube.com/@arpitbansal3263",
-  templateCredit: "MoncyDev/Portfolio-Website",
   profileImage: "/images/profile.jpg",
   heroDeveloperImage: "/images/hero-coding.jfif",
 };

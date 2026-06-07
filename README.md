@@ -1,65 +1,122 @@
-# My Portfolio Website - Overview 🚀
+# Arpit Bansal — Portfolio Website
 
-This repository contains the open-source version of my personal portfolio website.  
-Feel free to explore the code and use it for learning and inspiration.
-
----
-
-## ⚠️ Usage Notice
-
-This project is shared for learning purposes only.
-
-Please do NOT:
-- Clone or replicate the full website or design
-- Repost it with minor content changes
-- Use this project for commercial/client work
-- Create tutorials or content using this exact project
-
-If you use parts of the code, you must provide proper credit linking back to the original repository.
-
-Build your own version — don’t just copy.
-
-— Moncy Yohannan
+Personal portfolio for **Arpit Bansal**, Software Developer at Amdocs (Pune, India).  
+Showcases production tools, side projects, certifications, and contact info — built as a fast, responsive single-page app with scroll-driven animations and a 3D tech stack.
 
 ---
 
-## 🛠️ Instructions
+## Live site
 
-I have modified the GSAP Club plugins using trial versions.  
-⚠️ Note: Trial plugins cannot be used for production or hosting.
-
-For official GSAP Club plugins, refer here:  
-https://gsap.com/docs/v3/Installation/
+Deploy via [Netlify](https://www.netlify.com/) using the included `netlify.toml` (build command: `npm run build`, publish directory: `dist`).
 
 ---
 
-## ⚙️ Tech Stack
+## What this site includes
 
-React • TypeScript • GSAP • Three.js • WebGL • HTML • CSS • JavaScript
+| Section | Purpose |
+|--------|---------|
+| **Hero** | Name, role, location, resume & contact CTAs, impact metrics |
+| **About** | Bio, profile photo, career summary |
+| **Career** | Amdocs experience + horizontal tools showcase (ComcastHub, BPT Charge, Cipher EOC, APEye, CSL Auction) |
+| **Projects** | Personal apps — Cryptoverse, Cyberpunks, Streamer |
+| **Apps** | YOU (mental health) & RavenSwift with screenshot galleries |
+| **Certificates** | PDF/PNG previews with lightbox |
+| **Tech Stack** | Interactive 3D skill balls (React Three Fiber + physics) |
+| **Education** | Thapar University & school timeline |
+| **Beyond Code** | Sports, events, Duolingo streak, YouTube |
+| **Contact** | Email, GitHub, LinkedIn, YouTube |
 
----
-
-## 🎨 Assets Usage
-
-Some 3D assets included in this repository are free to use for learning purposes.
-
-However:
-
-- The original 3D avatar used on my live portfolio is NOT included in this repository
-- That avatar is a custom asset created over ~1 month
-- It is not open source and not available for reuse
-
-Any usage, extraction, or redistribution of that avatar from my live website is strictly prohibited.
-
----
-
-![Protfolio-Preview](https://github.com/user-attachments/assets/3c4557e7-6392-4928-b8a9-7b2476ef4edd)
+All copy, projects, and images are driven from a single data file: `src/data/portfolio.ts`.
 
 ---
 
-## 📄 License
+## Tech stack
 
-This project is licensed under the Personal Portfolio License (PPL) v1.0.
+- **React 18** + **TypeScript** + **Vite**
+- **GSAP** + ScrollTrigger — landing animations, section reveals
+- **Three.js** / **React Three Fiber** / **Rapier** — 3D tech stack scene
+- **CSS** — mobile-first responsive layout (breakpoints in `Breakpoints.css`, `Responsive.css`)
 
-See the LICENSE file for full details
+---
 
+## Project structure
+
+```
+Portfolio-Website/
+├── public/
+│   ├── images/          # Profile, Amdocs screenshots, project assets
+│   ├── certificates/    # Certificate PDFs & previews
+│   └── resume/          # Resume PDF
+├── src/
+│   ├── components/      # UI sections (Landing, Career, TechStack, …)
+│   ├── data/
+│   │   └── portfolio.ts # ← Edit content here
+│   └── main.tsx
+├── netlify.toml         # Netlify deploy config
+└── package.json
+```
+
+---
+
+## Getting started
+
+**Requirements:** Node.js 18+
+
+```bash
+git clone https://github.com/ArpitBansal047/Portfolio-Website.git
+cd Portfolio-Website
+npm install
+npm run dev
+```
+
+Open **http://localhost:5173**
+
+| Command | Description |
+|---------|-------------|
+| `npm run dev` | Local dev server |
+| `npm run build` | Production build → `dist/` |
+| `npm run preview` | Preview production build |
+| `npm run lint` | ESLint |
+
+---
+
+## Customization
+
+1. **Content** — edit `src/data/portfolio.ts` (name, projects, links, metrics, about text).
+2. **Images** — add files under `public/images/` and update paths in `portfolio.ts`.
+3. **Resume** — replace `public/resume/Arpit_Bansal_Resume.pdf`.
+4. **SEO** — update meta tags & JSON-LD in `index.html`.
+
+---
+
+## Deployment (Netlify)
+
+1. Push this repo to GitHub.
+2. Netlify → **Add new site** → Import from Git.
+3. Settings are auto-read from `netlify.toml`:
+   - Build: `npm run build`
+   - Publish: `dist`
+4. Optional: set a custom domain in Netlify site settings.
+
+---
+
+## Attribution
+
+Animation and layout patterns were initially inspired by [MoncyDev/Portfolio-Website](https://github.com/MoncyDev/Portfolio-Website). This repository is a **full rewrite and customization** with original content, data model, career sections, and responsive fixes by Arpit Bansal.
+
+---
+
+## Author
+
+**Arpit Bansal**  
+Software Developer @ Amdocs · Pune, India
+
+- GitHub: [@ArpitBansal047](https://github.com/ArpitBansal047)
+- LinkedIn: [arpit0291](https://www.linkedin.com/in/arpit0291)
+- Email: bansal.arpit02@gmail.com
+
+---
+
+## License
+
+Copyright © 2026 Arpit Bansal. See [LICENSE](LICENSE).
