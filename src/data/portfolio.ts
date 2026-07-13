@@ -1,3 +1,16 @@
+export type StackRationale = {
+  tech: string;
+  why: string;
+  alternative?: string;
+};
+
+export type CaseStudy = {
+  problemDetail: string;
+  approach: string[];
+  stackRationale: StackRationale[];
+  outcomes: string[];
+};
+
 export type Project = {
   id: string;
   number: string;
@@ -12,6 +25,7 @@ export type Project = {
   liveUrl?: string;
   githubUrl?: string;
   status?: "live" | "wip" | "incomplete";
+  caseStudy?: CaseStudy;
 };
 
 export type WipProject = {
@@ -25,6 +39,7 @@ export type WipProject = {
   galleryUrl?: string;
   uiLink?: string;
   screenshots: { src: string; label: string }[];
+  caseStudy?: CaseStudy;
 };
 
 export type Certificate = {
@@ -34,6 +49,9 @@ export type Certificate = {
   type: "pdf" | "png";
   emoji: string;
   topic: string;
+  section: CertificateSection;
+  impactLine: string;
+  themeColor: string;
 };
 
 export type WorkHighlight = {
@@ -68,6 +86,8 @@ export type BeyondItem = {
   emoji: string;
   title: string;
   description: string;
+  leadershipImpact?: string;
+  metric?: string;
   link?: string;
   linkLabel?: string;
   linkVariant?: "youtube";
@@ -75,6 +95,8 @@ export type BeyondItem = {
   imageClass?: string;
   duolingo?: boolean;
 };
+
+export type CertificateSection = "technical" | "non-technical";
 
 export type HeroMetric = {
   value: string;
@@ -121,9 +143,9 @@ export const site = {
   phone: "+91-8146126152",
   whatsapp:
     "https://wa.me/918146126152?text=Hi%20Arpit%2C%20I%20visited%20your%20portfolio%20and%20would%20like%20to%20connect.",
-  resumePath: "/resume/Arpit_Bansal_Resume.pdf",
+  resumePath: "/resume/Arpit_Bansal.pdf",
   github: "https://github.com/ArpitBansal047",
-  linkedin: "https://www.linkedin.com/in/arpit0291",
+  linkedin: "https://www.linkedin.com/in/arpit-bansal-103731192",
   youtube: "https://www.youtube.com/@arpitbansal3263",
   profileImage: "/images/profile.jpg",
   heroDeveloperImage: "/images/hero-coding.jfif",
@@ -136,10 +158,10 @@ export const portfolioSiteMeta = {
 };
 
 export const aboutParagraphs = [
-  "I'm Arpit Bansal, a Software Developer at Amdocs. I build full-stack platforms and GenAI automation for telecom billing — the kind of work where a good tool saves hours every week for an entire team.",
-  "Recent impact: ~90% less manual effort on charge-code tooling, regression cycles cut from five hours to one with APEye (used daily by 10+ developers), and ComcastHub as a unified workspace for account developers. Stack in production: React, Next.js, TypeScript, Python, Jenkins, Oracle, and Gemini-based workflows.",
-  "I graduated from Thapar Institute (B.E. Computer Engineering, 2019–2023, CGPA 7.96). In school I was captain of the U-19 badminton team (2017–2019) and the U-17 chess team (2015–2017). I learn Spanish on a 2,051 day Duolingo streak, and build side projects like YOU — exploring mental-health tech and full-stack ideas outside production work.",
-  "Open to full-time and remote-friendly roles across India.",
+  "I'm Arpit Bansal, a Software Developer at Amdocs in Pune. I build internal platforms and GenAI automation for telecom billing — tools that save teams hours every week and hold up in production.",
+  "Recent work: unified developer tools with ComcastHub, cut manual charge-code work by ~90% with a GenAI Python tool, automated most daily Cipher EOC runs (90 to 40 minutes), and shortened APEye regression cycles from five hours to one — used daily by 10+ developers.",
+  "In production I work with React, Next.js, TypeScript, Python, Jenkins, Oracle, and Gemini-based workflows. Side project YOU explores clinical wellness with Firebase realtime sync, Stitch UI prototyping, and secure JWT sessions.",
+  "Outside work I organize Comcast Sports League (CSL) 2026 — including a live player auction app I designed — plan company team outings, and compete in office sports tournaments. I also led campus outreach at YHills. Open to full-time roles across India, including remote-friendly teams.",
 ];
 
 export const amdocsMeta = {
@@ -162,9 +184,24 @@ export const amdocsProjects: Project[] = [
     problem:
       "Account developers used scattered internal tools with no unified hub — costing each developer 2–3 hours every week.",
     impact:
-      "Led design and development of the official account website (Next.js 14, React 18, TypeScript, Tailwind, Framer Motion), unifying dev tools and targeting a 15–20% productivity boost.",
+      "Helped lead design and development of the official account website (Next.js 14, React 18, TypeScript, Tailwind, Framer Motion), unifying dev tools and targeting a 15–20% productivity boost.",
     stack: ["Next.js 14", "React 18", "TypeScript", "Tailwind", "Framer Motion"],
     image: "/images/amdocs/comcasthub.png",
+    caseStudy: {
+      problemDetail:
+        "Developers juggled 8+ internal tools across tabs — losing 2–3 hours weekly to context switching and inconsistent UX.",
+      approach: [
+        "Mapped top daily workflows into 4 hub modules after developer interviews.",
+        "Built Next.js 14 App Router with TypeScript and shared Tailwind design tokens.",
+        "Deployed on AWS with Jest coverage on critical navigation flows.",
+      ],
+      stackRationale: [
+        { tech: "Next.js 14", why: "Fast SSR pages for internal tools", alternative: "CRA" },
+        { tech: "AWS", why: "Team-standard cloud hosting", alternative: "On-prem" },
+        { tech: "Jest", why: "Catch shared-nav regressions early", alternative: "Manual QA only" },
+      ],
+      outcomes: ["Unified dev hub", "15–20% productivity target", "Safer UI releases"],
+    },
   },
   {
     id: "bpt-charge",
@@ -177,6 +214,20 @@ export const amdocsProjects: Project[] = [
       "Developed a GenAI-powered Python script that ingests Excel and auto-generates SQL for related tables — 90% less manual effort, 75% faster setup, and eliminated copy-paste errors.",
     stack: ["Python", "GenAI", "SQL", "Excel"],
     image: "/images/amdocs/bpt-charge.jfif",
+    caseStudy: {
+      problemDetail:
+        "Billing teams manually converted Excel charge-code spreadsheets into multi-table SQL — error-prone across dozens of tables.",
+      approach: [
+        "Parsed Excel with pandas; mapped columns to Oracle schemas via config files.",
+        "Used GenAI to infer relational links and generate batched SQL scripts.",
+        "Added validation to flag ambiguous mappings before deploy.",
+      ],
+      stackRationale: [
+        { tech: "Python", why: "Fast Excel parsing and script generation", alternative: "Java" },
+        { tech: "GenAI", why: "Handles variable Excel layouts", alternative: "Pure rules" },
+      ],
+      outcomes: ["90% less manual entry", "75% faster setup", "Zero copy-paste SQL errors"],
+    },
   },
   {
     id: "cipher-eoc",
@@ -189,6 +240,20 @@ export const amdocsProjects: Project[] = [
       "Collaborated on a Python/Streamlit tool automating 90% of EOC workflows — cut daily runs from 90min to 40min (50% faster) using Oracle/oracledb, Paramiko, Selenium, pandas.",
     stack: ["Python", "Streamlit", "Oracle", "Selenium", "pandas"],
     image: "/images/amdocs/cipher-eoc.png",
+    caseStudy: {
+      problemDetail:
+        "End-of-Cycle billing required ~90 minutes of manual Oracle queries, SSH steps, and browser tasks every day.",
+      approach: [
+        "Built Streamlit UI so operators trigger workflows with one click.",
+        "Automated Oracle/oracledb, Paramiko SSH, and Selenium browser steps.",
+        "PyTest suite for regression on critical automation paths.",
+      ],
+      stackRationale: [
+        { tech: "Streamlit", why: "Fast internal UI for ops teams", alternative: "React" },
+        { tech: "Selenium", why: "Legacy browser-only billing screens", alternative: "API-only" },
+      ],
+      outcomes: ["85% workflow automation", "90 to 40 min daily runs", "50% faster execution"],
+    },
   },
   {
     id: "apeye",
@@ -201,18 +266,20 @@ export const amdocsProjects: Project[] = [
       "Improved 1-click job orchestration with Jenkins integration and a new RunJobs extension for Invoicing jobs — test cycles dropped from 5hrs to 1hr (80% faster); used by 10+ developers daily.",
     stack: ["Jenkins", "Python", "CI/CD", "RunJobs"],
     image: "/images/amdocs/apeye.png",
-  },
-  {
-    id: "csl-auction",
-    number: "05",
-    name: "CSL 2026 Auction App",
-    category: "React · HTML · CSS",
-    problem:
-      "The upcoming CSL 2026 multi-sport tournament needed a live player auction interface for team formation.",
-    impact:
-      "Collaborated on an auction web app for CSL 2026 — HTML, React and CSS for live bidding during the league draft.",
-    stack: ["React", "HTML", "CSS"],
-    image: "/images/beyond/csl2026-auction.png",
+    caseStudy: {
+      problemDetail:
+        "Developers manually triggered Jenkins regression jobs — 5-hour test cycles blocking releases.",
+      approach: [
+        "Built one-click orchestration over Jenkins REST API.",
+        "Added RunJobs extension for Invoicing-specific job chains.",
+        "Surfaced job status in a lightweight internal UI.",
+      ],
+      stackRationale: [
+        { tech: "Jenkins", why: "Enterprise CI standard at Amdocs", alternative: "GitHub Actions" },
+        { tech: "Python", why: "Quick Jenkins API integration", alternative: "Java EJB" },
+      ],
+      outcomes: ["5h to 1h test cycles", "80% faster turnaround", "10+ daily active users"],
+    },
   },
 ];
 
@@ -264,7 +331,7 @@ export const educationExperiences: Experience[] = [
     role: "B.E. Computer Engineering",
     company: "Thapar Institute of Engineering & Technology",
     period: "2019 — 2023",
-    location: "Patiala, Punjab · CGPA 7.96",
+    location: "Patiala, Punjab · 7.96 CGPA",
     bullets: ["Computer Engineering — focus on\nsoftware systems and DSA."],
     badge: "book",
   },
@@ -278,9 +345,9 @@ export const projects: Project[] = [
     category: "FinTech · Crypto Dashboard",
     glance: "Unified crypto dashboard · 10K+ API calls/day with client-side caching",
     problem:
-      "Retail crypto traders bounce between exchanges, chart sites, and news feeds — nothing stays in one place.",
+      "Retail crypto traders bounce between exchanges, chart sites, and news feeds — nothing stays in one place, and API rate limits make dashboards fragile.",
     impact:
-      "Built in late 2021: a React dashboard wired to CoinRanking API with client-side caching, handling 10K+ price/news requests per day without hammering rate limits.",
+      "Built a unified React dashboard on CoinRanking API with Redux Toolkit Query caching — 10K+ price and news requests per day without hammering rate limits. Includes portfolio tracking, charts, and news in one view.",
     stack: ["React", "Redux Toolkit Query", "Ant Design", "Chart.js"],
     image: "/images/projects/cryptoverse.png",
     githubUrl: "https://github.com/ArpitBansal047/cryptoverse",
@@ -293,27 +360,12 @@ export const projects: Project[] = [
     category: "Live Video · RTMP Platform",
     glance: "Twitch-style RTMP prototype · 50+ live tests, ~99% uptime",
     problem:
-      "Building live streaming usually means stitching auth, RTMP ingest, and playback across separate services — hard to learn or demo end-to-end.",
+      "Live streaming is hard to learn end-to-end — auth, RTMP ingest, WebSocket metadata, and browser playback usually live in separate repos.",
     impact:
-      "Early 2022 build: React + Node multi-channel prototype with Google OAuth, WebSocket metadata, FLV.js playback, and OBS RTMP — ran 50+ live test events at ~99% uptime across three services.",
-    stack: ["React", "Redux", "FLV.js", "Node-Media-Server"],
+      "Built a Twitch-style prototype: React frontend, Node-Media-Server for RTMP, Google OAuth 2.0 sign-in, OBS integration, WebSocket live viewer counts, and FLV.js playback — 50+ live test events at ~99% uptime across three services.",
+    stack: ["React", "Redux", "FLV.js", "OBS", "Node-Media-Server"],
     image: "/images/projects/streamer.png",
     githubUrl: "https://github.com/ArpitBansal047/streamer",
-    status: "live",
-  },
-  {
-    id: "cyberpunks",
-    number: "03",
-    name: "Cyberpunks",
-    category: "Web3 · NFT Gallery",
-    glance: "NFT gallery with live API + offline fallback when rate-limited",
-    problem:
-      "NFT marketplaces often break when third-party APIs throttle or go dark — the UI should still feel alive.",
-    impact:
-      "OpenSea-inspired gallery with live collection fetch plus offline JSON fallback — browsing stays usable whenever the live API rate-limits or fails.",
-    stack: ["React 17", "Axios", "Custom CSS"],
-    image: "/images/projects/cyberpunks.png",
-    githubUrl: "https://github.com/ArpitBansal047/cyberpunks",
     status: "live",
   },
 ];
@@ -322,15 +374,15 @@ export const wipProjects: WipProject[] = [
   {
     id: "you",
     name: "YOU",
-    tagline: "AI-driven Web app for Clinical Wellness · Mar 2026 — Present",
+    tagline: "AI-driven clinical wellness app · GenAI + Firebase · Mar 2026 — Present",
     description:
-      "YOU addresses a real gap: most people who need mental-health support never reach a therapist — cost, wait times, stigma, and no one to talk to at 2 AM. YOU combines GenAI-guided journaling and grounding exercises, peer communities, emergency support flows, and therapist booking in one secure app.",
+      "Most people who need mental-health support never reach a therapist — cost, stigma, and no one to talk to at 2 AM. YOU combines GenAI journaling, peer communities, emergency support, and therapist booking in one secure app.",
     bullets: [
-      "Problem we solve: fragmented wellness tools (one app for journaling, another for chat, none for crisis support) leave users alone between sessions — YOU unifies daily care, community, and clinical pathways.",
-      "React 18/TypeScript + Firebase with Firestore security rules — real-time clinical notes/chats with low-latency sync for secure PII workflows.",
-      "Gemini 1.5 Pro for 24/7 grounding exercises and journal analysis; Bento Grid UI + Framer Motion and an AI matching wizard to speed therapist discovery.",
+      "React 18/TypeScript + Firebase — realtime clinical notes and chats with Firestore security rules for secure PII.",
+      "Gemini 1.5 Pro for 24/7 grounding exercises and journal analysis; Stitch + Framer Motion for UI.",
+      "PHQ-9 assessment flow with JWT sessions — faster therapist matching in testing.",
     ],
-    stack: ["React 18", "TypeScript", "Firebase", "Gemini 1.5", "Framer Motion"],
+    stack: ["React 18", "TypeScript", "Firebase", "Gemini 1.5", "Stitch", "Framer Motion"],
     screenshots: [
       { src: "/images/you/journal-tab.png", label: "Daily Journal" },
       { src: "/images/you/journal-entry.png", label: "Journal Entry" },
@@ -340,26 +392,21 @@ export const wipProjects: WipProject[] = [
       { src: "/images/you/sessions.png", label: "Book Sessions" },
       { src: "/images/you/profile.png", label: "Profile" },
     ],
-  },
-  {
-    id: "ravenswift",
-    name: "RavenSwift",
-    tagline: "Social Media App · June 2020",
-    description:
-      "\"Why use more apps if one is enough?\" — Flutter + Firebase prototype for the Indian Govt. app innovation program (UI built in 3 days).",
-    bullets: [
-      "Three pillars: Instagram-style social feed + 300-character microblogging, WhatsApp-inspired messaging with in-call games (truth/dare, audio/video), and anonymous education Q&A (Raven = knowledge, Swift = social stack).",
-      "Planned features: public story comments, adult-content flag, multi-person live, govt. polls/surveys, and India-themed UI — revenue goal with 5% pledged to climate causes.",
-    ],
-    stack: ["Flutter", "Firebase", "Dart"],
-    githubUrl: "https://github.com/ArpitBansal047/Ravenswift",
-    screenshots: [
-      { src: "/images/ravenswift/login.png", label: "Login / Sign Up" },
-      { src: "/images/ravenswift/home.png", label: "Homepage" },
-      { src: "/images/ravenswift/profile.png", label: "Profile" },
-      { src: "/images/ravenswift/find-users.png", label: "Find Users" },
-      { src: "/images/ravenswift/feed.png", label: "Activity Feed" },
-    ],
+    caseStudy: {
+      problemDetail:
+        "Mental-health support is fragmented — users bounce between journaling apps, crisis lines, and booking tools with no continuity between sessions.",
+      approach: [
+        "Architected Firebase realtime chat with Firestore rules for PII isolation.",
+        "Built Gemini backend for journal processing and grounding exercises.",
+        "PHQ-9 assessment pipeline for automated therapist matching with JWT sessions.",
+      ],
+      stackRationale: [
+        { tech: "Firebase", why: "Realtime sync under 150ms without managing WebSocket infra", alternative: "Postgres + Socket.io" },
+        { tech: "Gemini 1.5 Pro", why: "Long-context journal analysis", alternative: "Smaller models" },
+        { tech: "JWT", why: "Stateless secure patient sessions", alternative: "Session cookies" },
+      ],
+      outcomes: ["10K+ account scale design", "60% faster therapist matching", "24/7 AI care access"],
+    },
   },
 ];
 
@@ -407,25 +454,30 @@ export const skillCategories = [
 
 export const beyondCode = {
   title: "Beyond Code",
+  subtitle: "Leadership and teamwork outside the IDE — skills I bring back to engineering.",
   items: [
     {
       emoji: "🏆",
-      title: "CSL 2025 - Multi Sports Tournament",
-      description:
-        "Organised CSL 2025 A to Z — budgeting, auctions, team formation, scheduling, and on-ground ops for a multi-sport league.",
-      image: "/images/csl2025.png",
+      title: "Comcast Sports League (CSL) 2026",
+      metric: "Organizer · 500+ participants",
+      description: "Organizing our annual multi-sport league at work.",
+      leadershipImpact:
+        "I handle planning, vendors, scheduling, and day-of operations — and designed a React auction app for live player bidding during the draft.",
+      image: "/images/beyond/csl2026.png",
     },
     {
       emoji: "🎉",
       title: "Team Outings & Events",
-      description:
-        "Organised a 1-day team outing with fun activities for all members — logistics, budget, and engagement end to end.",
+      metric: "Organizer · full-day offsite",
+      description: "Planned and ran a company team outing.",
+      leadershipImpact:
+        "I coordinated activities, logistics, and budget across teams so everyone could participate.",
       image: "/images/beyond/team-outing.jpg",
     },
     {
       emoji: "🎬",
       title: "Dance & Singing",
-      description: "Dance mashups and song covers on YouTube.",
+      description: "Dance mashups and song covers — a creative outlet outside work.",
       link: site.youtube,
       linkLabel: "Watch on YouTube",
       linkVariant: "youtube",
@@ -434,7 +486,10 @@ export const beyondCode = {
     {
       emoji: "🏏",
       title: "Sports & More",
-      description: "Guitar, Spanish, Finance, and Geopolitics.",
+      metric: "Office tournaments · cricket, badminton & chess",
+      description: "Competitive sports at work — cricket, badminton, and chess.",
+      leadershipImpact:
+        "Best Bowler in an office cricket tournament; also won badminton and chess events. Sports keep me calm under pressure — habits I bring to code reviews, demos, and mentoring.",
       image: "/images/beyond/sports-more.jpg",
       imageClass: "beyond-img-zoom",
     },
@@ -449,6 +504,9 @@ export const certificates: Certificate[] = [
     type: "pdf",
     emoji: "⚛️",
     topic: "Frontend",
+    section: "technical",
+    impactLine: "Production React patterns — hooks, Redux, and scalable component design.",
+    themeColor: "#61dafb",
   },
   {
     title: "The Complete SQL Bootcamp",
@@ -457,6 +515,9 @@ export const certificates: Certificate[] = [
     type: "pdf",
     emoji: "🗄️",
     topic: "Databases",
+    section: "technical",
+    impactLine: "PostgreSQL and Oracle query work in billing systems — joins, indexes, optimization.",
+    themeColor: "#3b82f6",
   },
   {
     title: "Data Science & Machine Learning",
@@ -465,6 +526,9 @@ export const certificates: Certificate[] = [
     type: "pdf",
     emoji: "🤖",
     topic: "ML / AI",
+    section: "technical",
+    impactLine: "Foundation for GenAI tooling, data pipelines, and structured analysis.",
+    themeColor: "#22c55e",
   },
   {
     title: "Software Engineering 101",
@@ -473,6 +537,9 @@ export const certificates: Certificate[] = [
     type: "pdf",
     emoji: "🏗️",
     topic: "Engineering",
+    section: "technical",
+    impactLine: "SDLC, planning, and engineering process — how I approach production delivery.",
+    themeColor: "#f59e0b",
   },
   {
     title: "An Entire MBA in 1 Course",
@@ -481,6 +548,9 @@ export const certificates: Certificate[] = [
     type: "pdf",
     emoji: "📈",
     topic: "Business",
+    section: "non-technical",
+    impactLine: "Business context for internal platforms and stakeholder trade-offs.",
+    themeColor: "#ec4899",
   },
   {
     title: "The Science of Well-Being",
@@ -489,6 +559,9 @@ export const certificates: Certificate[] = [
     type: "png",
     emoji: "🧠",
     topic: "Psychology",
+    section: "non-technical",
+    impactLine: "Informed the mental-health UX research behind the YOU wellness platform.",
+    themeColor: "#a855f7",
   },
   {
     title: "Buddhism and Modern Psychology",
@@ -497,6 +570,9 @@ export const certificates: Certificate[] = [
     type: "png",
     emoji: "🪷",
     topic: "Mindfulness",
+    section: "non-technical",
+    impactLine: "Mindfulness research applied to grounding exercises in YOU.",
+    themeColor: "#14b8a6",
   },
   {
     title: "Spanish Vocabulary: Meeting People",
@@ -505,5 +581,8 @@ export const certificates: Certificate[] = [
     type: "pdf",
     emoji: "🇪🇸",
     topic: "Language",
+    section: "non-technical",
+    impactLine: "Pairs with a 2,051-day Duolingo streak — continuous learning habit.",
+    themeColor: "#ef4444",
   },
 ];

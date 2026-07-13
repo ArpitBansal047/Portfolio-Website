@@ -25,22 +25,55 @@ import {
   SiNodedotjs,
   SiTypescript,
   SiOpenjdk,
-  SiMysql,
   SiFirebase,
   SiGooglegemini,
-  SiLinux,
   SiJenkins,
   SiDocker,
-  SiCplusplus,
   SiNextdotjs,
+  SiKubernetes,
+  SiPostgresql,
+  SiRedis,
+  SiMysql,
+  SiCplusplus,
   SiGit,
-  SiFlutter,
-  SiRedux,
+  SiLinux,
+  SiTailwindcss,
 } from "react-icons/si";
+import { FaAws } from "react-icons/fa6";
 import { TbApi, TbDatabase } from "react-icons/tb";
 import { BsDiagram3Fill } from "react-icons/bs";
 import SectionTitle from "./SectionTitle";
+import { TECH_STACK } from "../data/techStackData";
+import { useTheme } from "../context/ThemeProvider";
 import "./styles/SectionTitle.css";
+
+const TECH_ICONS: Record<string, IconType> = {
+  React: SiReact,
+  TypeScript: SiTypescript,
+  Python: SiPython,
+  "Next.js": SiNextdotjs,
+  "Node.js": SiNodedotjs,
+  Java: SiOpenjdk,
+  AWS: FaAws,
+  Docker: SiDocker,
+  Kubernetes: SiKubernetes,
+  Jenkins: SiJenkins,
+  PostgreSQL: SiPostgresql,
+  MySQL: SiMysql,
+  Oracle: TbDatabase,
+  Redis: SiRedis,
+  Firebase: SiFirebase,
+  Git: SiGit,
+  "C++": SiCplusplus,
+  SQL: TbDatabase,
+  Linux: SiLinux,
+  Tailwind: SiTailwindcss,
+  GenAI: SiGooglegemini,
+  Microservices: BsDiagram3Fill,
+  "REST APIs": TbApi,
+  "System Design": BsDiagram3Fill,
+  Selenium: TbApi,
+};
 
 type TechEntry = {
   label: string;
@@ -48,28 +81,11 @@ type TechEntry = {
   Icon: IconType;
 };
 
-const TECH_STACK: TechEntry[] = [
-  { label: "React", color: "#61dafb", Icon: SiReact },
-  { label: "Python", color: "#3776ab", Icon: SiPython },
-  { label: "Node", color: "#339933", Icon: SiNodedotjs },
-  { label: "TypeScript", color: "#3178c6", Icon: SiTypescript },
-  { label: "Java", color: "#f89820", Icon: SiOpenjdk },
-  { label: "SQL", color: "#00758f", Icon: SiMysql },
-  { label: "Firebase", color: "#ffca28", Icon: SiFirebase },
-  { label: "GenAI", color: "#c2a4ff", Icon: SiGooglegemini },
-  { label: "Linux", color: "#eee", Icon: SiLinux },
-  { label: "Jenkins", color: "#d33833", Icon: SiJenkins },
-  { label: "Docker", color: "#2496ed", Icon: SiDocker },
-  { label: "C++", color: "#00599c", Icon: SiCplusplus },
-  { label: "Next.js", color: "#fff", Icon: SiNextdotjs },
-  { label: "Oracle", color: "#f80000", Icon: TbDatabase },
-  { label: "Git", color: "#f34f29", Icon: SiGit },
-  { label: "Flutter", color: "#54c5f8", Icon: SiFlutter },
-  { label: "Redux", color: "#764abc", Icon: SiRedux },
-  { label: "APIs", color: "#22c55e", Icon: TbApi },
-  { label: "DSA", color: "#a78bfa", Icon: BsDiagram3Fill },
-  { label: "Streamlit", color: "#ff4b4b", Icon: SiPython },
-];
+const TECH_STACK_ENTRIES: TechEntry[] = TECH_STACK.map((tech) => ({
+  label: tech.label,
+  color: tech.color,
+  Icon: TECH_ICONS[tech.label] ?? TbDatabase,
+}));
 
 const sphereGeometry = new THREE.SphereGeometry(1, 24, 24);
 const impulseVec = new THREE.Vector3();
@@ -269,10 +285,11 @@ function packSpawnPositions(count: number): [number, number, number][] {
 const TechStack = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const [sceneActive, setSceneActive] = useState(false);
+  const { theme } = useTheme();
 
   const balls = useMemo(() => {
-    const spawns = packSpawnPositions(TECH_STACK.length);
-    return TECH_STACK.map((tech, i) => ({
+    const spawns = packSpawnPositions(TECH_STACK_ENTRIES.length);
+    return TECH_STACK_ENTRIES.map((tech, i) => ({
       ...tech,
       scale: 0.72 + (i % 3) * 0.1,
       spawn: spawns[i],
@@ -312,7 +329,7 @@ const TechStack = () => {
           <spotLight position={[20, 20, 25]} penumbra={1} angle={0.2} color="white" castShadow />
           <directionalLight position={[0, 5, -4]} intensity={2} />
           <TechPhysicsScene balls={balls} sceneActive={sceneActive} />
-          <Environment preset="city" />
+          <Environment preset={theme === "light" ? "warehouse" : "city"} />
         </Canvas>
       </div>
     </section>

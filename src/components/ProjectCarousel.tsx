@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { MdArrowOutward, MdChevronLeft, MdChevronRight } from "react-icons/md";
+import { SiGithub } from "react-icons/si";
 import { Project } from "../data/portfolio";
 import WorkImage from "./WorkImage";
 import "./styles/ProjectCarousel.css";
@@ -99,7 +100,7 @@ const ProjectCarousel = ({
                   className="project-carousel-btn project-carousel-btn--ghost"
                   data-cursor="disable"
                 >
-                  GitHub <MdArrowOutward />
+                  GitHub <SiGithub aria-hidden="true" />
                 </a>
               )}
             </section>

@@ -54,12 +54,14 @@ const Contact = () => {
             </a>
           </article>
           <article className="contact-detail">
+            <h4>Phone</h4>
+            <a href={`tel:${site.phone.replace(/\s/g, "")}`} data-cursor="disable">
+              {site.phone}
+            </a>
+          </article>
+          <article className="contact-detail">
             <h4>Location</h4>
             <p>{site.location}</p>
-          </article>
-          <article className="contact-detail contact-detail--wide">
-            <h4>Availability</h4>
-            <p>{site.availability}</p>
           </article>
         </section>
 

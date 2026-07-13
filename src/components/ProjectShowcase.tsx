@@ -6,6 +6,8 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import { Project } from "../data/portfolio";
 import { MdArrowOutward } from "react-icons/md";
+import { SiGithub } from "react-icons/si";
+import CaseStudyButton from "./CaseStudyButton";
 
 gsap.registerPlugin(useGSAP);
 
@@ -156,6 +158,7 @@ const ProjectShowcase = ({
                       </span>
                     ))}
                   </section>
+                  {project.caseStudy && <CaseStudyButton caseStudy={project.caseStudy} />}
                   <section className="work-actions">
                     {project.liveUrl && (
                       <a
@@ -176,7 +179,7 @@ const ProjectShowcase = ({
                         className="work-btn work-btn--ghost"
                         data-cursor="disable"
                       >
-                        GitHub <MdArrowOutward />
+                        GitHub <SiGithub aria-hidden="true" />
                       </a>
                     )}
                   </section>

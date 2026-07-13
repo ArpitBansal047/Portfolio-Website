@@ -1,0 +1,31 @@
+.archived-projects {
+  margin-top: var(--gap-subsection);
+}
+
+.archived-projects__toggle {
+  display: block;
+  margin: 0 auto;
+  padding: 10px 20px;
+  border-radius: 999px;
+  border: 1px dashed var(--borderColor);
+  background: transparent;
+  color: var(--textMuted);
+  font: inherit;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.archived-projects__toggle:hover {
+  border-color: var(--accentColor);
+  color: var(--accentColor);
+}
+
+.archived-projects__body {
+  margin-top: 24px;
+}
+
+.archived-projects__wip {
+  display: grid;
+  gap: 24px;
+  margin-bottom: 32px;
+}

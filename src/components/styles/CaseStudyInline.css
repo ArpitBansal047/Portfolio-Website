@@ -1,0 +1,116 @@
+.case-study-outcomes {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.case-study-outcomes li {
+  padding: 6px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--borderColor, #363636);
+  color: var(--accentColor, #c2a4ff);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.case-study-btn {
+  margin-top: 10px;
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: 1px solid var(--accentColor, #c2a4ff);
+  background: transparent;
+  color: var(--accentColor, #c2a4ff);
+  font: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.case-study-btn:hover {
+  background: var(--accentColor, #c2a4ff);
+  color: var(--backgroundColor, #0b080c);
+}
+
+.case-study-inline {
+  margin-top: 10px;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+.case-study-inline__body {
+  margin-top: 12px;
+  padding: 12px;
+  border: 1px solid var(--borderColor, #363636);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.02);
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  overflow-x: hidden;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.case-study-inline__problem {
+  margin: 0 0 10px;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--textMuted, #9ca3af);
+}
+
+.case-study-inline__body h5 {
+  margin: 10px 0 6px;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accentColor, #c2a4ff);
+}
+
+.case-study-inline__body ul {
+  margin: 0;
+  padding-left: 16px;
+}
+
+.case-study-inline__body li {
+  font-size: 12px;
+  line-height: 1.45;
+  color: var(--textMuted, #9ca3af);
+  margin-bottom: 4px;
+}
+
+.case-study-inline__stack {
+  list-style: none;
+  padding-left: 0 !important;
+}
+
+.case-study-inline__stack li {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.case-study-inline--compact .case-study-inline__body {
+  padding: 10px;
+}
+
+.case-study-inline--compact .case-study-inline__problem,
+.case-study-inline--compact .case-study-inline__body li {
+  font-size: 11px;
+  line-height: 1.4;
+}
+
+.case-study-inline--compact .case-study-outcomes li {
+  font-size: 10px;
+  padding: 4px 10px;
+}
+
+.case-study-inline__body .case-study-outcomes {
+  margin-top: 4px;
+}

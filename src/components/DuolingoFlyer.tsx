@@ -1,43 +1,63 @@
-import { useRef, useState, useCallback } from "react";
+import { useCallback, useLayoutEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import ClickableImage from "./ClickableImage";
 import { duolingoMeta } from "../data/portfolio";
 import "./styles/ImageLightbox.css";
 
 const DUO_OWL_SRC = "/images/beyond/duo-owl.png";
+const MARGIN = 12;
 
-const TOOLTIP_W = 280;
-const TOOLTIP_H = 96;
-const MARGIN = 16;
-
-const clampTooltipPos = (rect: DOMRect) => {
+const clampTooltipPos = (anchor: DOMRect, tipW: number, tipH: number) => {
   const vw = window.innerWidth;
   const vh = window.innerHeight;
 
-  let x = rect.left + rect.width / 2;
-  let y = rect.bottom + 12;
+  let x = anchor.left + anchor.width / 2;
+  let y = anchor.bottom + 10;
 
-  x = Math.max(MARGIN + TOOLTIP_W / 2, Math.min(vw - MARGIN - TOOLTIP_W / 2, x));
+  const halfW = tipW / 2;
+  x = Math.max(MARGIN + halfW, Math.min(vw - MARGIN - halfW, x));
 
-  if (y + TOOLTIP_H > vh - MARGIN) {
-    y = rect.top - TOOLTIP_H - 12;
+  if (y + tipH > vh - MARGIN) {
+    y = anchor.top - tipH - 10;
   }
-  y = Math.max(MARGIN, Math.min(vh - MARGIN - TOOLTIP_H, y));
+  y = Math.max(MARGIN, Math.min(vh - MARGIN - tipH, y));
 
   return { x, y };
 };
 
 const DuolingoFlyer = () => {
   const ref = useRef<HTMLElement>(null);
+  const tipRef = useRef<HTMLElement>(null);
   const [hovered, setHovered] = useState(false);
   const [tipPos, setTipPos] = useState({ x: 0, y: 0 });
 
-  const showTip = useCallback(() => {
+  const positionTip = useCallback(() => {
     const el = ref.current;
+    const tip = tipRef.current;
     if (!el) return;
-    setTipPos(clampTooltipPos(el.getBoundingClientRect()));
+    const rect = el.getBoundingClientRect();
+    const tipW = tip?.offsetWidth ?? 280;
+    const tipH = tip?.offsetHeight ?? 72;
+    setTipPos(clampTooltipPos(rect, tipW, tipH));
+  }, []);
+
+  const showTip = useCallback(() => {
     setHovered(true);
   }, []);
+
+  useLayoutEffect(() => {
+    if (!hovered) return;
+    const frame = requestAnimationFrame(() => {
+      positionTip();
+    });
+    window.addEventListener("resize", positionTip);
+    window.addEventListener("scroll", positionTip, true);
+    return () => {
+      cancelAnimationFrame(frame);
+      window.removeEventListener("resize", positionTip);
+      window.removeEventListener("scroll", positionTip, true);
+    };
+  }, [hovered, positionTip]);
 
   return (
     <>
@@ -62,6 +82,7 @@ const DuolingoFlyer = () => {
       {hovered &&
         createPortal(
           <section
+            ref={tipRef}
             className="duolingo-tooltip-portal"
             style={{ left: tipPos.x, top: tipPos.y }}
             role="tooltip"

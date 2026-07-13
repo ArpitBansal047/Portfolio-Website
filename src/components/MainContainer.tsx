@@ -7,14 +7,17 @@ import DuolingoFlyer from "./DuolingoFlyer";
 import Cursor from "./Cursor";
 import Landing from "./Landing";
 import Navbar from "./Navbar";
+import RecruiterChatbot, { RecruiterChatFab } from "./RecruiterChatbot";
 import SkillsRegion from "./SkillsRegion";
-import SocialIcons from "./SocialIcons";
+import StickyRecruiterCta from "./StickyRecruiterCta";
 import "./styles/BeyondCode.css";
 import "./styles/SectionSpacing.css";
 import setSplitText from "./utils/splitText";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 const MainContainer = () => {
+  const [chatOpen, setChatOpen] = useState(false);
+
   useEffect(() => {
     const resizeHandler = () => setSplitText();
     resizeHandler();
@@ -22,11 +25,18 @@ const MainContainer = () => {
     return () => window.removeEventListener("resize", resizeHandler);
   }, []);
 
+  useEffect(() => {
+    (window as Window & { openRecruiterChat?: () => void }).openRecruiterChat = () =>
+      setChatOpen(true);
+  }, []);
+
   return (
     <section className="container-main">
       <Cursor />
       <Navbar />
-      <SocialIcons />
+      <StickyRecruiterCta />
+      <RecruiterChatFab onOpen={() => setChatOpen(true)} />
+      <RecruiterChatbot open={chatOpen} onClose={() => setChatOpen(false)} />
       <section id="smooth-wrapper">
         <section id="smooth-content">
           <section className="container-main">

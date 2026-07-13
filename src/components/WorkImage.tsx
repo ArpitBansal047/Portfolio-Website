@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { MdArrowOutward } from "react-icons/md";
+import { SiGithub } from "react-icons/si";
 import ClickableImage from "./ClickableImage";
 
 interface Props {
@@ -59,8 +60,13 @@ const WorkImage = (props: Props) => {
             rel="noopener noreferrer"
             className="work-image-link"
             data-cursor="disable"
+            aria-label={props.link.includes("github.com") ? "Open on GitHub" : "Open project link"}
           >
-            <MdArrowOutward />
+            {props.link.includes("github.com") ? (
+              <SiGithub aria-hidden="true" />
+            ) : (
+              <MdArrowOutward aria-hidden="true" />
+            )}
           </a>
         )}
         {isVideo && <video src={video} autoPlay muted playsInline loop></video>}

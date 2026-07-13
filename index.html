@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Arpit Bansal — Software Developer</title>
     <meta name="author" content="Arpit Bansal" />
-    <meta name="theme-color" content="#0b080c" />
+    <meta name="theme-color" content="#09090b" />
     <meta
       name="description"
       content="Portfolio of Arpit Bansal — Software Developer at Amdocs. Full-stack, GenAI automation, React, TypeScript. Open to roles in Pune, India."
@@ -26,6 +26,16 @@
       name="twitter:description"
       content="Software Developer at Amdocs. Full-stack, GenAI automation, React, TypeScript."
     />
+    <script>
+      (function () {
+        try {
+          var stored = localStorage.getItem("portfolio-theme");
+          if (stored === "light" || stored === "dark") {
+            document.documentElement.setAttribute("data-theme", stored);
+          }
+        } catch (e) {}
+      })();
+    </script>
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -48,7 +58,7 @@
             },
             "sameAs": [
               "https://github.com/ArpitBansal047",
-              "https://www.linkedin.com/in/arpit0291"
+              "https://www.linkedin.com/in/arpit-bansal-103731192"
             ],
             "knowsAbout": [
               "React",

@@ -1,0 +1,49 @@
+Arpit Bansal Software Developer
++91-8146126152 B.E. - Computer Engineering
+bansal.arpit02@gmail.com LinkedIn
+Pune, Maharashtra Github
+TECHNICAL SKILLS
+• Languages/Frameworks: Python, Java (Core), C++, SQL, React.js, Node.js, HTML/CSS/JS, Maven, UNIX, APIs,
+System Design, Scripting
+• Tools/Core CS: Copilot, Cursor, Stitch, Google Studio, Github, Jenkins(CI/CD), Linux, DSA, OOPs, SDLC, DBMS
+EXPERIENCE
+• AMDOCS | Software Developer Jul 2023 – Present
+Amdocs is a software and services company that helps telecom and media businesses manage billing and
+digital operations.
+Pune, Maharashtra
+–Led design + development of “ComcastHub“ - official website of the account (Next.js 14, React 18, TypeScript, Tailwind,
+Framer Motion), unifying multiple dev tools, projecting 15-20% productivity boost (2-3hr/week savings/developer).
+–Developed the GenAI-powered “BPT Charge Code Tool“, a python script that ingests Excel inputs, auto-generates SQL
+files for related tables, reducing manual effort by 90%, eliminating human error, and cutting setup time by 75%.
+–Collaborated on Python/Streamlit “Cipher EOC“ tool automating 90% of daily End-of-Cycle billing workflows (re-
+duced 90min → 40min, 50% faster) using Oracle/oracledb, Paramiko SSH, Selenium Edge, pandas/numpy.
+–Improved 1-click job orchestration tool “APEye“ with Jenkins integration, added Invoicing jobs via new RunJobs ex-
+tension, reducing test cycle time 5hrs → 1hr (80% faster), used by 10+ developers daily for regression validation.
+• YHILLS EDUTECH | Business Development Executive Intern Jan 2023 – May 2023
+An edtech company offering short-term upskilling courses for college students. Noida, Uttar Pradesh
+–Consultatively engaged with 500+ learners monthly via calls/chats, overcoming pricing objections through value-
+based selling for available courses, consistently hitting enrollment targets.
+–Recruited 25 campus leads across 40 colleges through structured personal interviews, building a student referral net-
+work that drove 30% more signups.
+PROJECTS
+• YOU | AI-driven Web app for Clinical Wellness Mar 2026 - Present
+Full-stack mental health app bridging therapy gap with GenAI and real-time community. UI Link
+–Built React 18/TypeScript + Firebase app with <150ms real-time sync for clinical notes/chats, handling secure PII for
+10K+ concurrent users via Firestore Security Rules.
+–Integrated Gemini 1.5 Pro to solve 24/7 care-delay crisis (50% lack specialist access), delivering AI grounding exercises
++ journal analysis; improved simulated retention 45%.
+–Designed Bento Grid UIwith Framer Motion, reducing 25% bounce rate and 70% therapist discovery time via AI Matching
+Wizard.
+–Built clinical assessment engine automating PHQ-9 matching flow, cutting manual therapist assignment 60%.
+• STREAMER | Web app for Live Streaming Jan 2022 - Apr 2022
+Easy-to-use streaming app similar to TwitchTV with Google Login and core live-streaming features. Github Link
+–React.js/Node.js multi-channel streamingprototype with WebSocket streaming, OBS integration, Google OAuth; achieved
+99% uptime across 50+ live events.
+• CRYPTOVERSE | Website for Cryptocurrency Information Oct 2021 - Dec 2021
+Provides information related to cryptocurrencies including prices and news. Github Link
+–React.js dashboard handling 10K+ API calls/day with caching for live crypto prices/news using CoinRanking API.
+INTERESTS
+• Sports, Spanish, Event Management, Youtube, Singing, Guitar, Finance, Geopolitics
+EDUCATION
+1. Bachelor of Engineering (7.96 CGPA) Thapar Institute Of Engineering and Technology, Patiala 2019-2023
+2. Senior Secondary (XII - 94.8%) B.C.M. Sen. Sec. School, Basant City, Ludhiana 2017-2019

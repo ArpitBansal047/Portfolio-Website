@@ -14,8 +14,10 @@ const WipProjects = () => {
         as="h3"
         className="section-title--sub nav-scroll-target"
       />
-      <p className="section-lead projects-subsection-lead wip-subtitle">Mobile apps</p>
-      <section className="wip-apps-grid">
+      <p className="section-lead projects-subsection-lead wip-subtitle">
+        Flagship side project — clinical wellness with GenAI, Firebase realtime sync, and JWT-secured sessions.
+      </p>
+      <section className={`wip-apps-grid${wipProjects.length === 1 ? " wip-apps-grid--single" : ""}`}>
         {wipProjects.map((project) => (
           <WipMobileColumn key={project.id} project={project} />
         ))}

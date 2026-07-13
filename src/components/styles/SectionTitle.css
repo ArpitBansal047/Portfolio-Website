@@ -41,7 +41,7 @@
   letter-spacing: 0.08em;
   text-transform: uppercase;
   text-align: center;
-  color: #eae5ec;
+  color: var(--textPrimary);
 }
 
 .section-subtitle-sm span {
@@ -50,7 +50,7 @@
 }
 
 .section-lead {
-  color: #9ca3af;
+  color: var(--textMuted);
   font-size: clamp(12px, 2.2vw, 14px);
   font-weight: 300;
   text-align: center;

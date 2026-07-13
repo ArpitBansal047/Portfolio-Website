@@ -11,12 +11,13 @@
 }
 
 .project-carousel-subtitle {
-  color: #9ca3af;
+  color: var(--textPrimary);
   font-size: clamp(12px, 2.2vw, 14px);
-  font-weight: 300;
+  font-weight: 400;
   text-align: center;
   margin: 0 auto 28px;
   max-width: min(720px, 92%);
+  opacity: 0.88;
 }
 
 .project-carousel-stage {
@@ -35,9 +36,9 @@
   gap: clamp(20px, 2.5vw, 28px);
   align-items: stretch;
   padding: clamp(20px, 2.2vw, 28px);
-  border: 1px solid #363636;
+  border: 1px solid var(--borderColor);
   border-radius: 16px;
-  background: rgba(255, 255, 255, 0.02);
+  background: var(--cardOverlay);
   min-height: clamp(360px, 34vh, 460px);
 }
 
@@ -49,9 +50,9 @@
   width: 48px;
   height: 48px;
   border-radius: 50%;
-  border: 1px solid #363636;
+  border: 1px solid var(--borderColor);
   background: rgba(255, 255, 255, 0.04);
-  color: #fff;
+  color: var(--textPrimary);
   font-size: 28px;
   display: flex;
   align-items: center;
@@ -115,7 +116,7 @@
 .project-carousel-category {
   margin: 10px 0 0;
   padding: 0;
-  color: #9ca3af;
+  color: var(--textMuted);
   font-size: clamp(13px, 1.5vw, 16px);
   font-weight: 300;
   line-height: 1.45;
@@ -140,7 +141,7 @@
 }
 
 .project-carousel-info > p {
-  color: #9ca3af;
+  color: var(--textMuted);
   font-size: clamp(12px, 1.7vw, 14px);
   line-height: 1.55;
   margin: 6px 0 0;
@@ -150,7 +151,7 @@
 }
 
 .project-carousel-summary {
-  color: #9ca3af;
+  color: var(--textMuted);
   margin: 6px 0 12px;
 }
 
@@ -164,7 +165,7 @@
 .project-carousel-tag {
   font-size: clamp(10px, 1.4vw, 12px);
   padding: 4px 10px;
-  border: 1px solid #363636;
+  border: 1px solid var(--borderColor);
   border-radius: 999px;
   color: var(--accentColor);
 }
@@ -196,8 +197,8 @@
 }
 
 .project-carousel-btn--ghost {
-  border: 1px solid #363636;
-  color: #fff;
+  border: 1px solid var(--borderColor);
+  color: var(--textPrimary);
 }
 
 .project-carousel-card .work-image {
@@ -237,7 +238,7 @@
 
 .project-carousel-counter {
   text-align: center;
-  color: #9ca3af;
+  color: var(--textMuted);
   font-size: 13px;
   margin: 16px 0 0;
 }

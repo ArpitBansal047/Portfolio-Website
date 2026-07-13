@@ -8,9 +8,9 @@ const ProjectsHub = () => {
   return (
     <section className="projects-hub" id="projects">
       <section className="projects-hub-heading section-container">
-        <SectionTitle lead="P" accent="ROJECTS" />
+        <SectionTitle lead="P" accent="ERSONAL PROJECTS" />
         <p className="section-lead projects-hub-lead">
-          Apps and websites I build outside work — personal projects for learning and exploration.
+          Side builds outside Amdocs — YOU wellness platform, plus earlier web experiments.
         </p>
       </section>
       <WipProjects />

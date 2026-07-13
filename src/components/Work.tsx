@@ -8,8 +8,8 @@ const Work = () => {
     <section className="projects-subsection projects-subsection--websites">
       <ProjectCarousel
         id="websites"
-        title={<SectionTitle lead="W" accent="EBSITES" as="h3" className="section-title--sub" />}
-        subtitle="Personal web builds — Cryptoverse, Streamer, and Cyberpunks."
+        title={<SectionTitle lead="W" accent="EB EXPERIMENTS" as="h3" className="section-title--sub" />}
+        subtitle="Earlier full-stack builds — Cryptoverse unified crypto tracking (10K+ API calls/day with smart caching) and Streamer, a Twitch-style RTMP prototype with OAuth, WebSockets, and FLV playback (~99% uptime across 50+ live tests)."
         projects={projects}
         showGithub={false}
         compact

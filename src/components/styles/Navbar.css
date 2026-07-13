@@ -2,6 +2,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: nowrap;
   gap: clamp(8px, 2vw, 20px);
   max-width: var(--cMaxWidth);
   width: min(var(--cWidth), calc(100% - var(--page-pad, 24px) * 2));
@@ -23,36 +24,13 @@
   flex: 0 1 auto;
 }
 
-.header ul {
-  font-size: clamp(9px, 1.6vw, 14px);
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: flex-end;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  column-gap: clamp(6px, 1.8vw, 32px);
-  align-items: center;
-  flex-shrink: 0;
-}
-
-.header ul li {
-  margin: 0;
-  letter-spacing: 0.06em;
-  color: #eae5ec;
-  font-weight: 600;
-  cursor: pointer;
-  white-space: nowrap;
-}
-
 /* Email in navbar — desktop only; mobile uses hero contact block */
 .navbar-email {
   display: none;
   font-size: 14px;
   font-weight: 500;
   letter-spacing: 0.02em;
-  color: #fff;
+  color: var(--textPrimary);
   text-decoration: none;
   white-space: nowrap;
   overflow: hidden;
@@ -103,7 +81,8 @@
   }
 
   .navbar-left {
-    max-width: min(55%, 480px);
+    max-width: none;
+    gap: clamp(10px, 1.8vw, 20px);
   }
 
   .navbar-email {
@@ -111,7 +90,7 @@
     font-size: 14px;
   }
 
-  .header ul {
+  .navbar-links--desktop {
     font-size: 14px;
     column-gap: clamp(16px, 2.5vw, 40px);
   }
@@ -122,7 +101,7 @@
     padding: 28px var(--page-pad, 24px);
   }
 
-  .header ul {
+  .navbar-links--desktop {
     column-gap: clamp(24px, 4vw, 56px);
     font-size: 15px;
   }
@@ -138,12 +117,7 @@
     gap: 6px;
   }
 
-  .header ul {
-    column-gap: clamp(3px, 1vw, 6px);
-    font-size: clamp(7px, 1.85vw, 9px);
-  }
-
-  .header ul li {
+  .navbar-links--mobile li {
     letter-spacing: 0.03em;
   }
 }

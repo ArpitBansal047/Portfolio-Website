@@ -21,7 +21,7 @@
   inset: 0;
   z-index: 50;
   pointer-events: none;
-  overflow: visible;
+  overflow: hidden;
 }
 
 .duo-flight-zone .duolingo-flyer {
@@ -45,22 +45,43 @@
 }
 
 /* 4 square tiles — 67% image / 33% text, full image (no crop) */
+.beyond-subtitle {
+  max-width: 36em;
+  margin: 8px auto 0;
+}
+
+.beyond-metric {
+  margin: 0 0 6px;
+  font-size: clamp(11px, 1.1vw, 13px);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--accentSecondary, #38bdf8);
+}
+
+.beyond-leadership {
+  margin: 4px 0 0;
+  font-size: clamp(11px, 1.1vw, 13px);
+  line-height: 1.45;
+  color: var(--textMuted, #9ca3af);
+  font-style: italic;
+}
+
 .beyond-grid {
   position: relative;
   z-index: 3;
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: clamp(10px, 1.4vw, 16px);
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(12px, 1.6vw, 20px);
   margin-top: 8px;
-  max-width: min(920px, 88%);
+  max-width: min(1200px, 96%);
   margin-inline: auto;
   align-items: start;
 }
 
 .beyond-card {
   aspect-ratio: 1 / 1;
-  max-height: clamp(168px, 16.5vw, 205px);
-  border: 1px solid #363636;
+  max-height: clamp(240px, 22vw, 300px);
+  border: 1px solid var(--borderColor, #363636);
   border-radius: 12px;
   background: var(--backgroundColor);
   position: relative;
@@ -82,8 +103,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #111;
-  border-bottom: 1px solid #363636;
+  background: var(--surfaceElevated);
+  border-bottom: 1px solid var(--borderColor);
 }
 
 .beyond-card-media .clickable-image {
@@ -130,7 +151,7 @@
   justify-content: center;
   font-size: clamp(40px, 5vw, 56px);
   line-height: 1;
-  background: #111;
+  background: var(--surfaceElevated);
 }
 
 /* Bottom — title + description */
@@ -148,44 +169,44 @@
 
 .beyond-card-body h3 {
   margin: 0;
-  font-size: clamp(11px, 1.1vw, 14px);
+  font-size: clamp(13px, 1.35vw, 16px);
   font-weight: 600;
-  line-height: 1.2;
+  line-height: 1.25;
   flex-shrink: 0;
-  color: #fff;
+  color: var(--textPrimary);
 }
 
-.beyond-card-body p {
-  color: #b8bcc4;
-  line-height: 1.35;
+.beyond-card-body > p:not(.beyond-metric):not(.beyond-leadership) {
+  color: var(--textMuted);
+  line-height: 1.4;
   margin: 0;
-  font-size: clamp(10px, 1vw, 12px);
+  font-size: clamp(12px, 1.2vw, 14px);
   font-weight: 400;
   flex: 0 1 auto;
   overflow: hidden;
   display: -webkit-box;
-  -webkit-line-clamp: 2;
+  -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
 }
 
 .beyond-card--expanded {
-  aspect-ratio: auto;
-  height: auto;
+  z-index: 4;
 }
 
 .beyond-card--expanded .beyond-card-media {
-  flex: 0 0 auto;
-  aspect-ratio: 4 / 3;
-  max-height: min(220px, 42vw);
-  width: 100%;
+  flex: 0 0 48%;
+  min-height: 0;
 }
 
 .beyond-card--expanded .beyond-card-body {
-  overflow: visible;
-  flex: 0 0 auto;
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
-.beyond-card--expanded .beyond-card-body p {
+.beyond-card--expanded .beyond-card-body > p:not(.beyond-metric):not(.beyond-leadership) {
   -webkit-line-clamp: unset;
   display: block;
   overflow: visible;
@@ -207,7 +228,7 @@
 }
 
 .beyond-read-more:hover {
-  color: #fff;
+  color: var(--textPrimary);
 }
 
 .beyond-link {
@@ -289,19 +310,20 @@
   position: fixed;
   z-index: 99999;
   transform: translateX(-50%);
-  min-width: min(260px, calc(100vw - 32px));
-  max-width: min(320px, calc(100vw - 32px));
-  padding: 14px 16px;
+  width: min(280px, calc(100vw - 32px));
+  max-width: calc(100vw - 32px);
+  padding: 12px 14px;
   border-radius: 12px;
   border: 1px solid rgba(88, 204, 2, 0.55);
-  background: rgba(11, 8, 12, 0.98);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.65);
-  font-size: clamp(12px, 3.2vw, 14px);
-  line-height: 1.55;
-  color: #e5e7eb;
+  background: var(--surfaceColor);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--textPrimary);
   pointer-events: none;
   box-sizing: border-box;
   word-wrap: break-word;
+  overflow-wrap: anywhere;
 }
 
 .duolingo-tooltip-portal p {
@@ -310,7 +332,7 @@
 
 .duolingo-tooltip-portal p:last-child {
   margin-bottom: 0;
-  color: #9ca3af;
+  color: var(--textMuted);
 }
 
 @keyframes duolingo-owl-flight-band {
@@ -340,22 +362,22 @@
     transform: rotate(-6deg) scaleX(-1);
   }
   50% {
-    left: 96%;
+    left: 82%;
     top: 50%;
     transform: rotate(12deg) scaleX(-1);
   }
   60% {
-    left: 98%;
+    left: 84%;
     top: 36%;
     transform: rotate(-10deg) scaleX(-1);
   }
   70% {
-    left: 95%;
+    left: 80%;
     top: 22%;
     transform: rotate(8deg) scaleX(-1);
   }
   80% {
-    left: 97%;
+    left: 83%;
     top: 66%;
     transform: rotate(10deg) scaleX(-1);
   }
@@ -449,64 +471,23 @@
   }
 }
 
-@media only screen and (min-width: 1101px) {
-  .beyond-grid {
-    max-width: min(1320px, 96%);
-    gap: clamp(18px, 2.2vw, 26px);
-  }
-
-  .beyond-card {
-    max-height: none;
-    border-radius: 14px;
-  }
-
-  .beyond-card-body {
-    padding: clamp(10px, 1.2vw, 14px) clamp(12px, 1.4vw, 16px) clamp(12px, 1.4vw, 16px);
-    gap: 8px;
-  }
-
-  .beyond-card-body h3 {
-    font-size: clamp(15px, 1.35vw, 18px);
-  }
-
-  .beyond-card-body p {
-    font-size: clamp(13px, 1.15vw, 15px);
-  }
-
-  .beyond-read-more,
-  .beyond-link {
-    font-size: clamp(12px, 1.1vw, 14px);
-  }
-
-  .beyond-card--expanded .beyond-card-media {
-    max-height: min(320px, 28vw);
-  }
-}
-
-@media only screen and (min-width: 1400px) {
-  .beyond-grid {
-    max-width: min(1480px, 98%);
-    gap: clamp(20px, 2.5vw, 28px);
-  }
-}
-
-@media only screen and (max-width: 1100px) {
+@media only screen and (max-width: 768px) {
   .beyond-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 12px;
-    max-width: min(520px, 92%);
+    max-width: min(680px, 92%);
   }
 
   .beyond-card {
-    max-height: clamp(155px, 38vw, 190px);
+    max-height: clamp(190px, 34vw, 240px);
   }
 
   .beyond-card-body h3 {
-    font-size: clamp(12px, 2vw, 14px);
+    font-size: clamp(13px, 2.2vw, 15px);
   }
 
-  .beyond-card-body p {
-    font-size: clamp(10px, 1.8vw, 12px);
+  .beyond-card-body > p:not(.beyond-metric):not(.beyond-leadership) {
+    font-size: clamp(11px, 2vw, 13px);
   }
 }
 
@@ -523,7 +504,7 @@
 
   .beyond-card {
     aspect-ratio: auto;
-    max-height: none;
+    max-height: min(220px, 50vw);
     display: flex;
     flex-direction: column;
     border-radius: 10px;
@@ -554,13 +535,30 @@
     margin-bottom: 0;
   }
 
-  .beyond-card-body p {
+  .beyond-card-body > p:not(.beyond-metric):not(.beyond-leadership) {
     font-size: clamp(10px, 2.6vw, 11px);
     line-height: 1.35;
-    -webkit-line-clamp: 2;
+    -webkit-line-clamp: 1;
     display: -webkit-box;
     -webkit-box-orient: vertical;
     overflow: hidden;
+  }
+
+  .beyond-card--expanded .beyond-card-body > p:not(.beyond-metric):not(.beyond-leadership) {
+    font-size: clamp(10px, 2.6vw, 11px);
+    line-height: 1.35;
+    -webkit-line-clamp: unset;
+    display: block;
+    overflow: visible;
+  }
+
+  .beyond-card--expanded .beyond-card-body {
+    overflow-y: auto;
+    max-height: 42%;
+  }
+
+  .beyond-card--expanded .beyond-card-media {
+    flex: 0 0 52%;
   }
 
   .beyond-link {

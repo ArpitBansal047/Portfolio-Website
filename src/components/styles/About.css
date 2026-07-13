@@ -76,7 +76,7 @@
 
 .about-meta {
   font-size: 14px;
-  color: #9ca3af;
+  color: var(--textMuted);
   margin: 12px 0 0;
   font-weight: 400;
 }

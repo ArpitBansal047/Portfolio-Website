@@ -4,8 +4,10 @@ import {
   MdChevronLeft,
   MdChevronRight,
 } from "react-icons/md";
+import { SiGithub } from "react-icons/si";
 import { WipProject } from "../data/portfolio";
 import ClickableImage from "./ClickableImage";
+import CaseStudyButton from "./CaseStudyButton";
 import { assetUrl } from "../utils/assetUrl";
 
 type WipMobileColumnProps = {
@@ -14,6 +16,7 @@ type WipMobileColumnProps = {
 
 const WipMobileColumn = ({ project }: WipMobileColumnProps) => {
   const [index, setIndex] = useState(0);
+  const [detailOpen, setDetailOpen] = useState(false);
   const shot = project.screenshots[index];
 
   const goPrev = () => setIndex((i) => Math.max(0, i - 1));
@@ -21,7 +24,9 @@ const WipMobileColumn = ({ project }: WipMobileColumnProps) => {
     setIndex((i) => Math.min(project.screenshots.length - 1, i + 1));
 
   return (
-    <article className={`wip-app-panel wip-app-panel--${project.id}`}>
+    <article
+      className={`wip-app-panel wip-app-panel--${project.id}${detailOpen ? " wip-app-panel--detail-open" : ""}`}
+    >
       <h3 className="wip-app-title">{project.name}</h3>
 
       <section className="wip-app-inner">
@@ -48,7 +53,7 @@ const WipMobileColumn = ({ project }: WipMobileColumnProps) => {
                 className="wip-link"
                 data-cursor="disable"
               >
-                GitHub <MdArrowOutward />
+                GitHub <SiGithub aria-hidden="true" />
               </a>
             )}
           </section>
@@ -68,6 +73,14 @@ const WipMobileColumn = ({ project }: WipMobileColumnProps) => {
               <span key={s}>{s}</span>
             ))}
           </section>
+
+          {project.caseStudy && (
+            <CaseStudyButton
+              caseStudy={project.caseStudy}
+              compact
+              onOpenChange={setDetailOpen}
+            />
+          )}
         </section>
 
         <section className="wip-app-ss">

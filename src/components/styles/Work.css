@@ -136,7 +136,7 @@
   font-size: 11px;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: #9ca3af;
+  color: var(--textMuted);
   font-weight: 500;
   flex-shrink: 0;
   box-sizing: border-box;
@@ -262,7 +262,7 @@
   flex-direction: column;
   width: 600px;
   box-sizing: border-box;
-  border-right: 1px solid #363636;
+  border-right: 1px solid var(--borderColor);
   flex-shrink: 0;
   gap: 50px;
   justify-content: start;
@@ -275,7 +275,7 @@
   content: "";
   width: calc(50000vw);
   height: 1px;
-  background-color: #363636;
+  background-color: var(--borderColor);
   position: absolute;
   left: 50%;
   top: 0;
@@ -309,7 +309,7 @@
 }
 .work-info p {
   font-weight: 200;
-  color: #9ca3af;
+  color: var(--textMuted);
   margin: 8px 0 16px;
   line-height: 1.5;
   font-size: 15px;
@@ -346,7 +346,7 @@
 }
 
 .work-subtitle {
-  color: #9ca3af;
+  color: var(--textMuted);
   font-size: 16px;
   font-weight: 300;
   margin: -20px 0 30px;
@@ -363,7 +363,7 @@
 .work-tag {
   font-size: 12px;
   padding: 4px 10px;
-  border: 1px solid #363636;
+  border: 1px solid var(--borderColor);
   border-radius: 999px;
   color: var(--accentColor);
 }
@@ -397,8 +397,8 @@
 }
 
 .work-btn--ghost {
-  border: 1px solid #363636;
-  color: #fff;
+  border: 1px solid var(--borderColor);
+  color: var(--textPrimary);
 }
 
 .work-btn--ghost:hover {
@@ -428,19 +428,26 @@
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background: rgba(0, 0, 0, 0.55);
-  border: 1px solid #363636;
+  background: rgba(0, 0, 0, 0.72);
+  border: 1px solid rgba(255, 255, 255, 0.45);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #fff;
+  color: #ffffff;
   z-index: 2;
   text-decoration: none;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
+}
+
+.work-image-link svg {
+  font-size: 20px;
+  flex-shrink: 0;
 }
 
 .work-image-link:hover {
+  background: var(--accentColor);
   border-color: var(--accentColor);
-  color: var(--accentColor);
+  color: #ffffff;
 }
 
 .work-image .clickable-image img {
@@ -520,22 +527,41 @@
   flex-shrink: 0;
 }
 
+.work-section--amdocs.work-section--flow .work-box {
+  width: min(390px, 65vw);
+  padding: 20px 22px;
+  gap: 14px;
+}
+
+.work-section--amdocs.work-section--flow .work-image {
+  height: clamp(115px, 16vw, 158px);
+  min-height: 115px;
+  max-height: 158px;
+}
+
+.work-section--amdocs.work-section--flow .work-title h3 {
+  font-size: clamp(21px, 3vw, 30px);
+}
+
+.work-section--amdocs.work-section--flow .work-info p {
+  font-size: 12px;
+}
+
 @media screen and (min-width: 1024px) and (max-width: 1599px) {
-  .work-section--flow .work-box {
-    width: min(480px, 88vw);
-    padding: clamp(20px, 2.5vw, 28px);
-    gap: clamp(14px, 2vw, 20px);
+  .work-section--amdocs.work-section--flow .work-box {
+    width: min(346px, 63.6vw);
+    padding: clamp(15px, 1.8vw, 20px);
+    gap: clamp(10px, 1.4vw, 14px);
   }
 
-  .work-section--flow .work-image {
-    height: clamp(150px, 18vw, 200px);
-    min-height: 150px;
-    max-height: 200px;
+  .work-section--amdocs.work-section--flow .work-image {
+    height: clamp(108px, 13vw, 144px);
+    min-height: 108px;
+    max-height: 144px;
   }
 
-  .work-section--flow .work-info p {
-    font-size: 13px;
-    line-height: 1.5;
+  .work-section--amdocs.work-section--flow .work-info p {
+    font-size: 11px;
   }
 
   .work-section--amdocs .work-subtitle {

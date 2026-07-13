@@ -10,10 +10,10 @@ const SkillsRegion = () => {
     <section className="skills-region" id="projects-region">
       <section className="section-content-center section-container skills-region-body">
         <ProjectsHub />
-        <Certificates />
         <Suspense fallback={null}>
           <TechStack />
         </Suspense>
+        <Certificates />
       </section>
     </section>
   );

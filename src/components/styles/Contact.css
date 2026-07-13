@@ -24,17 +24,17 @@
   gap: clamp(20px, 5vw, 48px);
   margin: 0 auto 28px;
   padding-bottom: 24px;
-  border-bottom: 1px solid #363636;
+  border-bottom: 1px solid var(--borderColor);
 }
 
 .contact-social-row__link {
   font-size: clamp(17px, 2.5vw, 24px);
-  color: #fff;
+  color: var(--textPrimary);
   text-decoration: none;
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.35);
+  border-bottom: 1px solid var(--linkUnderline);
   transition: 0.2s;
 }
 
@@ -61,9 +61,9 @@
   max-width: 560px;
   margin: 0 auto 36px;
   padding: clamp(20px, 3vw, 28px);
-  border: 1px solid #363636;
+  border: 1px solid var(--borderColor);
   border-radius: 12px;
-  background: rgba(255, 255, 255, 0.02);
+  background: var(--cardOverlay);
   box-sizing: border-box;
 }
 
@@ -79,7 +79,7 @@
   margin: 0 0 20px;
   font-size: 13px;
   line-height: 1.5;
-  color: #9ca3af;
+  color: var(--textMuted);
   text-align: center;
 }
 
@@ -105,7 +105,7 @@
   font-weight: 600;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: #9ca3af;
+  color: var(--textMuted);
 }
 
 .contact-form-field input,
@@ -114,9 +114,9 @@
   box-sizing: border-box;
   padding: 10px 12px;
   border-radius: 8px;
-  border: 1px solid #363636;
+  border: 1px solid var(--borderColor);
   background: rgba(0, 0, 0, 0.35);
-  color: #fff;
+  color: var(--textPrimary);
   font: inherit;
   font-size: 14px;
   transition: border-color 0.2s;
@@ -124,7 +124,7 @@
 
 .contact-form-field input::placeholder,
 .contact-form-field textarea::placeholder {
-  color: #6b7280;
+  color: var(--textMuted);
 }
 
 .contact-form-field input:focus-visible,
@@ -149,7 +149,7 @@
   border: none;
   border-radius: 8px;
   background: var(--accentColor);
-  color: #0b080c;
+  color: var(--onAccentSolid);
   font: inherit;
   font-size: 14px;
   font-weight: 600;
@@ -209,7 +209,7 @@
   margin: 0;
   font-size: clamp(14px, 2vw, 17px);
   line-height: 1.45;
-  color: #fff;
+  color: var(--textPrimary);
   text-decoration: none;
   word-break: break-word;
 }
@@ -225,7 +225,7 @@
 .contact-footer-row {
   margin-top: 32px;
   padding-top: 28px;
-  border-top: 1px solid #363636;
+  border-top: 1px solid var(--borderColor);
 }
 
 .contact-credit {
@@ -242,7 +242,7 @@
   font-weight: 400;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  color: #6b7280;
+  color: var(--textMuted);
   line-height: 1.3;
 }
 
@@ -262,7 +262,7 @@
 }
 
 .contact-credit-sep {
-  color: #4b5563;
+  color: var(--textMuted);
   font-weight: 300;
   user-select: none;
 }
@@ -270,7 +270,7 @@
 .contact-credit-year {
   font-size: clamp(13px, 1.8vw, 15px);
   font-weight: 400;
-  color: #9ca3af;
+  color: var(--textMuted);
   letter-spacing: 0.02em;
 }
 

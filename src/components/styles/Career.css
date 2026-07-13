@@ -83,7 +83,7 @@
   font-size: 11px;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: #9ca3af;
+  color: var(--textMuted);
   font-weight: 500;
   padding: 0 var(--page-pad, 16px);
 }
@@ -177,7 +177,7 @@
 .career-yhills {
   width: 100%;
   padding: 40px 0 48px;
-  border-top: 1px solid #363636;
+  border-top: 1px solid var(--borderColor);
   position: relative;
   z-index: 1;
   background: var(--backgroundColor);
@@ -211,9 +211,9 @@
   width: min(720px, 100%);
   margin: 0 auto;
   padding: clamp(24px, 4vw, 32px);
-  border: 1px solid #363636;
+  border: 1px solid var(--borderColor);
   border-radius: 16px;
-  background: rgba(255, 255, 255, 0.02);
+  background: var(--cardOverlay);
   text-align: left;
 }
 
@@ -261,13 +261,13 @@
   margin: 0 0 6px;
   font-size: 16px;
   font-weight: 400;
-  color: #fff;
+  color: var(--textPrimary);
 }
 
 .yhills-card__location {
   margin: 0;
   font-size: 13px;
-  color: #9ca3af;
+  color: var(--textMuted);
 }
 
 .yhills-card .yhills-summary {
@@ -400,17 +400,17 @@
 }
 
 .career-amdocs-meta {
-  color: #9ca3af;
+  color: var(--textMuted);
   margin: 0 0 14px;
   font-size: clamp(12px, 2vw, 15px);
 }
 
 .career-amdocs-desc {
-  color: #d1d5db;
+  color: var(--textPrimary);
   line-height: 1.6;
   margin: 0 auto;
   max-width: 640px;
-  font-weight: 300;
+  font-weight: 400;
   font-size: clamp(13px, 2.1vw, 16px);
 }
 
@@ -453,7 +453,7 @@
 
 .career-subtitle {
   text-align: center;
-  color: #9ca3af;
+  color: var(--textMuted);
   margin: 0 auto 36px;
   font-size: clamp(12px, 2vw, 15px);
   max-width: 520px;
@@ -576,9 +576,9 @@
   position: relative;
   margin-bottom: 28px;
   padding: 22px 22px 22px 28px;
-  border: 1px solid #363636;
+  border: 1px solid var(--borderColor);
   border-radius: 16px;
-  background: rgba(255, 255, 255, 0.02);
+  background: var(--cardOverlay);
 }
 
 .career-card::before {
@@ -618,8 +618,10 @@
   letter-spacing: 0.08em;
   padding: 4px 10px;
   border-radius: 999px;
-  border: 1px solid #363636;
-  color: #9ca3af;
+  border: 1px solid var(--borderColor);
+  color: var(--textPrimary);
+  background: var(--surfaceElevated);
+  font-weight: 600;
 }
 
 .career-kind--work {
@@ -636,24 +638,25 @@
 .career-card h5 {
   margin: 6px 0 0;
   font-size: clamp(13px, 1.9vw, 16px);
-  font-weight: 400;
-  color: #d1d5db;
+  font-weight: 500;
+  color: var(--textPrimary);
 }
 
 .career-location {
   display: block;
   margin-top: 8px;
   font-size: clamp(11px, 1.7vw, 13px);
-  color: #9ca3af;
+  color: var(--textPrimary);
+  opacity: 0.85;
 }
 
 .career-bullets {
   margin: 14px 0 0;
   padding-left: 0;
   list-style: none;
-  color: #9ca3af;
+  color: var(--textPrimary);
   line-height: 1.55;
-  font-weight: 300;
+  font-weight: 400;
   font-size: clamp(12px, 1.7vw, 14px);
 }
 
@@ -667,7 +670,7 @@
 .career-highlights {
   margin-top: 18px;
   padding-top: 16px;
-  border-top: 1px dashed #363636;
+  border-top: 1px dashed var(--borderColor);
 }
 
 .career-highlights-title {
@@ -701,7 +704,7 @@
 .career-highlight .clickable-image img {
   width: 100%;
   border-radius: 10px;
-  border: 1px solid #363636;
+  border: 1px solid var(--borderColor);
   aspect-ratio: 16/10;
   object-fit: cover;
   background: #111;
@@ -713,11 +716,11 @@
   flex-direction: column;
   gap: 2px;
   font-size: 12px;
-  color: #9ca3af;
+  color: var(--textMuted);
 }
 
 .career-highlight figcaption strong {
-  color: #fff;
+  color: var(--textPrimary);
   font-size: 13px;
 }
 

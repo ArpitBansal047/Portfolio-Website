@@ -25,7 +25,7 @@
   max-height: calc(92vh - 80px);
   object-fit: contain;
   border-radius: 12px;
-  border: 1px solid #363636;
+  border: 1px solid var(--borderColor);
   box-shadow: 0 24px 80px rgba(0, 0, 0, 0.6);
 }
 
@@ -36,9 +36,9 @@
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  border: 1px solid #363636;
+  border: 1px solid var(--borderColor);
   background: #111;
-  color: #fff;
+  color: var(--textPrimary);
   font-size: 22px;
   cursor: pointer;
   display: flex;
@@ -76,8 +76,8 @@
 
 .lightbox-btn--ghost {
   background: transparent;
-  color: #fff;
-  border: 1px solid #363636;
+  color: var(--textPrimary);
+  border: 1px solid var(--borderColor);
 }
 
 .lightbox-btn--ghost:hover {
@@ -108,7 +108,7 @@
   padding: 4px 10px;
   border-radius: 999px;
   background: rgba(0, 0, 0, 0.65);
-  color: #fff;
+  color: var(--textPrimary);
   opacity: 0;
   transition: opacity 0.2s;
   pointer-events: none;
