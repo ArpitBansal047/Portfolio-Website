@@ -160,9 +160,8 @@ export const portfolioSiteMeta = {
 };
 
 export const aboutParagraphs = [
-  "I'm Arpit Bansal, a Software Developer at Amdocs in Pune. I build billing platforms, dev tools, and GenAI automation for telecom — work that saves teams hours and holds up in production.",
-  "Recent impact: led ComcastHub to unify dev tools (15–20% productivity gains); built a GenAI Python tool that cut manual charge-code setup by ~90%; automated Cipher EOC runs by more than half (~40 min); and improved APEye so regression cycles dropped from five hours to one — used by 10+ developers daily.",
-  "I work with React, Next.js, TypeScript, Python, Jenkins, Oracle, Streamlit, and Gemini in production. Open to full-time roles across India, including remote.",
+  "I'm Arpit Bansal, a Software Developer at Amdocs in Pune. I build billing platforms, internal dev tools, and GenAI automation that other engineers rely on in production — not slide decks or throwaway demos.",
+  "I like owning problems end to end: talking to the people who use the tool, shipping something stable, and iterating from real feedback. Open to full-time roles across India, including remote-friendly teams.",
 ];
 
 export const amdocsMeta = {
