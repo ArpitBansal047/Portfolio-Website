@@ -95,6 +95,7 @@ type TechSelectCtx = {
   selected: string | null;
   select: (label: string) => void;
   sceneActive: boolean;
+  coarsePointer: boolean;
 };
 
 const TechSelectContext = createContext<TechSelectCtx | null>(null);
@@ -109,6 +110,7 @@ function TechSphere({ label, color, Icon, scale, spawn }: SphereProps) {
   const api = useRef<RapierRigidBody | null>(null);
   const isSelected = ctx?.selected === label;
   const sceneActive = ctx?.sceneActive ?? false;
+  const coarsePointer = ctx?.coarsePointer ?? false;
   const driftPhase = useRef(Math.random() * Math.PI * 2);
 
   const material = useMemo(
@@ -173,14 +175,22 @@ function TechSphere({ label, color, Icon, scale, spawn }: SphereProps) {
         material={material}
         onPointerEnter={(e) => {
           e.stopPropagation();
-          if (!isSelected) pushBall(4);
+          if (!isSelected && !coarsePointer) pushBall(4);
         }}
         onPointerOver={(e) => {
           e.stopPropagation();
-          document.body.style.cursor = isSelected ? "pointer" : "grab";
+          if (!coarsePointer) {
+            document.body.style.cursor = isSelected ? "pointer" : "grab";
+          }
         }}
         onPointerOut={() => {
-          document.body.style.cursor = "default";
+          if (!coarsePointer) {
+            document.body.style.cursor = "default";
+          }
+        }}
+        onPointerDown={(e) => {
+          e.stopPropagation();
+          if (!isSelected) pushBall(coarsePointer ? 8 : 5);
         }}
         onClick={(e) => {
           e.stopPropagation();
@@ -197,7 +207,7 @@ function TechSphere({ label, color, Icon, scale, spawn }: SphereProps) {
   );
 }
 
-function Pointer() {
+function Pointer({ radius }: { radius: number }) {
   const ctx = useContext(TechSelectContext);
   const ref = useRef<RapierRigidBody>(null);
   const vec = useMemo(() => new THREE.Vector3(), []);
@@ -214,8 +224,20 @@ function Pointer() {
 
   return (
     <RigidBody position={[0, 0, 0]} type="kinematicPosition" colliders={false} ref={ref}>
-      <BallCollider args={[1.5]} />
+      <BallCollider args={[radius]} />
     </RigidBody>
+  );
+}
+
+function TouchDragSurface() {
+  const ctx = useContext(TechSelectContext);
+  if (!ctx?.sceneActive || !ctx.coarsePointer) return null;
+
+  return (
+    <mesh position={[0, 0, -4]}>
+      <planeGeometry args={[28, 22]} />
+      <meshBasicMaterial transparent opacity={0} depthWrite={false} />
+    </mesh>
   );
 }
 
@@ -239,9 +261,11 @@ function PhysicsBounds() {
 function TechPhysicsScene({
   balls,
   sceneActive,
+  coarsePointer,
 }: {
   balls: (TechEntry & { scale: number; spawn: [number, number, number] })[];
   sceneActive: boolean;
+  coarsePointer: boolean;
 }) {
   const [selected, setSelected] = useState<string | null>(null);
 
@@ -250,15 +274,18 @@ function TechPhysicsScene({
   }, []);
 
   const ctx = useMemo<TechSelectCtx>(
-    () => ({ selected, select, sceneActive }),
-    [selected, select, sceneActive]
+    () => ({ selected, select, sceneActive, coarsePointer }),
+    [selected, select, sceneActive, coarsePointer]
   );
+
+  const pointerRadius = coarsePointer ? 2.8 : 1.5;
 
   return (
     <TechSelectContext.Provider value={ctx}>
       <Physics gravity={[0, -0.18, 0]} paused={!sceneActive}>
         <PhysicsBounds />
-        {sceneActive && <Pointer />}
+        <TouchDragSurface />
+        {sceneActive && <Pointer radius={pointerRadius} />}
         {balls.map((ball) => (
           <TechSphere key={ball.label} {...ball} />
         ))}
@@ -285,6 +312,7 @@ function packSpawnPositions(count: number): [number, number, number][] {
 const TechStack = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const [sceneActive, setSceneActive] = useState(false);
+  const [coarsePointer, setCoarsePointer] = useState(false);
   const { theme } = useTheme();
 
   const balls = useMemo(() => {
@@ -294,6 +322,14 @@ const TechStack = () => {
       scale: 0.72 + (i % 3) * 0.1,
       spawn: spawns[i],
     }));
+  }, []);
+
+  useEffect(() => {
+    const mq = window.matchMedia("(hover: none), (pointer: coarse)");
+    const update = () => setCoarsePointer(mq.matches);
+    update();
+    mq.addEventListener("change", update);
+    return () => mq.removeEventListener("change", update);
   }, []);
 
   useEffect(() => {
@@ -313,22 +349,28 @@ const TechStack = () => {
       <div className="techstack-title-wrap nav-scroll-target" id="techstack">
         <SectionTitle lead="T" accent="ECH STACK" />
         <p className="techstack-hint">
-          Scroll here to wake the balls · hover to push · click to pin one
+          <span className="techstack-hint__desktop">
+            Scroll here to wake the balls · hover to push · click to pin one
+          </span>
+          <span className="techstack-hint__touch">
+            Scroll here to wake the balls · touch and drag to push · tap to pin one
+          </span>
         </p>
       </div>
 
-      <div className="techstack-canvas-wrap">
+      <div className={`techstack-canvas-wrap${coarsePointer ? " techstack-canvas-wrap--touch" : ""}`}>
         <Canvas
           shadows
           gl={{ alpha: true, antialias: true }}
           camera={{ position: [0, 0, 16], fov: 50, near: 0.5, far: 80 }}
           onCreated={(state) => (state.gl.toneMappingExposure = 1.5)}
           className="tech-canvas"
+          style={coarsePointer ? { touchAction: "none" } : undefined}
         >
           <ambientLight intensity={1.3} />
           <spotLight position={[20, 20, 25]} penumbra={1} angle={0.2} color="white" castShadow />
           <directionalLight position={[0, 5, -4]} intensity={2} />
-          <TechPhysicsScene balls={balls} sceneActive={sceneActive} />
+          <TechPhysicsScene balls={balls} sceneActive={sceneActive} coarsePointer={coarsePointer} />
           <Environment preset={theme === "light" ? "warehouse" : "city"} />
         </Canvas>
       </div>

@@ -193,6 +193,24 @@ body {
   font-weight: 300;
 }
 
+.techstack-hint__touch {
+  display: none;
+}
+
+@media (hover: none), (pointer: coarse) {
+  .techstack-hint__desktop {
+    display: none;
+  }
+
+  .techstack-hint__touch {
+    display: inline;
+  }
+
+  .techstack-canvas-wrap--touch {
+    touch-action: none;
+  }
+}
+
 .tech-ball-label--pinned {
   border-color: var(--accentColor);
   box-shadow: 0 0 20px rgba(194, 164, 255, 0.45);
