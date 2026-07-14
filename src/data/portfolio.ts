@@ -523,7 +523,7 @@ export const certificates: Certificate[] = [
     themeColor: "#a855f7",
   },
   {
-    title: "Spanish Vocabulary: Meeting People",
+    title: "Spanish: Meeting people",
     issuer: "UC Davis · Coursera",
     file: "/certificates/Coursera - Spanish (Meeting People).pdf",
     type: "pdf",
