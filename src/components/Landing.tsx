@@ -15,7 +15,7 @@ const Landing = () => {
             <span className="landing-name__line">BANSAL.</span>
           </h1>
           <p className="landing-tagline">
-            Amdocs Software Developer | Full-Stack &amp; Gen AI
+            Amdocs Software Developer | Full-Stack &amp; GenAI
           </p>
 
           <section className="landing-actions">

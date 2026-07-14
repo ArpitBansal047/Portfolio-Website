@@ -5,8 +5,12 @@ function measureHorizontalOverflow(el: HTMLElement) {
     (node): node is HTMLElement => node instanceof HTMLElement,
   );
 
-  if (children.length <= 1) {
+  if (children.length === 0) {
     return false;
+  }
+
+  if (children.length === 1) {
+    return children[0].scrollWidth > el.clientWidth + 12;
   }
 
   const style = getComputedStyle(el);
@@ -50,6 +54,11 @@ export function useHorizontalOverflow(
     Array.from(el.children).forEach((child) => {
       if (child instanceof HTMLElement) {
         resizeObserver.observe(child);
+        Array.from(child.children).forEach((grandchild) => {
+          if (grandchild instanceof HTMLElement) {
+            resizeObserver.observe(grandchild);
+          }
+        });
       }
     });
 

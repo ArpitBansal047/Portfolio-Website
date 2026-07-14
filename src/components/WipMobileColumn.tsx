@@ -7,7 +7,7 @@ import {
 import { SiGithub } from "react-icons/si";
 import { WipProject } from "../data/portfolio";
 import ClickableImage from "./ClickableImage";
-import CaseStudyButton from "./CaseStudyButton";
+import ExpandableWorkDetail from "./ExpandableWorkDetail";
 import { assetUrl } from "../utils/assetUrl";
 
 type WipMobileColumnProps = {
@@ -58,29 +58,21 @@ const WipMobileColumn = ({ project }: WipMobileColumnProps) => {
             )}
           </section>
 
-          <p className="wip-desc">{project.description}</p>
-
-          {project.bullets && project.bullets.length > 0 && (
-            <ul className="wip-bullets">
-              {project.bullets.map((bullet) => (
-                <li key={bullet.slice(0, 48)}>{bullet}</li>
-              ))}
-            </ul>
-          )}
-
-          <section className="wip-tags">
-            {project.stack.map((s) => (
-              <span key={s}>{s}</span>
-            ))}
-          </section>
-
-          {project.caseStudy && (
-            <CaseStudyButton
-              caseStudy={project.caseStudy}
-              compact
-              onOpenChange={setDetailOpen}
-            />
-          )}
+          <ExpandableWorkDetail
+            problem={project.description}
+            problemBrief={project.descriptionBrief}
+            impact={project.impact}
+            impactBrief={project.impactBrief}
+            stack={project.stack}
+            bullets={project.bullets}
+            caseStudy={project.caseStudy}
+            compact
+            briefStackCount={6}
+            initialBulletCount={2}
+            problemLabel="Overview"
+            impactLabel="What I built"
+            onOpenChange={setDetailOpen}
+          />
         </section>
 
         <section className="wip-app-ss">

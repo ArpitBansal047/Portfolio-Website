@@ -8,6 +8,7 @@ import { Project } from "../data/portfolio";
 import { MdArrowOutward } from "react-icons/md";
 import { SiGithub } from "react-icons/si";
 import CaseStudyButton from "./CaseStudyButton";
+import ExpandableWorkDetail from "./ExpandableWorkDetail";
 import { useHorizontalOverflow } from "./utils/useHorizontalOverflow";
 
 gsap.registerPlugin(useGSAP);
@@ -148,19 +149,33 @@ const ProjectShowcase = ({
                       <p>{project.category}</p>
                     </section>
                   </section>
-                  <h4>The problem</h4>
-                  <p>{project.problem}</p>
-                  <h4>The impact</h4>
-                  <p>{project.impact}</p>
-                  <h4>Tech stack</h4>
-                  <section className="work-tags">
-                    {project.stack.map((tag) => (
-                      <span key={tag} className="work-tag">
-                        {tag}
-                      </span>
-                    ))}
-                  </section>
-                  {project.caseStudy && <CaseStudyButton caseStudy={project.caseStudy} />}
+                  {variant === "amdocs" ? (
+                    <ExpandableWorkDetail
+                      problem={project.problem}
+                      problemBrief={project.problemBrief}
+                      impact={project.impact}
+                      impactBrief={project.impactBrief}
+                      stack={project.stack}
+                      caseStudy={project.caseStudy}
+                      briefStackCount={4}
+                    />
+                  ) : (
+                    <>
+                      <h4>The problem</h4>
+                      <p>{project.problem}</p>
+                      <h4>The impact</h4>
+                      <p>{project.impact}</p>
+                      <h4>Tech stack</h4>
+                      <section className="work-tags">
+                        {project.stack.map((tag) => (
+                          <span key={tag} className="work-tag">
+                            {tag}
+                          </span>
+                        ))}
+                      </section>
+                      {project.caseStudy && <CaseStudyButton caseStudy={project.caseStudy} />}
+                    </>
+                  )}
                   <section className="work-actions">
                     {project.liveUrl && (
                       <a

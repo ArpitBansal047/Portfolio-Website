@@ -114,3 +114,63 @@
 .case-study-inline__body .case-study-outcomes {
   margin-top: 4px;
 }
+
+.expandable-work-detail h4 {
+  margin: 12px 0 4px;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accentColor, #c2a4ff);
+}
+
+.expandable-work-detail h4:first-child {
+  margin-top: 0;
+}
+
+.expandable-work-detail p {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--textMuted, #9ca3af);
+}
+
+.work-tag--more {
+  opacity: 0.72;
+  border-style: dashed;
+}
+
+.expandable-work-detail--compact h4 {
+  font-size: 10px;
+}
+
+.expandable-work-detail--compact p {
+  font-size: clamp(12px, 1.3vw, 14px);
+}
+
+.expandable-work-detail__bullets {
+  margin: 8px 0 0;
+  padding-left: 1.1rem;
+  color: var(--textMuted);
+  font-size: clamp(11px, 1.2vw, 13px);
+  line-height: 1.45;
+}
+
+.expandable-work-detail__bullets li {
+  margin-bottom: 0.3rem;
+}
+
+.wip-app-text .expandable-work-detail--compact .work-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-top: 4px;
+}
+
+.wip-app-text .expandable-work-detail--compact .work-tag {
+  font-size: clamp(9px, 1vw, 10px);
+  padding: 3px 7px;
+  border: 1px solid var(--borderColor);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--textPrimary);
+}

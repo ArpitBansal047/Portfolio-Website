@@ -284,7 +284,7 @@
   position: relative;
   width: 10px;
   height: 60px;
-  background-color: #000;
+  background-color: var(--textPrimary);
   display: block;
 }
 .loaderGame-line:nth-child(2n) {

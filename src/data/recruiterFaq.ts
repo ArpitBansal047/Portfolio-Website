@@ -94,7 +94,7 @@ export const recruiterFaq: FaqItem[] = [
     question: "What's your strongest project?",
     keywords: ["best", "flagship", "comcast", "you", "highlight", "proud"],
     answer:
-      "At work, ComcastHub is my strongest delivery: I led the internal developer hub on Next.js 14 and AWS, aimed at a 15–20% productivity gain for account developers.\n\nOutside work, YOU is my flagship — a clinical wellness app with Firebase realtime sync, JWT-secured sessions, and Gemini-powered journaling. Both show full-stack ownership end to end.",
+      "At work, ComcastHub is my strongest delivery: I led the internal developer hub on Next.js 14 and AWS, aimed at a 15–20% productivity gain for account developers.\n\nYOU is my flagship side build — a clinical wellness app with Firebase realtime sync, JWT-secured sessions, and Gemini-powered journaling. Both show full-stack ownership end to end.",
   },
   {
     id: "open-roles",
@@ -126,7 +126,7 @@ export const recruiterFaq: FaqItem[] = [
     question: "What impact have you delivered at Amdocs?",
     keywords: ["impact", "results", "metrics", "achievements", "delivered", "wins"],
     answer:
-      "A few numbers that matter to teams I work with:\n\n• Cipher EOC automation cut daily runs from ~90 to ~40 minutes (about 85% automated).\n• BPT Charge Code Tool reduced manual SQL work by ~90% using GenAI.\n• APEye shortened regression cycles from 5 hours to 1 hour — used daily by 10+ developers.\n• ComcastHub targets a 15–20% productivity lift by unifying scattered dev tools.",
+      "A few numbers that matter to teams I work with:\n\n• Cipher EOC automation covers 75% of daily workflows — runtime reduced to ~40 minutes.\n• BPT Charge Code Tool reduced manual SQL work by ~90% using GenAI.\n• APEye shortened regression cycles from 5 hours to 1 hour — used daily by 10+ developers.\n• ComcastHub targets a 15–20% productivity lift by unifying scattered dev tools.",
   },
   {
     id: "genai-production",

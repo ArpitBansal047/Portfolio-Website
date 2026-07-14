@@ -3,7 +3,7 @@ import { SiGithub, SiWhatsapp } from "react-icons/si";
 import type { IconType } from "react-icons";
 import SectionTitle from "./SectionTitle";
 import ContactForm from "./ContactForm";
-import { site } from "../data/portfolio";
+import { portfolioSiteMeta, site } from "../data/portfolio";
 import "./styles/Contact.css";
 import "./styles/SectionTitle.css";
 
@@ -22,7 +22,7 @@ const socialLinks: SocialLink[] = [
 
 const Contact = () => {
   return (
-    <section className="contact-section section-container" id="contact">
+    <section className="contact-section section-container">
       <section className="contact-container">
         <SectionTitle id="contact" lead="C" accent="ONTACT" className="nav-scroll-target" />
 
@@ -76,6 +76,14 @@ const Contact = () => {
               <span className="contact-credit-year">© 2026</span>
             </span>
           </p>
+          <section className="contact-built-with" aria-label="This site was built with">
+            <span className="contact-built-with__label">Built with</span>
+            <ul className="contact-built-with__chips">
+              {portfolioSiteMeta.builtWith.map((tech) => (
+                <li key={tech}>{tech}</li>
+              ))}
+            </ul>
+          </section>
         </footer>
       </section>
     </section>

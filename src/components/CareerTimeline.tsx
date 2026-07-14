@@ -57,14 +57,24 @@ const CareerTimeline = () => {
     };
 
     const onWheel = (event: WheelEvent) => {
+      const canScrollLeft = el.scrollLeft > 0;
+      const canScrollRight = el.scrollLeft + el.clientWidth < el.scrollWidth - 1;
+
       if (Math.abs(event.deltaX) > Math.abs(event.deltaY)) {
+        event.stopPropagation();
+        return;
+      }
+
+      if (event.deltaY !== 0 && (canScrollLeft || canScrollRight)) {
+        el.scrollLeft += event.deltaY;
+        event.preventDefault();
         event.stopPropagation();
       }
     };
 
     resetScroll();
     window.addEventListener("resize", resetScroll);
-    el.addEventListener("wheel", onWheel, { passive: true });
+    el.addEventListener("wheel", onWheel, { passive: false });
 
     return () => {
       window.removeEventListener("resize", resetScroll);
@@ -84,38 +94,38 @@ const CareerTimeline = () => {
             ref={scrollRef}
             className="career-scroll career-scroll--horizontal education-scroll"
           >
-            <section className="career-timeline-line" aria-hidden="true" />
+            <section className="education-scroll-track">
+              {educationExperiences.map((exp) => (
+                <section className="education-tile-column" key={`${exp.company}-${exp.period}`}>
+                  <article className={`career-card career-card--${exp.kind}`}>
+                    <section className="career-card-head">
+                      <span className="career-period">{exp.period}</span>
+                      <span className={`career-kind career-kind--${exp.kind}`}>
+                        {exp.kind === "work" ? "Work" : "Education"}
+                      </span>
+                    </section>
 
-            {educationExperiences.map((exp) => (
-              <article
-                className={`career-card career-card--${exp.kind}`}
-                key={`${exp.company}-${exp.period}`}
-              >
-                <section className="career-card-head">
-                  <span className="career-period">{exp.period}</span>
-                  <span className={`career-kind career-kind--${exp.kind}`}>
-                    {exp.kind === "work" ? "Work" : "Education"}
-                  </span>
+                    <section className="career-card-title-row">
+                      <h4>{exp.role}</h4>
+                    </section>
+                    <h5>{exp.company}</h5>
+                    <span className="career-location">
+                      {formatEducationLocation(exp.location)}
+                    </span>
+
+                    <ul className="career-bullets">
+                      {exp.bullets.map((bullet) => (
+                        <li key={bullet.slice(0, 48)}>
+                          <EducationBulletIcon badge={exp.badge} />
+                          <span className="career-bullet-text">{bullet}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </article>
+                  <span className="education-tile-dot" aria-hidden="true" />
                 </section>
-
-                <section className="career-card-title-row">
-                  <h4>{exp.role}</h4>
-                </section>
-                <h5>{exp.company}</h5>
-                <span className="career-location">
-                  {formatEducationLocation(exp.location)}
-                </span>
-
-                <ul className="career-bullets">
-                  {exp.bullets.map((bullet) => (
-                    <li key={bullet.slice(0, 48)}>
-                      <EducationBulletIcon badge={exp.badge} />
-                      <span className="career-bullet-text">{bullet}</span>
-                    </li>
-                  ))}
-                </ul>
-              </article>
-            ))}
+              ))}
+            </section>
           </section>
         </section>
         <p

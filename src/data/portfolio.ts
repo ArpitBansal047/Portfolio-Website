@@ -18,7 +18,9 @@ export type Project = {
   category: string;
   glance?: string;
   problem: string;
+  problemBrief?: string;
   impact: string;
+  impactBrief?: string;
   stack: string[];
   image: string;
   previewUrl?: string;
@@ -33,6 +35,9 @@ export type WipProject = {
   name: string;
   tagline: string;
   description: string;
+  descriptionBrief?: string;
+  impact?: string;
+  impactBrief?: string;
   stack: string[];
   bullets?: string[];
   githubUrl?: string;
@@ -149,6 +154,7 @@ export const site = {
 
 export const portfolioSiteMeta = {
   stack: ["React 18", "TypeScript", "Vite", "GSAP", "Three.js", "React Three Fiber"],
+  builtWith: ["React 18", "TS", "Vite", "GSAP", "R3F"],
   description:
     "This portfolio is a React 18 + TypeScript SPA with Vite, GSAP scroll animations, and React Three Fiber physics for the interactive tech stack.",
 };
@@ -178,8 +184,12 @@ export const amdocsProjects: Project[] = [
     category: "Internal Platform · Next.js",
     problem:
       "Account developers used scattered internal tools with no unified hub — costing each developer 2–3 hours every week.",
+    problemBrief:
+      "Account developers lost 2–3 hrs/week juggling scattered internal tools with no unified hub.",
     impact:
       "Helped lead design and development of the official account website (Next.js 14, React 18, TypeScript, Tailwind, Framer Motion), unifying dev tools and targeting a 15–20% productivity boost.",
+    impactBrief:
+      "Led ComcastHub (Next.js 14, TypeScript) unifying dev tools — targeting 15–20% productivity boost.",
     stack: ["Next.js 14", "React 18", "TypeScript", "Tailwind", "Framer Motion"],
     image: "/images/amdocs/comcasthub.png",
     caseStudy: {
@@ -205,8 +215,12 @@ export const amdocsProjects: Project[] = [
     category: "GenAI · Python Automation",
     problem:
       "Teams manually converted Excel charge-code inputs into SQL files — slow, repetitive, and prone to human error.",
+    problemBrief:
+      "Teams manually converted Excel charge-code inputs into SQL — slow, repetitive, and error-prone.",
     impact:
       "Developed a GenAI-powered Python script that ingests Excel and auto-generates SQL for related tables — 90% less manual effort, 75% faster setup, and eliminated copy-paste errors.",
+    impactBrief:
+      "Built GenAI Python automation for Excel → SQL — 90% less manual work, 75% faster setup.",
     stack: ["Python", "GenAI", "SQL", "Excel"],
     image: "/images/amdocs/bpt-charge.jfif",
     caseStudy: {
@@ -231,8 +245,12 @@ export const amdocsProjects: Project[] = [
     category: "Billing Automation · Streamlit",
     problem:
       "Daily End-of-Cycle billing workflows took ~90 minutes of manual steps across Oracle, SSH, and browser tasks.",
+    problemBrief:
+      "Daily End-of-Cycle billing workflows took ~90 minutes of manual Oracle, SSH, and browser steps.",
     impact:
-      "Collaborated on a Python/Streamlit tool automating 90% of EOC workflows — cut daily runs from 90min to 40min (50% faster) using Oracle/oracledb, Paramiko, Selenium, pandas.",
+      "Collaborated on a Python/Streamlit tool that automates 75% of EOC workflows — daily runs now finish in ~40 minutes (Oracle/oracledb, Paramiko, Selenium, pandas).",
+    impactBrief:
+      "Python/Streamlit tool automates 75% of EOC workflows — daily runtime reduced to ~40 minutes.",
     stack: ["Python", "Streamlit", "Oracle", "Selenium", "pandas"],
     image: "/images/amdocs/cipher-eoc.png",
     caseStudy: {
@@ -247,7 +265,7 @@ export const amdocsProjects: Project[] = [
         { tech: "Streamlit", why: "Fast internal UI for ops teams", alternative: "React" },
         { tech: "Selenium", why: "Legacy browser-only billing screens", alternative: "API-only" },
       ],
-      outcomes: ["85% workflow automation", "90 to 40 min daily runs", "50% faster execution"],
+      outcomes: ["75% workflow automation", "Daily runs under 40 minutes", "Over half the time saved"],
     },
   },
   {
@@ -257,13 +275,17 @@ export const amdocsProjects: Project[] = [
     category: "DevOps · Jenkins Orchestration",
     problem:
       "Regression validation required manual Jenkins job runs — test cycles stretched to 5 hours per developer.",
+    problemBrief:
+      "Manual Jenkins regression runs stretched validation cycles to half a workday.",
     impact:
-      "Improved 1-click job orchestration with Jenkins integration and a new RunJobs extension for Invoicing jobs — test cycles dropped from 5hrs to 1hr (80% faster); used by 10+ developers daily.",
+      "Built 1-click orchestration via Jenkins API and a RunJobs extension for Invoicing chains — cycles now finish in about an hour; 10+ developers use it daily.",
+    impactBrief:
+      "1-click Jenkins orchestration with RunJobs extension — validation cycles now finish in about an hour.",
     stack: ["Jenkins", "Python", "CI/CD", "RunJobs"],
     image: "/images/amdocs/apeye.png",
     caseStudy: {
       problemDetail:
-        "Developers manually triggered Jenkins regression jobs — 5-hour test cycles blocking releases.",
+        "Developers triggered regression jobs by hand — multi-hour cycles blocking releases.",
       approach: [
         "Built one-click orchestration over Jenkins REST API.",
         "Added RunJobs extension for Invoicing-specific job chains.",
@@ -273,7 +295,7 @@ export const amdocsProjects: Project[] = [
         { tech: "Jenkins", why: "Enterprise CI standard at Amdocs", alternative: "GitHub Actions" },
         { tech: "Python", why: "Quick Jenkins API integration", alternative: "Java EJB" },
       ],
-      outcomes: ["5h to 1h test cycles", "80% faster turnaround", "10+ daily active users"],
+      outcomes: ["Half-day cycles cut to one hour", "80% faster turnaround", "10+ daily active users"],
     },
   },
 ];
@@ -369,9 +391,15 @@ export const wipProjects: WipProject[] = [
   {
     id: "you",
     name: "YOU",
-    tagline: "AI-driven clinical wellness app · GenAI + Firebase · Mar 2026 — Present",
+    tagline: "AI clinical wellness · GenAI + Firebase · Mar 2026 — Present",
     description:
       "Most people who need mental-health support never reach a therapist — cost, stigma, and no one to talk to at 2 AM. YOU combines GenAI journaling, peer communities, emergency support, and therapist booking in one secure app.",
+    descriptionBrief:
+      "Most people who need mental-health support never reach a therapist — cost, stigma, and no one to talk to at 2 AM.",
+    impact:
+      "One app covering journaling, peer communities, emergency support, and therapist booking — architected for 10K+ accounts with secure PII isolation.",
+    impactBrief:
+      "Single secure app for crisis support, community, and therapist booking — built to scale past 10K accounts.",
     bullets: [
       "React 18/TypeScript + Firebase — realtime clinical notes and chats with Firestore security rules for secure PII.",
       "Gemini 1.5 Pro for 24/7 grounding exercises and journal analysis; Stitch + Framer Motion for UI.",
@@ -436,7 +464,7 @@ export const skillCategories = [
     title: "Core CS & AI",
     skills: [
       "DSA",
-      "OOPs",
+      "OOP",
       "DBMS",
       "SDLC",
       "GenAI / Gemini",

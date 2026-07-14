@@ -270,6 +270,12 @@ body.scroll-locked #smooth-wrapper {
   pointer-events: none;
 }
 
+body.scroll-locked .recruiter-chat-overlay,
+body.scroll-locked .recruiter-chat-fab,
+body.scroll-locked .sticky-recruiter-cta {
+  pointer-events: auto;
+}
+
 [data-theme="light"] .section-lead,
 [data-theme="light"] .project-carousel-subtitle,
 [data-theme="light"] .career-amdocs-desc,

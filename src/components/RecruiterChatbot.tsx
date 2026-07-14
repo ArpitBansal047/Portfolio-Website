@@ -1,7 +1,8 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { LuMessageCircle } from "react-icons/lu";
 import { MdClose } from "react-icons/md";
-import { FAQ_STARTER_IDS, matchFaqQuery, recruiterFaq, type FaqCategory } from "../data/recruiterFaq";
+import { matchFaqQuery, recruiterFaq, type FaqCategory } from "../data/recruiterFaq";
+import { smoother } from "./utils/scrollSmoother";
 import "./styles/RecruiterChatbot.css";
 
 const CATEGORIES: FaqCategory[] = ["Experience", "Projects", "Skills", "Education", "Availability"];
@@ -16,17 +17,33 @@ const RecruiterChatbot = ({ open, onClose }: RecruiterChatbotProps) => {
   const [activeCategory, setActiveCategory] = useState<FaqCategory | "All">("All");
   const [activeAnswer, setActiveAnswer] = useState<{ q: string; a: string } | null>(null);
 
-  const starters = useMemo(
-    () => recruiterFaq.filter((f) => FAQ_STARTER_IDS.includes(f.id)),
-    []
-  );
-
   const filtered = useMemo(() => {
     return recruiterFaq.filter((item) => {
       const catOk = activeCategory === "All" || item.category === activeCategory;
       return catOk && matchFaqQuery(item, query);
     });
   }, [query, activeCategory]);
+
+  useEffect(() => {
+    if (!open) return;
+
+    smoother?.paused(true);
+    document.body.classList.add("scroll-locked");
+
+    return () => {
+      smoother?.paused(false);
+      document.body.classList.remove("scroll-locked");
+    };
+  }, [open]);
+
+  const stopScrollPropagation = (event: React.WheelEvent<HTMLElement>) => {
+    event.stopPropagation();
+  };
+
+  const selectCategory = (category: FaqCategory | "All") => {
+    setActiveCategory(category);
+    setActiveAnswer(null);
+  };
 
   if (!open) return null;
 
@@ -60,7 +77,7 @@ const RecruiterChatbot = ({ open, onClose }: RecruiterChatbotProps) => {
           <button
             type="button"
             className={activeCategory === "All" ? "is-active" : ""}
-            onClick={() => setActiveCategory("All")}
+            onClick={() => selectCategory("All")}
           >
             All
           </button>
@@ -69,55 +86,45 @@ const RecruiterChatbot = ({ open, onClose }: RecruiterChatbotProps) => {
               key={cat}
               type="button"
               className={activeCategory === cat ? "is-active" : ""}
-              onClick={() => setActiveCategory(cat)}
+              onClick={() => selectCategory(cat)}
             >
               {cat}
             </button>
           ))}
         </div>
 
-        {!activeAnswer && !query && (
-          <section className="recruiter-chat-starters">
-            <p className="recruiter-chat-starters__label">Popular questions</p>
-            {starters.map((item) => (
-              <button
-                key={item.id}
-                type="button"
-                className="recruiter-chat-starter"
-                onClick={() => setActiveAnswer({ q: item.question, a: item.answer })}
-              >
-                {item.question}
+        <section
+          className="recruiter-chat-body"
+          onWheel={stopScrollPropagation}
+          onTouchMove={(e) => e.stopPropagation()}
+        >
+          {activeAnswer ? (
+            <section className="recruiter-chat-answer">
+              <button type="button" className="recruiter-chat-back" onClick={() => setActiveAnswer(null)}>
+                ← Back to questions
               </button>
-            ))}
-          </section>
-        )}
-
-        {activeAnswer ? (
-          <section className="recruiter-chat-answer">
-            <button type="button" className="recruiter-chat-back" onClick={() => setActiveAnswer(null)}>
-              ← Back to questions
-            </button>
-            <h3>{activeAnswer.q}</h3>
-            <div className="recruiter-chat-answer__body">
-              {activeAnswer.a.split("\n\n").map((paragraph) => (
-                <p key={paragraph.slice(0, 40)}>{paragraph}</p>
+              <h3>{activeAnswer.q}</h3>
+              <div className="recruiter-chat-answer__body">
+                {activeAnswer.a.split("\n\n").map((paragraph) => (
+                  <p key={paragraph.slice(0, 40)}>{paragraph}</p>
+                ))}
+              </div>
+            </section>
+          ) : (
+            <ul className="recruiter-chat-list">
+              {filtered.map((item) => (
+                <li key={item.id}>
+                  <button
+                    type="button"
+                    onClick={() => setActiveAnswer({ q: item.question, a: item.answer })}
+                  >
+                    {item.question}
+                  </button>
+                </li>
               ))}
-            </div>
-          </section>
-        ) : (
-          <ul className="recruiter-chat-list">
-            {filtered.map((item) => (
-              <li key={item.id}>
-                <button
-                  type="button"
-                  onClick={() => setActiveAnswer({ q: item.question, a: item.answer })}
-                >
-                  {item.question}
-                </button>
-              </li>
-            ))}
-          </ul>
-        )}
+            </ul>
+          )}
+        </section>
       </aside>
     </div>
   );

@@ -15,7 +15,7 @@ const WipProjects = () => {
         className="section-title--sub nav-scroll-target"
       />
       <p className="section-lead projects-subsection-lead wip-subtitle">
-        Flagship side project — clinical wellness with GenAI, Firebase realtime sync, and JWT-secured sessions.
+        Clinical wellness with GenAI, Firebase realtime sync, and JWT-secured sessions.
       </p>
       <section className={`wip-apps-grid${wipProjects.length === 1 ? " wip-apps-grid--single" : ""}`}>
         {wipProjects.map((project) => (
