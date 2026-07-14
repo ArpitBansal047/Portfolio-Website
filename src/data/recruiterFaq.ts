@@ -48,6 +48,37 @@ export const matchFaqQuery = (item: FaqItem, rawQuery: string): boolean => {
   return matched.length >= Math.min(2, tokens.length);
 };
 
+export const findBestFaqMatch = (rawQuery: string): FaqItem | null => {
+  const q = rawQuery.trim();
+  if (!q) return null;
+
+  const matches = recruiterFaq.filter((item) => matchFaqQuery(item, q));
+  if (matches.length === 0) return null;
+
+  const tokens = tokenize(q);
+  if (tokens.length === 0) return matches[0];
+
+  return matches
+    .map((item) => {
+      const haystack = [
+        item.question,
+        item.answer,
+        ...(item.keywords ?? []),
+      ]
+        .join(" ")
+        .toLowerCase();
+
+      const score = tokens.reduce((sum, token) => {
+        if (haystack.includes(token)) return sum + 2;
+        if (item.keywords?.some((kw) => kw.includes(token))) return sum + 3;
+        return sum;
+      }, 0);
+
+      return { item, score };
+    })
+    .sort((a, b) => b.score - a.score)[0].item;
+};
+
 export const recruiterFaq: FaqItem[] = [
   {
     id: "amdocs-exp",

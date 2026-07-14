@@ -107,27 +107,23 @@ export type HeroMetric = {
 export const heroMetrics: HeroMetric[] = [
   {
     value: "90%",
-    title: "Manual work cut",
-    detail:
-      "GenAI charge-code tool turns Excel into SQL — teams skip hours of copy-paste every week.",
+    title: "Manual Work Cut",
+    detail: "BPT GenAI tool",
   },
   {
     value: "5h → 1h",
-    title: "Faster test cycles",
-    detail:
-      "APEye runs Jenkins regression in one click — each developer saves ~4 hours per validation run.",
+    title: "Faster Test Cycles",
+    detail: "Jenkins orchestration",
   },
   {
     value: "15–20%",
-    title: "Productivity target",
-    detail:
-      "ComcastHub unifies scattered dev tools into one hub — less tab-hopping, more shipping.",
+    title: "Productivity Target",
+    detail: "ComcastHub unified dev hub",
   },
   {
     value: "10+",
-    title: "Devs use it daily",
-    detail:
-      "Account developers trigger APEye invoicing jobs every day — it is part of their routine.",
+    title: "Devs Use It Daily",
+    detail: "APEye regression tool",
   },
 ];
 
@@ -158,10 +154,10 @@ export const portfolioSiteMeta = {
 };
 
 export const aboutParagraphs = [
-  "I'm Arpit Bansal, a Software Developer at Amdocs in Pune. I build internal platforms and GenAI automation for telecom billing — tools that save teams hours every week and hold up in production.",
-  "Recent work: unified developer tools with ComcastHub, cut manual charge-code work by ~90% with a GenAI Python tool, automated most daily Cipher EOC runs (90 to 40 minutes), and shortened APEye regression cycles from five hours to one — used daily by 10+ developers.",
-  "In production I work with React, Next.js, TypeScript, Python, Jenkins, Oracle, and Gemini-based workflows. Side project YOU explores clinical wellness with Firebase realtime sync, Stitch UI prototyping, and secure JWT sessions.",
-  "Outside work I organize Comcast Sports League (CSL) 2026 — including a live player auction app I designed — plan company team outings, and compete in office sports tournaments. I also led campus outreach at YHills. Open to full-time roles across India, including remote-friendly teams.",
+  "I'm Arpit Bansal, a Software Developer at Amdocs in Pune. I build billing platforms, internal developer tools, and GenAI automation for telecom — shipping work that saves teams hours every week and holds up in production.",
+  "Recent impact: led ComcastHub (Next.js 14, TypeScript, Tailwind) to unify dev tools and project 15–20% productivity gains; built a GenAI Python tool that cut manual charge-code setup by ~90%; helped automate Cipher EOC daily runs by more than half (now about 40 minutes); and improved APEye so regression cycles dropped from five hours to one — used daily by 10+ developers.",
+  "In production I work with React, Next.js, TypeScript, Python, Jenkins, Oracle, Streamlit, and Gemini workflows. Side project YOU is a clinical wellness app with Firebase realtime sync, Gemini 1.5 Pro features, and JWT-secured sessions.",
+  "Beyond code: I organize Comcast Sports League 2026 (including a live player auction app), plan team outings, and compete in office tournaments. Previously led campus outreach at YHills across 40 colleges. Open to full-time roles across India, including remote-friendly teams.",
 ];
 
 export const amdocsMeta = {

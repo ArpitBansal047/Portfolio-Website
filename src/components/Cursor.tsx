@@ -1,28 +1,35 @@
 import { useEffect, useRef } from "react";
+import { createPortal } from "react-dom";
 import "./styles/Cursor.css";
 import gsap from "gsap";
 
+const CURSOR_SMOOTH = 0.42;
+
 const Cursor = () => {
   const cursorRef = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
     let hover = false;
     const cursor = cursorRef.current!;
     const mousePos = { x: 0, y: 0 };
     const cursorPos = { x: 0, y: 0 };
-    document.addEventListener("mousemove", (e) => {
+
+    const onMove = (e: MouseEvent) => {
       mousePos.x = e.clientX;
       mousePos.y = e.clientY;
-    });
+    };
+
+    document.addEventListener("mousemove", onMove);
+
     requestAnimationFrame(function loop() {
       if (!hover) {
-        const delay = 6;
-        cursorPos.x += (mousePos.x - cursorPos.x) / delay;
-        cursorPos.y += (mousePos.y - cursorPos.y) / delay;
-        gsap.to(cursor, { x: cursorPos.x, y: cursorPos.y, duration: 0.1 });
-        // cursor.style.transform = `translate(${cursorPos.x}px, ${cursorPos.y}px)`;
+        cursorPos.x += (mousePos.x - cursorPos.x) * CURSOR_SMOOTH;
+        cursorPos.y += (mousePos.y - cursorPos.y) * CURSOR_SMOOTH;
+        gsap.set(cursor, { x: cursorPos.x, y: cursorPos.y });
       }
       requestAnimationFrame(loop);
     });
+
     document.querySelectorAll("[data-cursor]").forEach((item) => {
       const element = item as HTMLElement;
       element.addEventListener("mouseover", (e: MouseEvent) => {
@@ -31,24 +38,21 @@ const Cursor = () => {
 
         if (element.dataset.cursor === "icons") {
           cursor.classList.add("cursor-icons");
-
-          gsap.to(cursor, { x: rect.left, y: rect.top, duration: 0.1 });
-          //   cursor.style.transform = `translate(${rect.left}px,${rect.top}px)`;
+          gsap.to(cursor, { x: rect.left, y: rect.top, duration: 0.12, ease: "power2.out" });
           cursor.style.setProperty("--cursorH", `${rect.height}px`);
           hover = true;
         }
-        if (element.dataset.cursor === "disable") {
-          cursor.classList.add("cursor-disable");
-        }
       });
       element.addEventListener("mouseout", () => {
-        cursor.classList.remove("cursor-disable", "cursor-icons");
+        cursor.classList.remove("cursor-icons");
         hover = false;
       });
     });
+
+    return () => document.removeEventListener("mousemove", onMove);
   }, []);
 
-  return <div className="cursor-main" ref={cursorRef}></div>;
+  return createPortal(<div className="cursor-main" ref={cursorRef} />, document.body);
 };
 
 export default Cursor;

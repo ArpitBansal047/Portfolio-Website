@@ -1,79 +1,64 @@
-import { MdArrowOutward } from "react-icons/md";
 import { heroMetrics, site } from "../data/portfolio";
-import { scrollToSection } from "./utils/scrollToSection";
+import HeroCodeEditor from "./HeroCodeEditor";
+import HeroSphere from "./HeroSphere";
 import "./styles/Landing.css";
-import "./styles/SectionSpacing.css";
 
 const Landing = () => {
   return (
     <section className="landing-section" id="landingDiv">
-      <section className="landing-container">
-        <section className="landing-intro">
+      <div className="landing-mesh" aria-hidden="true" />
+
+      <div className="landing-hero-grid">
+        <section className="landing-left">
           <p className="landing-greeting">Hello! I&apos;m</p>
           <h1 className="landing-name">
-            ARPIT
+            <span className="landing-name__line">ARPIT</span>
             <br />
-            <span>BANSAL</span>
+            <span className="landing-name__line">BANSAL.</span>
           </h1>
-        </section>
+          <p className="landing-tagline">
+            Amdocs Software Developer | Full-Stack &amp; Gen AI
+          </p>
 
-        <section className="landing-hero-side">
-          <p className="landing-role">{site.title}</p>
-
-          <div className="landing-swap landing-swap--accent" aria-hidden="true">
-            <span className="landing-h2-1">Full-Stack</span>
-            <span className="landing-h2-2">Developer</span>
-          </div>
-
-          <div className="landing-swap landing-swap--tagline" aria-hidden="true">
-            <span className="landing-h2-info">GenAI · React</span>
-            <span className="landing-h2-info-1">Automation</span>
-          </div>
-
-          <span className="open-roles-pill" role="status">
-            Open to roles
-          </span>
-
-          <section className="landing-contact">
-            <a
-              href={`mailto:${site.email}`}
-              className="landing-email"
-              data-cursor="disable"
-            >
-              {site.email}
-            </a>
-          </section>
-
-          <section className="hero-metrics">
-            {heroMetrics.map((metric) => (
-              <article className="hero-metric" key={metric.title}>
-                <strong>{metric.value}</strong>
-                <h4 className="hero-metric-title">{metric.title}</h4>
-                <p className="hero-metric-detail">{metric.detail}</p>
-              </article>
-            ))}
-          </section>
-
-          <section className="hero-cta">
+          <section className="landing-actions">
+            <span className="open-roles-pill landing-open-pill" role="status">
+              <span className="landing-open-pill__status" aria-hidden="true" />
+              Open to Roles
+            </span>
             <a
               href={site.resumePath}
               download
-              className="hero-btn hero-btn--primary"
+              className="hero-btn hero-btn--resume"
               data-cursor="disable"
             >
               Download Resume
             </a>
-            <button
-              type="button"
-              className="hero-btn hero-btn--ghost"
-              data-cursor="disable"
-              onClick={() => scrollToSection("#contact")}
-            >
-              Contact Me <MdArrowOutward />
-            </button>
           </section>
         </section>
-      </section>
+
+        <section className="landing-right">
+          <HeroCodeEditor />
+
+          <section className="hero-stats-bar" aria-label="Impact metrics">
+            <div className="hero-stats-bar__inner">
+              {heroMetrics.map((metric) => (
+                <article className="hero-stat-block" key={metric.title}>
+                  <span className="hero-stat-block__value">{metric.value}</span>
+                  <span className="hero-stat-block__meta">
+                    {metric.title}
+                    <span className="hero-stat-block__detail">
+                      {" "}
+                      ({metric.detail})
+                    </span>
+                  </span>
+                </article>
+              ))}
+            </div>
+          </section>
+        </section>
+      </div>
+
+      <HeroSphere />
     </section>
   );
 };

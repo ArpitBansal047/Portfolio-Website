@@ -107,7 +107,6 @@ const Navbar = () => {
             <NavLinkItems />
           </ul>
 
-          <span className="navbar-divider navbar-divider--desktop" aria-hidden="true" />
           <div className="navbar-controls navbar-controls--desktop" aria-label="Theme and sound">
             <ThemeToggle />
             <SoundToggle />
@@ -140,7 +139,6 @@ const Navbar = () => {
             <SoundToggle />
           </div>
         </div>
-        <span className="navbar-divider navbar-divider--mobile" aria-hidden="true" />
         <ul className="navbar-links navbar-links--mobile">
           <NavLinkItems />
         </ul>

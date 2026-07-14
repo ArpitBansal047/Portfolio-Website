@@ -33,7 +33,7 @@
 .navbar-right {
   display: flex;
   align-items: center;
-  gap: clamp(10px, 1.8vw, 20px);
+  gap: clamp(12px, 2vw, 24px);
   flex-shrink: 0;
   margin-left: auto;
 }
@@ -43,6 +43,7 @@
   align-items: center;
   gap: 10px;
   padding-left: 0;
+  margin-left: clamp(20px, 3vw, 44px);
 }
 
 .navbar-divider--desktop {

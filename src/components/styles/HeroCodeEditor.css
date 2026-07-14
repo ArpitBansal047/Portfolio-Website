@@ -1,0 +1,107 @@
+.hero-code-editor {
+  width: 100%;
+  border-radius: 14px;
+  overflow: hidden;
+  background: #141218;
+  border: 1px solid rgba(63, 63, 70, 0.65);
+  box-shadow:
+    0 0 0 1px rgba(167, 139, 250, 0.08),
+    0 18px 48px rgba(0, 0, 0, 0.45),
+    0 0 32px rgba(124, 58, 237, 0.12);
+}
+
+.hero-code-editor__chrome {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  background: linear-gradient(180deg, #1c1924 0%, #16131c 100%);
+  border-bottom: 1px solid rgba(63, 63, 70, 0.55);
+}
+
+.hero-code-editor__controls {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.hero-code-editor__dot {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+}
+
+.hero-code-editor__dot--red {
+  background: #ff5f57;
+}
+
+.hero-code-editor__dot--amber {
+  background: #febc2e;
+}
+
+.hero-code-editor__dot--green {
+  background: #28c840;
+}
+
+.hero-code-editor__tab {
+  font-size: 12px;
+  font-weight: 500;
+  color: #d4d4d8;
+  letter-spacing: 0.02em;
+}
+
+.hero-code-editor__body {
+  margin: 0;
+  padding: clamp(14px, 2.2vw, 20px);
+  overflow-x: auto;
+  font-family: "Geist Mono", "Cascadia Code", "Consolas", monospace;
+  font-size: clamp(10px, 1.25vw, 12.5px);
+  line-height: 1.55;
+  color: #e4e4e7;
+  background: #100e14;
+  scrollbar-width: thin;
+}
+
+.hero-code-editor__body code {
+  display: block;
+  white-space: pre;
+}
+
+.tok-comment {
+  color: #6ee7b7;
+}
+
+.tok-kw {
+  color: #c4b5fd;
+}
+
+.tok-class {
+  color: #67e8f9;
+}
+
+.tok-fn {
+  color: #7dd3fc;
+}
+
+.tok-prop {
+  color: #a5b4fc;
+}
+
+.tok-str {
+  color: #fdba74;
+}
+
+.tok-var {
+  color: #f0abfc;
+}
+
+@media screen and (max-width: 767px) {
+  .hero-code-editor__body {
+    font-size: 10px;
+    line-height: 1.48;
+  }
+}
+
+[data-theme="light"] .hero-code-editor {
+  background: #18181b;
+}

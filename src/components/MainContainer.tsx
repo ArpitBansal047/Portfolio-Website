@@ -40,8 +40,10 @@ const MainContainer = () => {
       <section id="smooth-wrapper">
         <section id="smooth-content">
           <section className="container-main">
-            <Landing />
-            <About />
+            <section className="hero-sphere-zone">
+              <Landing />
+              <About />
+            </section>
             <Career />
             <SkillsRegion />
             <CareerTimeline />

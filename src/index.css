@@ -283,7 +283,7 @@ body.scroll-locked #smooth-wrapper {
 [data-theme="light"] .certs-subtitle,
 [data-theme="light"] .certs-group__blurb,
 [data-theme="light"] .techstack-hint,
-[data-theme="light"] .hero-metric-detail {
+[data-theme="light"] .hero-stat-block__detail {
   color: #3f3f46;
 }
 @media screen and (max-width: 900px) {
