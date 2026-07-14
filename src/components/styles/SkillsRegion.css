@@ -9,6 +9,7 @@
 .skills-region-body {
   display: flex;
   flex-direction: column;
+  gap: 0;
 }
 
 .skills-region-body .project-carousel,
@@ -23,10 +24,4 @@
 .skills-region-body .techstack {
   margin-left: auto;
   margin-right: auto;
-}
-
-@media only screen and (max-width: 900px) {
-  .skills-region-body {
-    gap: var(--gap-subsection, clamp(25px, 4.8vw, 38px));
-  }
 }

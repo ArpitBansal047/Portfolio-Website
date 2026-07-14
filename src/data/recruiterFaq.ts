@@ -109,7 +109,7 @@ export const recruiterFaq: FaqItem[] = [
     question: "What's your primary tech stack?",
     keywords: ["stack", "technologies", "tools", "react", "python", "typescript", "skills"],
     answer:
-      "Day to day I work across React 18, TypeScript, Next.js 14, Python, Node.js, Java, AWS, Docker, Kubernetes, Jenkins, PostgreSQL, Oracle, Firebase, Redis, and REST/microservices patterns.\n\nI pick tools based on what the team already runs in production — not hype.",
+      "Day to day I work across React 18, TypeScript, Next.js 14, Python, Node.js, Java, AWS, Docker, Jenkins, Oracle, Firebase, and REST/microservices patterns.\n\nI pick tools based on what the team already runs in production — not hype.",
   },
   {
     id: "system-design",
@@ -117,15 +117,15 @@ export const recruiterFaq: FaqItem[] = [
     question: "Do you know system design?",
     keywords: ["system design", "architecture", "lld", "hld", "microservices", "scalability"],
     answer:
-      "Yes — I apply system design in production, not just on whiteboards.\n\nThat includes microservices, LLD/HLD thinking, REST APIs, Redis caching, and cloud-native deployment on AWS. Tools like Cipher EOC and APEye required orchestrating Oracle DB, SSH, Selenium, and Jenkins pipelines together.",
+      "Yes — I apply system design in production, not just on whiteboards.\n\nThat includes microservices, LLD/HLD thinking, REST APIs, and cloud-native deployment on AWS. Tools like Cipher EOC and APEye required orchestrating Oracle DB, SSH, Selenium, and Jenkins pipelines together.",
   },
   {
-    id: "aws-k8s",
+    id: "aws-devops",
     category: "Skills",
-    question: "What's your AWS and Kubernetes experience?",
-    keywords: ["aws", "kubernetes", "k8s", "docker", "cloud", "devops"],
+    question: "What's your AWS and DevOps experience?",
+    keywords: ["aws", "docker", "cloud", "devops", "jenkins", "ci/cd"],
     answer:
-      "I deployed ComcastHub on AWS for scalability and work regularly with Docker, Kubernetes, and Jenkins CI/CD.\n\nAPEye alone is part of the daily workflow for 10+ developers on the account — so reliability matters as much as architecture.",
+      "I deployed ComcastHub on AWS for scalability and work regularly with Docker and Jenkins CI/CD.\n\nAPEye alone is part of the daily workflow for 10+ developers on the account — so reliability matters as much as architecture.",
   },
   {
     id: "testing",
@@ -253,7 +253,7 @@ export const recruiterFaq: FaqItem[] = [
     question: "How strong is your backend experience?",
     keywords: ["backend", "api", "database", "python", "node", "oracle"],
     answer:
-      "I build backends that survive production billing environments.\n\nPython automation (Streamlit, Paramiko, Selenium, pandas), Node.js streaming services, Oracle/PostgreSQL, Firebase/Firestore security rules, JWT/OAuth 2.0, and REST API design.",
+      "I build backends that survive production billing environments.\n\nPython automation (Streamlit, Paramiko, Selenium, pandas), Node.js streaming services, Oracle SQL, Firebase/Firestore security rules, JWT/OAuth 2.0, and REST API design.",
   },
   {
     id: "biggest-metric",

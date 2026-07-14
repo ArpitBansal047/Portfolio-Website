@@ -564,19 +564,39 @@
   height: clamp(140px, 17vw, 185px);
   min-height: 140px;
   max-height: 185px;
-  overflow: visible;
+  overflow: hidden;
+  border-radius: 10px;
+  background: var(--surfaceElevated);
+  isolation: isolate;
+}
+
+.work-section--amdocs.work-section--flow .work-image .work-image-in,
+.work-section--amdocs.work-section--flow .work-image .clickable-image {
+  height: 100%;
+  min-height: inherit;
+  width: 100%;
+  border-radius: inherit;
+  overflow: hidden;
+  background: inherit;
 }
 
 .work-section--amdocs.work-section--flow .work-image img,
 .work-section--amdocs.work-section--flow .work-image--static-only img {
-  object-fit: contain;
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
   object-position: center center;
   background: var(--surfaceElevated);
+  border-radius: 0;
 }
 
-.work-section--amdocs.work-section--flow .work-flex .work-box:nth-child(even) .work-image img,
-.work-section--amdocs.work-section--flow .work-flex .work-box:nth-child(even) .work-image--static-only img {
-  object-position: center top;
+[data-theme="light"] .work-section--amdocs.work-section--flow .work-image,
+[data-theme="light"] .work-section--amdocs.work-section--flow .work-image .work-image-in,
+[data-theme="light"] .work-section--amdocs.work-section--flow .work-image .clickable-image,
+[data-theme="light"] .work-section--amdocs.work-section--flow .work-image img,
+[data-theme="light"] .work-section--amdocs.work-section--flow .work-image--static-only img {
+  background: var(--surfaceElevated);
 }
 
 .work-section--amdocs.work-section--flow .work-title {
@@ -588,9 +608,30 @@
   margin-bottom: 2px;
 }
 
-.work-section--amdocs.work-section--flow .work-info p {
+.work-section--amdocs.work-section--flow .work-info p,
+.work-section--amdocs.work-section--flow .work-info .expandable-work-detail p {
   margin: 2px 0 8px;
-  line-height: 1.4;
+  line-height: 1.45;
+  font-size: 12px;
+  color: var(--textPrimary);
+  font-weight: 400;
+  opacity: 1;
+}
+
+.work-section--amdocs.work-section--flow .work-info .expandable-work-detail h4 {
+  opacity: 1;
+}
+
+.work-section--amdocs.work-section--flow .work-info .case-study-inline__body li {
+  color: var(--textPrimary);
+  font-weight: 400;
+  opacity: 1;
+}
+
+[data-theme="light"] .work-section--amdocs.work-section--flow .work-info p,
+[data-theme="light"] .work-section--amdocs.work-section--flow .work-info .expandable-work-detail p,
+[data-theme="light"] .work-section--amdocs.work-section--flow .work-info .case-study-inline__body li {
+  color: #18181b;
 }
 
 .work-section--amdocs.work-section--flow .work-tags {
@@ -602,8 +643,19 @@
   color: var(--textPrimary);
 }
 
-.work-section--amdocs.work-section--flow .work-info p {
-  font-size: 12px;
+.work-section--amdocs.work-section--flow .work-title h4 {
+  color: var(--textPrimary);
+  font-weight: 500;
+}
+
+.work-section--amdocs.work-section--flow .work-title p {
+  color: var(--textMuted);
+  font-weight: 400;
+  opacity: 1;
+}
+
+[data-theme="light"] .work-section--amdocs.work-section--flow .work-title p {
+  color: #3f3f46;
 }
 
 @media screen and (min-width: 1024px) and (max-width: 1599px) {

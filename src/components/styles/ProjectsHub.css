@@ -16,11 +16,11 @@
 }
 
 .projects-subsection--websites {
-  margin-top: var(--gap-subsection-lg);
+  margin-top: var(--gap-subsection);
 }
 
 .projects-subsection:first-of-type {
-  margin-top: clamp(20px, 4vw, 36px);
+  margin-top: var(--gap-subsection);
 }
 
 .section-title--sub {

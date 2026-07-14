@@ -37,7 +37,7 @@ const HeroCodeEditor = () => {
           {"\n"}
           {"    "}
           <span className="tok-kw">this</span>.<span className="tok-prop">education</span> ={" "}
-          <span className="tok-str">&apos;B.E. CSE · Thapar · 7.96 CGPA&apos;</span>;
+          <span className="tok-str">&apos;B.E. Computer Engineering · Thapar · 7.96 CGPA&apos;</span>;
           {"\n\n"}
           {"    "}
           <span className="tok-kw">this</span>.<span className="tok-prop">techStack</span> = {"{\n"}
@@ -55,7 +55,7 @@ const HeroCodeEditor = () => {
           <span className="tok-str">&apos;React 18&apos;</span>, <span className="tok-str">&apos;TypeScript&apos;</span>],
           {"\n"}
           {"      "}
-          <span className="tok-prop">ops</span>: [<span className="tok-str">&apos;Jenkins&apos;</span>,{" "}
+          <span className="tok-prop">devops</span>: [<span className="tok-str">&apos;Jenkins&apos;</span>,{" "}
           <span className="tok-str">&apos;Docker&apos;</span>, <span className="tok-str">&apos;AWS&apos;</span>]
           {"\n    };\n\n"}
           {"    "}

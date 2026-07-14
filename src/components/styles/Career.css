@@ -218,7 +218,7 @@
 
 .career-yhills {
   width: 100%;
-  padding: 40px 0 48px;
+  padding: var(--gap-subsection) 0 0;
   border-top: 1px solid var(--borderColor);
   position: relative;
   z-index: 1;
@@ -264,6 +264,16 @@
   gap: 20px;
   align-items: flex-start;
   margin-bottom: 16px;
+}
+
+.yhills-card__header .company-logo-clickable {
+  margin-inline: 0;
+  flex-shrink: 0;
+}
+
+.yhills-card__header .company-logo-clickable--lg img {
+  width: 55px;
+  height: 55px;
 }
 
 .yhills-card__identity {
@@ -348,6 +358,11 @@
     align-items: center;
     text-align: center;
     gap: 14px;
+  }
+
+  .yhills-card__header .company-logo-clickable--lg img {
+    width: 43px;
+    height: 43px;
   }
 
   .yhills-card__identity {
@@ -435,6 +450,11 @@
 .career-amdocs-intro .company-logo-clickable {
   margin-inline: 0;
   flex-shrink: 0;
+}
+
+.career-amdocs-intro .company-logo-clickable--lg img {
+  width: 55px;
+  height: 55px;
 }
 
 .career-amdocs-intro h3 {
@@ -744,8 +764,8 @@
   }
 
   .career-amdocs-intro .company-logo-clickable--lg img {
-    width: 56px;
-    height: 56px;
+    width: 43px;
+    height: 43px;
   }
 
   .career-amdocs-intro h3 {

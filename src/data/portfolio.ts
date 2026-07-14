@@ -213,7 +213,7 @@ export const amdocsProjects: Project[] = [
     impactBrief:
       "Built GenAI Python automation for Excel → SQL — 90% less manual work, 75% faster setup.",
     stack: ["Python", "GenAI", "SQL", "Excel"],
-    image: "/images/amdocs/bpt-charge.jfif",
+    image: "/images/amdocs/bpt-charge.webp",
     caseStudy: {
       problemDetail:
         "Billing teams manually converted Excel charge-code spreadsheets into multi-table SQL — error-prone across dozens of tables.",
@@ -421,48 +421,6 @@ export const wipProjects: WipProject[] = [
       ],
       outcomes: ["10K+ account scale design", "60% faster therapist matching", "24/7 AI care access"],
     },
-  },
-];
-
-export const skillCategories = [
-  {
-    title: "Languages & Frameworks",
-    skills: [
-      "Python",
-      "Java (Core)",
-      "C++",
-      "SQL",
-      "React.js",
-      "Node.js",
-      "TypeScript",
-      "HTML/CSS/JS",
-    ],
-  },
-  {
-    title: "Tools & DevOps",
-    skills: [
-      "GitHub",
-      "Jenkins (CI/CD)",
-      "Linux",
-      "Cursor",
-      "Copilot",
-      "Stitch",
-      "Google Studio",
-      "Maven",
-    ],
-  },
-  {
-    title: "Core CS & AI",
-    skills: [
-      "DSA",
-      "OOP",
-      "DBMS",
-      "SDLC",
-      "GenAI / Gemini",
-      "APIs",
-      "System Design",
-      "Scripting",
-    ],
   },
 ];
 

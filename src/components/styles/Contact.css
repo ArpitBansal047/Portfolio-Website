@@ -1,6 +1,6 @@
 .contact-section {
   margin: auto;
-  padding-bottom: var(--gap-section);
+  padding-bottom: var(--gap-major-half);
   margin-top: 0;
 }
 
@@ -400,8 +400,8 @@
   }
 
   .contact-section {
-    margin-top: 48px;
-    padding-bottom: 40px;
+    margin-top: 0;
+    padding-bottom: var(--gap-major-half);
   }
 }
 

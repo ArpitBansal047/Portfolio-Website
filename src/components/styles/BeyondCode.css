@@ -9,10 +9,10 @@
 /* Beyond + inter-section gaps — Duolingo owl floats in side margins */
 .duo-flight-corridor {
   position: relative;
-  margin-top: calc(var(--gap-major-half) * -1.35);
-  margin-bottom: calc(var(--gap-major-half) * -1.35);
-  padding-top: calc(var(--gap-major-half) * 1.35);
-  padding-bottom: calc(var(--gap-major-half) * 1.35);
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: 0;
+  padding-bottom: 0;
   overflow: visible;
 }
 
