@@ -154,10 +154,10 @@ export const portfolioSiteMeta = {
 };
 
 export const aboutParagraphs = [
-  "I'm Arpit Bansal, a Software Developer at Amdocs in Pune. I build billing platforms, internal developer tools, and GenAI automation for telecom — shipping work that saves teams hours every week and holds up in production.",
-  "Recent impact: led ComcastHub (Next.js 14, TypeScript, Tailwind) to unify dev tools and project 15–20% productivity gains; built a GenAI Python tool that cut manual charge-code setup by ~90%; helped automate Cipher EOC daily runs by more than half (now about 40 minutes); and improved APEye so regression cycles dropped from five hours to one — used daily by 10+ developers.",
-  "In production I work with React, Next.js, TypeScript, Python, Jenkins, Oracle, Streamlit, and Gemini workflows. Side project YOU is a clinical wellness app with Firebase realtime sync, Gemini 1.5 Pro features, and JWT-secured sessions.",
-  "Beyond code: I organize Comcast Sports League 2026 (including a live player auction app), plan team outings, and compete in office tournaments. Previously led campus outreach at YHills across 40 colleges. Open to full-time roles across India, including remote-friendly teams.",
+  "I'm Arpit Bansal, a Software Developer at Amdocs in Pune. I build billing platforms, dev tools, and GenAI automation for telecom — work that saves teams hours and holds up in production.",
+  "Recent impact: led ComcastHub (Next.js 14, TypeScript, Tailwind) to unify dev tools (15–20% productivity gains); built a GenAI Python tool that cut manual charge-code setup by ~90%; automated Cipher EOC runs by more than half (~40 min); and improved APEye so regression cycles dropped from five hours to one — used by 10+ developers daily.",
+  "I work with React, Next.js, TypeScript, Python, Jenkins, Oracle, Streamlit, and Gemini in production. YOU is a clinical wellness side project with Firebase sync, Gemini 1.5 Pro, and JWT sessions.",
+  "Beyond code: I organize Comcast Sports League 2026, plan team outings, and compete in office tournaments. Previously led campus outreach at YHills across 40 colleges. Open to full-time roles across India, including remote.",
 ];
 
 export const amdocsMeta = {
