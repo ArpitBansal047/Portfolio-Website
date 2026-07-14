@@ -299,7 +299,7 @@ export const yhillsExperience: Experience & {
   metrics: string[];
 } = {
   kind: "work",
-  role: "Business Development Executive Intern",
+  role: "Business Development Executive",
   company: "YHills Edutech",
   logo: "/images/logos/yhills.png",
   website: "https://yhills.com/",

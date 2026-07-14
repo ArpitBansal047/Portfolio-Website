@@ -237,7 +237,7 @@ export const recruiterFaq: FaqItem[] = [
     question: "Tell me about your internship.",
     keywords: ["internship", "yhills", "business development", "campus"],
     answer:
-      "I was a Business Development Executive Intern at YHills Edutech (Jan–May 2023).\n\nI engaged 500+ learners monthly and recruited 25 campus leads across 40 colleges — accelerating regional acquisition by about 30%.",
+      "I was a Business Development Executive at YHills Edutech (Jan–May 2023).\n\nI engaged 500+ learners monthly and recruited 25 campus leads across 40 colleges — accelerating regional acquisition by about 30%.",
   },
   {
     id: "frontend-depth",
