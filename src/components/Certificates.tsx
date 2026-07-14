@@ -1,7 +1,7 @@
 import { useMemo, useState, type CSSProperties } from "react";
 import SectionTitle from "./SectionTitle";
 import { certificates, type Certificate, type CertificateSection } from "../data/portfolio";
-import { MdDownload, MdVisibility } from "react-icons/md";
+import { MdOutlineDownload, MdOutlineVisibility } from "react-icons/md";
 import ImageLightbox from "./ImageLightbox";
 import "./styles/Certificates.css";
 import "./styles/SectionTitle.css";
@@ -52,7 +52,7 @@ const CertCard = ({
           data-cursor="disable"
           aria-label={`Download ${cert.title}`}
         >
-          <MdDownload aria-hidden="true" />
+          <MdOutlineDownload aria-hidden="true" />
           <span className="cert-action__label">Download</span>
         </a>
         <button
@@ -62,7 +62,7 @@ const CertCard = ({
           data-cursor="disable"
           aria-label={`View ${cert.title}`}
         >
-          <MdVisibility aria-hidden="true" />
+          <MdOutlineVisibility aria-hidden="true" />
           <span className="cert-action__label">View</span>
         </button>
       </section>
