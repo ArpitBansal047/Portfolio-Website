@@ -3,7 +3,7 @@ import { createPortal } from "react-dom";
 import "./styles/Cursor.css";
 import gsap from "gsap";
 
-const CURSOR_SMOOTH = 0.42;
+const CURSOR_SMOOTH = 0.58;
 
 const POINTER_QUERY = "(hover: hover) and (pointer: fine)";
 

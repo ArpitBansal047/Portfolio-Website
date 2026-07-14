@@ -8,14 +8,15 @@
 .hero-sphere-zone .landing-section {
   position: relative;
   z-index: 3;
-  overflow: visible;
+  overflow-x: clip;
 }
 
 .hero-sphere-top {
   position: absolute;
   left: 0;
   bottom: 0;
-  width: clamp(140px, 15vw, 220px);
+  width: clamp(100px, 10vw, 180px);
+  max-width: 22vw;
   pointer-events: none;
   line-height: 0;
   z-index: 1;
@@ -55,8 +56,16 @@
   }
 }
 
-@media screen and (min-width: 1280px) {
+@media screen and (min-width: 1280px) and (max-width: 1599px) {
   .hero-sphere-top {
-    width: clamp(150px, 14vw, 210px);
+    width: clamp(96px, 8vw, 140px);
+    max-width: 18vw;
+  }
+}
+
+@media screen and (min-width: 1600px) {
+  .hero-sphere-top {
+    width: clamp(130px, 11vw, 200px);
+    max-width: 220px;
   }
 }

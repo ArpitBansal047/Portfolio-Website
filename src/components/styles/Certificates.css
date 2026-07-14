@@ -122,7 +122,73 @@
 
   .certs-grid {
 
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+
+    max-width: 100%;
+
+    gap: calc(8px * var(--cert-scale));
+
+  }
+
+}
+
+
+
+@media only screen and (max-width: 1024px) {
+
+  .cert-issuer {
+
+    display: none;
+
+  }
+
+  .cert-info h4 {
+
+    font-size: 19px;
+
+    font-weight: 600;
+
+    line-height: 1.24;
+
+    margin-bottom: 4px;
+
+  }
+
+  .cert-actions {
+
+    justify-content: center;
+
+    gap: 4px;
+
+    flex-wrap: nowrap;
+
+  }
+
+  .cert-action {
+
+    padding: 2px;
+
+    gap: 0;
+
+    min-width: 16px;
+
+    min-height: 16px;
+
+    justify-content: center;
+
+  }
+
+  .cert-action__label {
+
+    display: none;
+
+  }
+
+  .cert-action svg {
+
+    width: 8px;
+
+    height: 8px;
 
   }
 
@@ -134,13 +200,13 @@
 
   .certs-section {
 
-    --cert-scale: 0.578;
+    --cert-scale: 0.54;
 
   }
 
   .certs-group__head {
 
-    max-width: min(280px, 92vw);
+    max-width: 100%;
 
     text-align: center;
 
@@ -154,25 +220,27 @@
 
   .certs-grid {
 
-    display: flex;
+    display: grid;
 
-    flex-direction: column;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
 
-    align-items: center;
+    align-items: stretch;
 
-    width: min(280px, 92vw);
+    width: 100%;
 
-    max-width: min(280px, 92vw);
+    max-width: 100%;
 
     margin-inline: auto;
 
-    gap: 12px;
+    gap: 6px;
 
   }
 
   .cert-card {
 
-    width: 100%;
+    width: auto;
+
+    min-width: 0;
 
     display: flex;
 
@@ -192,31 +260,45 @@
 
     width: 100%;
 
-    height: 84px;
+    height: 52px;
 
-    min-height: 84px;
+    min-height: 52px;
 
     flex-shrink: 0;
 
-    border-radius: 10px 10px 0 0;
+    border-radius: 8px 8px 0 0;
 
   }
 
   .cert-topic {
 
-    font-size: 8px;
+    font-size: 6px;
 
-    top: 6px;
+    top: 4px;
 
-    left: 6px;
+    left: 4px;
 
-    padding: 2px 6px;
+    padding: 1px 4px;
+
+    letter-spacing: 0.05em;
 
   }
 
   .cert-emoji {
 
-    font-size: 30px;
+    font-size: 18px;
+
+  }
+
+  .cert-pdf-badge {
+
+    font-size: 7px;
+
+    padding: 2px 4px;
+
+    bottom: 4px;
+
+    right: 4px;
 
   }
 
@@ -224,7 +306,7 @@
 
     width: 100%;
 
-    padding: 10px 10px 12px;
+    padding: 8px 3px 6px;
 
     text-align: center;
 
@@ -232,13 +314,21 @@
 
   }
 
+  .cert-issuer {
+
+    display: none;
+
+  }
+
   .cert-info h4 {
 
-    font-size: 11px;
+    font-size: 17px;
+
+    font-weight: 600;
 
     margin-bottom: 4px;
 
-    line-height: 1.35;
+    line-height: 1.24;
 
     white-space: normal;
 
@@ -250,9 +340,11 @@
 
   .cert-info p {
 
-    margin-bottom: 8px;
+    margin-bottom: 0;
 
-    font-size: 10px;
+    font-size: 7.5px;
+
+    line-height: 1.2;
 
     white-space: normal;
 
@@ -266,17 +358,39 @@
 
     justify-content: center;
 
-    gap: 6px;
+    gap: 5px;
 
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
 
   }
 
   .cert-action {
 
-    font-size: 10px;
+    font-size: 7px;
 
-    padding: 5px 8px;
+    padding: 2px;
+
+    gap: 0;
+
+    min-width: 15px;
+
+    min-height: 15px;
+
+    justify-content: center;
+
+  }
+
+  .cert-action__label {
+
+    display: none;
+
+  }
+
+  .cert-action svg {
+
+    width: 7px;
+
+    height: 7px;
 
   }
 
@@ -288,26 +402,53 @@
 
   .certs-section {
 
-    --cert-scale: 0.476;
+    --cert-scale: 0.48;
 
   }
 
   .certs-grid {
 
-    width: min(260px, 90vw);
+    width: 100%;
 
-    max-width: min(260px, 90vw);
+    max-width: 100%;
 
-    gap: 10px;
+    gap: 5px;
 
   }
 
   .cert-visual {
 
-    height: 76px;
+    height: 46px;
 
-    min-height: 76px;
+    min-height: 46px;
 
+  }
+
+  .cert-emoji {
+
+    font-size: 16px;
+
+  }
+
+  .cert-info h4 {
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.24;
+  }
+
+  .cert-info p {
+    font-size: 7px;
+  }
+
+  .cert-action {
+    min-width: 14px;
+    min-height: 14px;
+    padding: 1px;
+  }
+
+  .cert-action svg {
+    width: 6px;
+    height: 6px;
   }
 
 }

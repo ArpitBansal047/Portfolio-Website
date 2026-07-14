@@ -5,13 +5,40 @@
 :root {
   --gap-section: clamp(168px, 21vw, 264px);
   --gap-major-half: calc(var(--gap-section) * 0.5);
+  --gap-beyond-contact-half: calc(var(--gap-major-half) * 0.62);
   --gap-subsection: clamp(58px, 8.4vw, 96px);
   --gap-subsection-lg: clamp(88px, 11vw, 144px);
 }
 
 @media screen and (max-width: 1279px) {
+  :root {
+    --gap-section: clamp(128px, 17vw, 210px);
+    --gap-subsection: clamp(48px, 7vw, 80px);
+    --gap-subsection-lg: clamp(72px, 9vw, 120px);
+  }
+}
+
+@media screen and (max-width: 767px) {
+  :root {
+    --gap-section: clamp(104px, 22vw, 168px);
+    --gap-subsection: clamp(40px, 8vw, 64px);
+    --gap-subsection-lg: clamp(56px, 10vw, 96px);
+  }
+}
+
+.landing-section {
+  padding-bottom: var(--gap-major-half);
+}
+
+@media screen and (max-width: 1279px) {
   .landing-section {
-    padding-bottom: clamp(12px, 2vh, 24px);
+    padding-bottom: clamp(16px, 2.5vh, 28px);
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+  .landing-section {
+    padding-bottom: clamp(20px, 3vh, 32px);
   }
 }
 
@@ -21,14 +48,16 @@
   }
 }
 
-.landing-section {
-  padding-bottom: var(--gap-major-half);
-}
-
 .about-section {
   margin-bottom: 0;
   padding-top: var(--gap-major-half);
   padding-bottom: var(--gap-major-half);
+}
+
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+  .about-section {
+    padding-top: clamp(28px, 4.5vw, 48px);
+  }
 }
 
 .career-block {
@@ -88,7 +117,7 @@
 .beyond-section {
   margin-top: 0;
   padding-top: var(--gap-major-half);
-  padding-bottom: var(--gap-major-half);
+  padding-bottom: var(--gap-beyond-contact-half);
 }
 
 .duo-flight-corridor {
@@ -98,12 +127,12 @@
 
 .duo-flight-corridor .beyond-section {
   padding-top: var(--gap-major-half);
-  padding-bottom: var(--gap-major-half);
+  padding-bottom: var(--gap-beyond-contact-half);
 }
 
 .contact-section {
   margin-top: 0;
-  padding-top: var(--gap-major-half);
+  padding-top: var(--gap-beyond-contact-half);
 }
 
 .company-logo {

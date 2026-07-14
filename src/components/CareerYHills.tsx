@@ -8,6 +8,7 @@ const CareerYHills = () => {
 
   return (
     <section className="career-yhills" id="yhills">
+      <section className="section-container yhills-card-wrap">
       <article className="yhills-card">
         <section className="yhills-card__header">
           <CompanyLogo
@@ -18,9 +19,9 @@ const CareerYHills = () => {
           />
           <section className="yhills-card__identity">
             <span className="yhills-card__kind">Internship</span>
-            <p className="yhills-card__period">{exp.period}</p>
-            <h4 className="yhills-card__role">{exp.role}</h4>
             <h5 className="yhills-card__company">{exp.company}</h5>
+            <h4 className="yhills-card__role">{exp.role}</h4>
+            <p className="yhills-card__period">{exp.period}</p>
             <p className="yhills-card__location">{exp.location}</p>
           </section>
         </section>
@@ -39,6 +40,7 @@ const CareerYHills = () => {
           ))}
         </ul>
       </article>
+      </section>
     </section>
   );
 };

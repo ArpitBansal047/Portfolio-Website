@@ -63,6 +63,12 @@
   }
 }
 
+@media screen and (min-width: 1024px) and (max-width: 1399px) {
+  body {
+    --cWidth: min(94%, 1200px);
+  }
+}
+
 @media screen and (min-width: 1024px) {
   body {
     --cWidth: min(96%, 1280px);

@@ -30,7 +30,6 @@ const About = () => {
               {paragraph}
             </p>
           ))}
-          <p className="about-meta">{site.title}</p>
         </section>
       </section>
     </section>

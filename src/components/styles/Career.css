@@ -226,6 +226,11 @@
   clear: both;
 }
 
+.yhills-card-wrap {
+  width: 100%;
+  box-sizing: border-box;
+}
+
 .career-yhills-heading {
   margin: 0;
   font-size: clamp(22px, 3.5vw, 40px);
@@ -261,7 +266,7 @@
 
 .yhills-card__header {
   display: flex;
-  gap: 20px;
+  gap: clamp(14px, 2.5vw, 20px);
   align-items: flex-start;
   margin-bottom: 16px;
 }
@@ -269,6 +274,7 @@
 .yhills-card__header .company-logo-clickable {
   margin-inline: 0;
   flex-shrink: 0;
+  align-self: flex-start;
 }
 
 .yhills-card__header .company-logo-clickable--lg img {
@@ -279,47 +285,53 @@
 .yhills-card__identity {
   flex: 1;
   min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
 }
 
 .yhills-card__kind {
   display: inline-block;
-  font-size: 12px;
+  font-size: 11px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: #ffffff;
   background: var(--accentColor);
-  padding: 5px 12px;
+  padding: 4px 11px;
   border-radius: 999px;
-  margin: 0 0 8px;
+  margin: 0 0 4px;
   font-weight: 700;
   border: 1px solid color-mix(in srgb, var(--accentColor) 70%, #000000);
 }
 
-.yhills-card__period {
-  font-size: 12px;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--accentColor);
-  margin: 0 0 6px;
+.yhills-card__company {
+  margin: 0;
+  font-size: clamp(17px, 2.4vw, 20px);
+  font-weight: 600;
+  color: var(--textPrimary);
+  line-height: 1.25;
 }
 
 .yhills-card__role {
-  margin: 0 0 4px;
-  font-size: clamp(18px, 2.5vw, 22px);
+  margin: 0;
+  font-size: clamp(15px, 2.1vw, 18px);
   font-weight: 500;
-  line-height: 1.3;
+  line-height: 1.35;
+  color: var(--textPrimary);
 }
 
-.yhills-card__company {
-  margin: 0 0 6px;
-  font-size: 16px;
-  font-weight: 400;
-  color: var(--textPrimary);
+.yhills-card__period {
+  font-size: clamp(12px, 1.8vw, 13px);
+  letter-spacing: 0.04em;
+  color: var(--accentColor);
+  margin: 2px 0 0;
+  font-weight: 500;
 }
 
 .yhills-card__location {
   margin: 0;
-  font-size: 13px;
+  font-size: clamp(12px, 1.7vw, 13px);
   color: var(--textMuted);
 }
 
@@ -341,7 +353,15 @@
 
 @media only screen and (max-width: 639px) {
   .career-yhills {
-    padding: 32px var(--page-pad, 16px) 40px;
+    padding: 32px 0 40px;
+    box-sizing: border-box;
+  }
+
+  .yhills-card-wrap {
+    width: 100%;
+    max-width: 100%;
+    padding-left: var(--page-pad, 16px);
+    padding-right: var(--page-pad, 16px);
     box-sizing: border-box;
   }
 
@@ -349,15 +369,21 @@
     width: 100%;
     max-width: 100%;
     margin: 0 auto;
-    padding: 20px 16px;
+    padding: 18px 14px;
     box-sizing: border-box;
+    overflow: hidden;
   }
 
   .yhills-card__header {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    gap: 14px;
+    gap: 12px;
+    width: 100%;
+  }
+
+  .yhills-card__header .company-logo-clickable {
+    align-self: center;
   }
 
   .yhills-card__header .company-logo-clickable--lg img {
@@ -367,31 +393,64 @@
 
   .yhills-card__identity {
     width: 100%;
+    max-width: 100%;
+    align-items: center;
     text-align: center;
+    gap: 5px;
+  }
+
+  .yhills-card__kind {
+    align-self: center;
+  }
+
+  .yhills-card__company,
+  .yhills-card__role,
+  .yhills-card__period,
+  .yhills-card__location {
+    width: 100%;
+    max-width: 100%;
+    text-align: center;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+
+  .yhills-card__company {
+    font-size: clamp(16px, 4.2vw, 19px);
+  }
+
+  .yhills-card__role {
+    font-size: clamp(14px, 3.8vw, 17px);
   }
 
   .yhills-card .yhills-summary {
-    text-align: left;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
     font-size: clamp(13px, 3.5vw, 14px);
   }
 
   .yhills-card .yhills-metrics {
     justify-content: center;
+    width: 100%;
     gap: 6px;
   }
 
   .yhills-card .yhills-metrics span {
-    font-size: clamp(9px, 2.5vw, 11px);
+    font-size: clamp(10px, 2.8vw, 11px);
     padding: 4px 8px;
-  }
-
-  .yhills-card__role {
-    font-size: clamp(16px, 4.5vw, 20px);
+    max-width: 100%;
+    text-align: center;
   }
 
   .yhills-card__bullets {
-    padding-left: 1rem;
+    padding-left: 1.1rem;
+    padding-right: 0.25rem;
     font-size: clamp(13px, 3.5vw, 14px);
+    text-align: left;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
   }
 }
 
@@ -459,14 +518,13 @@
 
 .career-amdocs-intro h3 {
   font-size: clamp(18px, 3.4vw, 32px);
-  font-weight: 500;
+  font-weight: 600;
   margin: 0;
   text-align: center;
   line-height: 1.2;
-  background: linear-gradient(0deg, #7f40ff, #ffffff);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: var(--textPrimary);
+  background: none;
+  -webkit-text-fill-color: currentColor;
 }
 
 .career-amdocs-meta {
@@ -748,8 +806,17 @@
 }
 
 .career-amdocs-intro h3 span {
-  font-weight: 300;
-  -webkit-text-fill-color: var(--accentColor);
+  font-weight: 500;
+  color: var(--accentColor);
+  -webkit-text-fill-color: currentColor;
+}
+
+[data-theme="light"] .career-amdocs-intro h3 {
+  color: #09090b;
+}
+
+[data-theme="light"] .career-amdocs-intro h3 span {
+  color: #6d28d9;
 }
 
 @media only screen and (max-width: 600px) {

@@ -87,13 +87,13 @@
   position: relative;
   z-index: 1;
   margin: 0;
-  padding: clamp(14px, 2.2vw, 20px);
+  padding: clamp(12px, 1.8vw, 20px);
   overflow-x: auto;
   overflow-y: auto;
-  max-height: clamp(280px, 42vh, 380px);
+  max-height: clamp(220px, 36vh, 380px);
   font-family: "Geist Mono", "Cascadia Code", "Consolas", monospace;
-  font-size: clamp(10px, 1.25vw, 12.5px);
-  line-height: 1.55;
+  font-size: clamp(9px, 1.05vw, 12.5px);
+  line-height: 1.5;
   color: #e4e4e7;
   background: #100e14;
   scrollbar-width: thin;
@@ -132,10 +132,28 @@
   color: #f0abfc;
 }
 
+@media screen and (min-width: 1100px) and (max-width: 1399px) {
+  .hero-code-editor__body {
+    max-height: clamp(200px, 30vh, 280px);
+    font-size: clamp(8.5px, 0.85vw, 10px);
+    padding: 10px 12px;
+    line-height: 1.45;
+  }
+
+  .hero-code-editor__chrome {
+    padding: 8px 12px;
+  }
+
+  .hero-code-editor__tab {
+    font-size: 11px;
+  }
+}
+
 @media screen and (max-width: 767px) {
   .hero-code-editor__body {
-    font-size: 10px;
-    line-height: 1.48;
+    font-size: 9.5px;
+    line-height: 1.45;
+    max-height: clamp(200px, 34vh, 280px);
   }
 
   .hero-code-editor::before {

@@ -1,7 +1,7 @@
 import { useMemo, useState, type CSSProperties } from "react";
 import SectionTitle from "./SectionTitle";
 import { certificates, type Certificate, type CertificateSection } from "../data/portfolio";
-import { MdArrowOutward, MdDownload } from "react-icons/md";
+import { MdDownload, MdVisibility } from "react-icons/md";
 import ImageLightbox from "./ImageLightbox";
 import "./styles/Certificates.css";
 import "./styles/SectionTitle.css";
@@ -50,11 +50,20 @@ const CertCard = ({
           className="cert-action cert-action--download"
           style={{ "--cert-accent": cert.themeColor } as CSSProperties}
           data-cursor="disable"
+          aria-label={`Download ${cert.title}`}
         >
-          <MdDownload /> Download
+          <MdDownload aria-hidden="true" />
+          <span className="cert-action__label">Download</span>
         </a>
-        <button type="button" className="cert-action cert-action--ghost" onClick={() => onOpen(cert)} data-cursor="disable">
-          View <MdArrowOutward />
+        <button
+          type="button"
+          className="cert-action cert-action--ghost"
+          onClick={() => onOpen(cert)}
+          data-cursor="disable"
+          aria-label={`View ${cert.title}`}
+        >
+          <MdVisibility aria-hidden="true" />
+          <span className="cert-action__label">View</span>
         </button>
       </section>
     </section>
