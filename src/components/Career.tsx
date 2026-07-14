@@ -16,7 +16,7 @@ const Career = () => {
 
       <section className="section-content-center section-container">
         <section className="career-amdocs-intro">
-          <section className="career-company-row">
+          <section className="career-company-row career-company-row--intro">
             <CompanyLogo
               src={amdocsMeta.logo}
               alt={`${amdocsMeta.company} logo`}
@@ -27,11 +27,9 @@ const Career = () => {
               {amdocsMeta.company} <span>· {amdocsMeta.role}</span>
             </h3>
           </section>
-          <p className="career-amdocs-badge">Primary experience</p>
           <p className="career-amdocs-meta">
             {amdocsMeta.period} · {amdocsMeta.location}
           </p>
-          <p className="career-amdocs-desc">{amdocsMeta.description}</p>
         </section>
       </section>
 
@@ -46,7 +44,6 @@ const Career = () => {
             Tools & <span>platforms</span>
           </h3>
         }
-        subtitle="Production tools at Amdocs."
         footnote={portfolioNotes.amdocsConfidential}
         projects={amdocsProjects}
       />

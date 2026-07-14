@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   MdArrowOutward,
   MdChevronLeft,
@@ -17,7 +17,18 @@ type WipMobileColumnProps = {
 const WipMobileColumn = ({ project }: WipMobileColumnProps) => {
   const [index, setIndex] = useState(0);
   const [detailOpen, setDetailOpen] = useState(false);
+  const [isNarrow, setIsNarrow] = useState(false);
   const shot = project.screenshots[index];
+
+  useEffect(() => {
+    const mq = window.matchMedia("(max-width: 650px)");
+    const sync = () => setIsNarrow(mq.matches);
+    sync();
+    mq.addEventListener("change", sync);
+    return () => mq.removeEventListener("change", sync);
+  }, []);
+
+  const bulletsDetailOnly = isNarrow && project.id === "you";
 
   const goPrev = () => setIndex((i) => Math.max(0, i - 1));
   const goNext = () =>
@@ -68,7 +79,8 @@ const WipMobileColumn = ({ project }: WipMobileColumnProps) => {
             caseStudy={project.caseStudy}
             compact
             briefStackCount={6}
-            initialBulletCount={2}
+            initialBulletCount={bulletsDetailOnly ? 0 : 2}
+            bulletsDetailOnly={bulletsDetailOnly}
             problemLabel="Overview"
             impactLabel="What I built"
             onOpenChange={setDetailOpen}

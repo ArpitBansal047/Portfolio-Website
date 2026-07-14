@@ -146,7 +146,7 @@ export const portfolioSiteMeta = {
 };
 
 export const portfolioNotes = {
-  amdocsConfidential: "Internal work — no public live demos.",
+  amdocsConfidential: "Internal production tools — no public live demos.",
   youWip: "Work in progress — limited public detail.",
   techStackViewport: "Richest on larger screens; touch and drag still work on mobile.",
 };

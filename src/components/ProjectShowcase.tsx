@@ -17,7 +17,7 @@ type ProjectShowcaseProps = {
   id: string;
   scrollTriggerId: string;
   title: React.ReactNode;
-  subtitle: string;
+  subtitle?: string;
   footnote?: string;
   projects: Project[];
   variant?: "default" | "amdocs";
@@ -132,7 +132,7 @@ const ProjectShowcase = ({
     >
       <section className={`work-container work-container--${scrollTriggerId} section-container`}>
         {title}
-        <p className="work-subtitle">{subtitle}</p>
+        {subtitle ? <p className="work-subtitle">{subtitle}</p> : null}
         {footnote && <p className="section-footnote">{footnote}</p>}
         <section className="work-scroll-wrap">
           <section

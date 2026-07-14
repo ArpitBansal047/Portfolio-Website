@@ -407,15 +407,21 @@
 
 @media only screen and (max-width: 600px) {
   .contact-social-row {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 14px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: clamp(18px, 6vw, 28px);
+    padding-bottom: 18px;
+    margin-bottom: 22px;
   }
 
   .contact-social-row__link {
     justify-content: center;
-    width: 100%;
-    padding-bottom: 4px;
+    width: auto;
+    border-bottom: none;
+    padding: 0;
+    line-height: 1.2;
   }
 }
 

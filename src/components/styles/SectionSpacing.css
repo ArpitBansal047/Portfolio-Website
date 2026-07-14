@@ -155,7 +155,7 @@
   display: none;
 }
 
-.career-company-row {
+.career-company-row:not(.career-company-row--intro):not(.career-company-row--card) {
   display: flex;
   flex-direction: column;
   align-items: center;

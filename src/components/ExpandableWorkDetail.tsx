@@ -16,6 +16,7 @@ export type ExpandableWorkDetailProps = {
   compact?: boolean;
   briefStackCount?: number;
   initialBulletCount?: number;
+  bulletsDetailOnly?: boolean;
   onOpenChange?: (open: boolean) => void;
   problemLabel?: string;
   impactLabel?: string;
@@ -32,6 +33,7 @@ const ExpandableWorkDetail = ({
   compact = false,
   briefStackCount = BRIEF_STACK_COUNT_DEFAULT,
   initialBulletCount = 0,
+  bulletsDetailOnly = false,
   onOpenChange,
   problemLabel = "The problem",
   impactLabel = "The impact",
@@ -40,7 +42,11 @@ const ExpandableWorkDetail = ({
 
   const hasBriefCopy = Boolean(problemBrief || impactBrief);
   const hasExtraStack = stack.length > briefStackCount;
-  const hasHiddenBullets = Boolean(bullets && bullets.length > initialBulletCount);
+  const hasHiddenBullets = Boolean(
+    bullets &&
+      bullets.length > 0 &&
+      (bulletsDetailOnly || bullets.length > initialBulletCount),
+  );
   const canExpand = Boolean(
     caseStudy || hasBriefCopy || hasExtraStack || hasHiddenBullets
   );
@@ -58,8 +64,12 @@ const ExpandableWorkDetail = ({
     impact === undefined ? undefined : open || !impactBrief ? impact : impactBrief;
   const visibleStack = open ? stack : stack.slice(0, briefStackCount);
   const hiddenStackCount = Math.max(0, stack.length - briefStackCount);
-  const visibleBullets =
-    open || !bullets ? bullets : bullets.slice(0, initialBulletCount);
+  const showBulletsInline = Boolean(bullets?.length) && !bulletsDetailOnly;
+  const visibleBullets = showBulletsInline
+    ? open
+      ? bullets
+      : bullets!.slice(0, initialBulletCount)
+    : undefined;
 
   return (
     <section
@@ -110,6 +120,17 @@ const ExpandableWorkDetail = ({
 
           {open && caseStudy && (
             <section className="case-study-inline__body">
+              {bulletsDetailOnly && bullets && bullets.length > 0 && (
+                <>
+                  <h5>{impactLabel}</h5>
+                  <ul>
+                    {bullets.map((bullet) => (
+                      <li key={bullet.slice(0, 48)}>{bullet}</li>
+                    ))}
+                  </ul>
+                </>
+              )}
+
               <h5>Approach</h5>
               <ul>
                 {caseStudy.approach.map((step) => (

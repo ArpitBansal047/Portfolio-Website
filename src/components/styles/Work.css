@@ -203,8 +203,16 @@
   padding-top: 8px;
 }
 
-.work-section--amdocs .section-subtitle-sm {
+.work-section--amdocs .work-container .section-footnote {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: -4px;
   margin-bottom: 20px;
+}
+
+.work-section--amdocs .section-subtitle-sm {
+  margin-bottom: 8px;
   margin-top: 8px;
 }
 
