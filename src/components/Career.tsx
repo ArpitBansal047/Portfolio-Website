@@ -1,7 +1,7 @@
 import CompanyLogo from "./CompanyLogo";
 import ProjectShowcase from "./ProjectShowcase";
 import SectionTitle from "./SectionTitle";
-import { amdocsMeta, amdocsProjects } from "../data/portfolio";
+import { amdocsMeta, amdocsProjects, portfolioNotes } from "../data/portfolio";
 import CareerYHills from "./CareerYHills";
 import "./styles/Career.css";
 import "./styles/SectionTitle.css";
@@ -46,7 +46,8 @@ const Career = () => {
             Tools & <span>platforms</span>
           </h3>
         }
-        subtitle="Production work at Amdocs — problem, impact, and stack for each tool."
+        subtitle="Production tools at Amdocs."
+        footnote={portfolioNotes.amdocsConfidential}
         projects={amdocsProjects}
       />
 

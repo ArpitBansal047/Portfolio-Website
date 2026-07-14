@@ -197,6 +197,10 @@ body {
   display: none;
 }
 
+.techstack-footnote {
+  display: none;
+}
+
 @media (hover: none), (pointer: coarse) {
   .techstack-hint__desktop {
     display: none;
@@ -204,6 +208,10 @@ body {
 
   .techstack-hint__touch {
     display: inline;
+  }
+
+  .techstack-footnote {
+    display: block;
   }
 
   .techstack-canvas-wrap--touch {

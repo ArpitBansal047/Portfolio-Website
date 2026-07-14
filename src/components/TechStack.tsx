@@ -44,6 +44,7 @@ import { TbApi, TbDatabase } from "react-icons/tb";
 import { BsDiagram3Fill } from "react-icons/bs";
 import SectionTitle from "./SectionTitle";
 import { TECH_STACK } from "../data/techStackData";
+import { portfolioNotes } from "../data/portfolio";
 import { useTheme } from "../context/ThemeProvider";
 import "./styles/SectionTitle.css";
 
@@ -356,6 +357,7 @@ const TechStack = () => {
             Scroll here to wake the balls · touch and drag to push · tap to pin one
           </span>
         </p>
+        <p className="section-footnote techstack-footnote">{portfolioNotes.techStackViewport}</p>
       </div>
 
       <div className={`techstack-canvas-wrap${coarsePointer ? " techstack-canvas-wrap--touch" : ""}`}>

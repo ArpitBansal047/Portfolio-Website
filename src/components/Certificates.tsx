@@ -6,15 +6,9 @@ import ImageLightbox from "./ImageLightbox";
 import "./styles/Certificates.css";
 import "./styles/SectionTitle.css";
 
-const SECTION_META: Record<CertificateSection, { title: string; blurb: string }> = {
-  technical: {
-    title: "Technical",
-    blurb: "Stack depth — frontend, databases, ML, and engineering fundamentals.",
-  },
-  "non-technical": {
-    title: "Non-technical",
-    blurb: "Business, wellness, and language — context that shapes how I build products.",
-  },
+const SECTION_TITLES: Record<CertificateSection, string> = {
+  technical: "Technical",
+  "non-technical": "Non-technical",
 };
 
 const CertCard = ({
@@ -49,7 +43,6 @@ const CertCard = ({
     <section className="cert-info">
       <h4>{cert.title}</h4>
       <p className="cert-issuer">{cert.issuer}</p>
-      <p className="cert-impact">{cert.impactLine}</p>
       <section className="cert-actions">
         <a
           href={cert.file}
@@ -93,15 +86,11 @@ const Certificates = () => {
   return (
     <section className="certs-section section-container" id="certificates">
       <SectionTitle lead="C" accent="ERTIFICATIONS" />
-      <p className="section-lead certs-subtitle">
-        Proof of skill — grouped so recruiters can scan technical depth first.
-      </p>
 
       {grouped.map(({ section, items }) => (
         <section className="certs-group" key={section}>
           <header className="certs-group__head">
-            <h3 className="certs-group__title">{SECTION_META[section].title}</h3>
-            <p className="certs-group__blurb">{SECTION_META[section].blurb}</p>
+            <h3 className="certs-group__title">{SECTION_TITLES[section]}</h3>
           </header>
           <section className="certs-grid">
             {items.map((cert) => (

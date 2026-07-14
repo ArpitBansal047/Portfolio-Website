@@ -26,7 +26,7 @@ const About = () => {
             className="section-title--about nav-scroll-target"
           />
           {aboutParagraphs.map((paragraph) => (
-            <p className="para" key={paragraph.slice(0, 32)}>
+            <p className="about-para" key={paragraph.slice(0, 32)}>
               {paragraph}
             </p>
           ))}

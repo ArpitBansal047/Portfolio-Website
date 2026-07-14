@@ -10,7 +10,9 @@
 
   box-sizing: border-box;
 
-  --cert-scale: 1.1;
+  --cert-scale: 0.935;
+
+  text-align: center;
 
 }
 
@@ -42,7 +44,7 @@
 
 .certs-group__head {
 
-  max-width: calc(920px * var(--cert-scale));
+  max-width: calc(720px * var(--cert-scale));
 
   margin: 0 auto calc(14px * var(--cert-scale));
 
@@ -104,11 +106,11 @@
 
   display: grid;
 
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
 
   gap: calc(12px * var(--cert-scale));
 
-  max-width: calc(920px * var(--cert-scale));
+  max-width: calc(720px * var(--cert-scale));
 
   margin: 0 auto;
 
@@ -132,29 +134,149 @@
 
   .certs-section {
 
-    --cert-scale: 0.68;
+    --cert-scale: 0.578;
 
   }
 
-}
+  .certs-group__head {
 
+    max-width: min(280px, 92vw);
 
-
-@media only screen and (max-width: 560px) {
-
-  .certs-section {
-
-    --cert-scale: 0.56;
+    text-align: center;
 
   }
 
+  .certs-group__title {
 
+    text-align: center;
+
+  }
 
   .certs-grid {
 
-    grid-template-columns: 1fr;
+    display: flex;
 
-    max-width: min(100%, 240px);
+    flex-direction: column;
+
+    align-items: center;
+
+    width: min(280px, 92vw);
+
+    max-width: min(280px, 92vw);
+
+    margin-inline: auto;
+
+    gap: 12px;
+
+  }
+
+  .cert-card {
+
+    width: 100%;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: stretch;
+
+  }
+
+  .cert-card::before {
+
+    flex-shrink: 0;
+
+  }
+
+  .cert-visual {
+
+    width: 100%;
+
+    height: 84px;
+
+    min-height: 84px;
+
+    flex-shrink: 0;
+
+    border-radius: 10px 10px 0 0;
+
+  }
+
+  .cert-topic {
+
+    font-size: 8px;
+
+    top: 6px;
+
+    left: 6px;
+
+    padding: 2px 6px;
+
+  }
+
+  .cert-emoji {
+
+    font-size: 30px;
+
+  }
+
+  .cert-info {
+
+    width: 100%;
+
+    padding: 10px 10px 12px;
+
+    text-align: center;
+
+    box-sizing: border-box;
+
+  }
+
+  .cert-info h4 {
+
+    font-size: 11px;
+
+    margin-bottom: 4px;
+
+    line-height: 1.35;
+
+    white-space: normal;
+
+    overflow: visible;
+
+    text-overflow: unset;
+
+  }
+
+  .cert-info p {
+
+    margin-bottom: 8px;
+
+    font-size: 10px;
+
+    white-space: normal;
+
+    overflow: visible;
+
+    text-overflow: unset;
+
+  }
+
+  .cert-actions {
+
+    justify-content: center;
+
+    gap: 6px;
+
+    flex-wrap: wrap;
+
+  }
+
+  .cert-action {
+
+    font-size: 10px;
+
+    padding: 5px 8px;
 
   }
 
@@ -166,17 +288,25 @@
 
   .certs-section {
 
-    --cert-scale: 0.48;
+    --cert-scale: 0.476;
 
   }
 
-
-
   .certs-grid {
 
-    max-width: min(100%, 210px);
+    width: min(260px, 90vw);
 
-    gap: calc(8px * var(--cert-scale));
+    max-width: min(260px, 90vw);
+
+    gap: 10px;
+
+  }
+
+  .cert-visual {
+
+    height: 76px;
+
+    min-height: 76px;
 
   }
 
@@ -386,34 +516,6 @@
 
 
 
-.cert-zoom-hint {
-
-  position: absolute;
-
-  bottom: calc(8px * var(--cert-scale));
-
-  left: calc(8px * var(--cert-scale));
-
-  font-size: calc(9px * var(--cert-scale));
-
-  color: var(--textPrimary);
-
-  opacity: 0;
-
-  transition: opacity 0.2s;
-
-}
-
-
-
-.cert-visual:hover .cert-zoom-hint {
-
-  opacity: 1;
-
-}
-
-
-
 .cert-info {
 
   padding: calc(10px * var(--cert-scale)) calc(12px * var(--cert-scale))
@@ -551,4 +653,37 @@
 
 }
 
+[data-theme="light"] .cert-visual {
+  background: linear-gradient(
+    145deg,
+    color-mix(in srgb, var(--cert-accent) 16%, var(--surfaceElevated)),
+    var(--surfaceColor) 88%
+  );
+}
+
+[data-theme="light"] .cert-topic {
+  background: var(--surfaceColor);
+  box-shadow: 0 1px 3px rgba(9, 9, 11, 0.08);
+}
+
+[data-theme="light"] .cert-pdf-badge {
+  background: var(--surfaceColor);
+  box-shadow: 0 1px 3px rgba(9, 9, 11, 0.06);
+}
+
+[data-theme="light"] .cert-card {
+  box-shadow: 0 1px 4px rgba(9, 9, 11, 0.07);
+}
+
+[data-theme="light"] .cert-card:hover {
+  box-shadow: 0 10px 24px color-mix(in srgb, var(--cert-accent) 18%, rgba(9, 9, 11, 0.12));
+}
+
+[data-theme="light"] .cert-emoji {
+  filter: drop-shadow(0 4px 12px rgba(9, 9, 11, 0.14));
+}
+
+[data-theme="light"] .cert-action--ghost:hover {
+  background: color-mix(in srgb, var(--cert-accent) 8%, transparent);
+}
 

@@ -13,8 +13,6 @@ export type FaqItem = {
   keywords?: string[];
 };
 
-export const FAQ_STARTER_IDS = ["amdocs-exp", "strongest-project", "open-roles"];
-
 const tokenize = (text: string) =>
   text
     .toLowerCase()
@@ -46,37 +44,6 @@ export const matchFaqQuery = (item: FaqItem, rawQuery: string): boolean => {
   );
 
   return matched.length >= Math.min(2, tokens.length);
-};
-
-export const findBestFaqMatch = (rawQuery: string): FaqItem | null => {
-  const q = rawQuery.trim();
-  if (!q) return null;
-
-  const matches = recruiterFaq.filter((item) => matchFaqQuery(item, q));
-  if (matches.length === 0) return null;
-
-  const tokens = tokenize(q);
-  if (tokens.length === 0) return matches[0];
-
-  return matches
-    .map((item) => {
-      const haystack = [
-        item.question,
-        item.answer,
-        ...(item.keywords ?? []),
-      ]
-        .join(" ")
-        .toLowerCase();
-
-      const score = tokens.reduce((sum, token) => {
-        if (haystack.includes(token)) return sum + 2;
-        if (item.keywords?.some((kw) => kw.includes(token))) return sum + 3;
-        return sum;
-      }, 0);
-
-      return { item, score };
-    })
-    .sort((a, b) => b.score - a.score)[0].item;
 };
 
 export const recruiterFaq: FaqItem[] = [
@@ -174,7 +141,7 @@ export const recruiterFaq: FaqItem[] = [
     question: "Tell me about the YOU project.",
     keywords: ["you", "wellness", "mental health", "firebase", "clinical", "side project"],
     answer:
-      "YOU is a GenAI clinical wellness platform I am building outside work.\n\nIt combines realtime chat and journaling on React/TypeScript/Firebase (sub-150ms sync), Firestore security rules for PII, RBAC, JWT auth, PHQ-9 therapist matching, and Gemini 1.5 Pro for 24/7 care access when a human therapist is not available.",
+      "YOU is a GenAI clinical wellness platform I am building outside work.\n\nIt combines realtime chat and journaling on React/TypeScript/Firebase (sub-150ms sync), Firestore security rules for PII, RBAC, JWT auth, PHQ-9 therapist matching, and Gemini 1.5 Pro for 24/7 care access when a human therapist is not available.\n\nIt is still work in progress — the site shows an intentional public summary; I can share more architecture detail in conversation as it matures.",
   },
   {
     id: "streamer-project",
@@ -254,7 +221,7 @@ export const recruiterFaq: FaqItem[] = [
     question: "Why should we hire you?",
     keywords: ["why hire", "why you", "value", "differentiator", "strengths"],
     answer:
-      "I ship tools that save teams hours every week — with numbers to back it up (85–90% automation, 80% faster test cycles).\n\nI combine full-stack delivery, GenAI, and DevOps in production telecom billing environments, and I communicate clearly with both engineers and stakeholders.",
+      "I ship tools that save teams hours every week — with numbers to back it up (~90% manual work cut on BPT, 75% Cipher EOC automation, 80% faster test cycles on APEye).\n\nI combine full-stack delivery, GenAI, and DevOps in production telecom billing environments, and I communicate clearly with both engineers and stakeholders.",
   },
   {
     id: "team-size",
@@ -270,7 +237,7 @@ export const recruiterFaq: FaqItem[] = [
     question: "Tell me about your internship.",
     keywords: ["internship", "yhills", "business development", "campus"],
     answer:
-      "I was a Business Development Executive Intern at YHills Edutech (Jan–Jun 2023).\n\nI engaged 500+ learners monthly and recruited 25 campus leads across 40 colleges — accelerating regional acquisition by about 30%.",
+      "I was a Business Development Executive Intern at YHills Edutech (Jan–May 2023).\n\nI engaged 500+ learners monthly and recruited 25 campus leads across 40 colleges — accelerating regional acquisition by about 30%.",
   },
   {
     id: "frontend-depth",
@@ -302,7 +269,7 @@ export const recruiterFaq: FaqItem[] = [
     question: "Do you have certifications?",
     keywords: ["certifications", "certificates", "udemy", "coursera", "courses"],
     answer:
-      "Yes — including Modern React with Redux (Udemy), SQL Bootcamp, Data Science & ML, Software Engineering 101, and Coursera courses in Well-Being and Spanish.\n\nSee the Certifications section on this site — grouped into technical and non-technical.",
+      "Yes — including Modern React with Redux (Udemy), SQL Bootcamp, Software Engineering 101, and Coursera courses in Well-Being and Spanish.\n\nSee the Certifications section on this site — grouped into technical and non-technical.",
   },
   {
     id: "contact-best",
@@ -319,5 +286,93 @@ export const recruiterFaq: FaqItem[] = [
     keywords: ["portfolio", "resume", "cv", "website", "download"],
     answer:
       "Portfolio: arpit29.netlify.app\n\nResume is downloadable from the hero section or the resume button on the bottom-left of this site.",
+  },
+  {
+    id: "live-demos-confidential",
+    category: "Projects",
+    question: "Can I see live demos of your Amdocs work?",
+    keywords: ["live demo", "demo", "confidential", "nda", "internal", "amdocs", "production access"],
+    answer:
+      "Amdocs tools are internal and confidential — there are no public live demos.\n\nThis site uses approved summaries, screenshots, and case-study detail only. I'm happy to walk through architecture and impact on a call.",
+  },
+  {
+    id: "why-open-to-roles",
+    category: "Availability",
+    question: "Why are you open to new opportunities?",
+    keywords: ["why leave", "why change", "why looking", "motivation", "new job", "switch"],
+    answer:
+      "I'm looking for the right full-time role where I can keep shipping high-impact engineering work — ideally full-stack, platform, or GenAI tooling.\n\nI'm grateful for what I've built at Amdocs and open to teams that value production delivery and measurable outcomes.",
+  },
+  {
+    id: "visa-sponsorship",
+    category: "Availability",
+    question: "Do you need visa sponsorship?",
+    keywords: ["visa", "sponsorship", "work permit", "international", "abroad"],
+    answer:
+      "I'm based in India and am primarily looking at roles across India, including remote-friendly teams.\n\nFor international roles, happy to discuss work authorization case by case.",
+  },
+  {
+    id: "relocate",
+    category: "Availability",
+    question: "Are you open to relocating?",
+    keywords: ["relocate", "relocation", "move", "another city", "hybrid", "onsite"],
+    answer:
+      "I'm based in Pune and open to hybrid or onsite roles in major Indian tech hubs.\n\nRemote-first across India also works well for me.",
+  },
+  {
+    id: "graduation-year",
+    category: "Education",
+    question: "When did you graduate?",
+    keywords: ["graduate", "graduation", "passed out", "batch", "2023", "degree year"],
+    answer:
+      "I completed my B.E. in Computer Engineering from Thapar Institute in 2023.\n\nI joined Amdocs in July 2023 and have been there since.",
+  },
+  {
+    id: "github-profile",
+    category: "Projects",
+    question: "Where is your GitHub?",
+    keywords: ["github", "code", "repository", "repos", "open source"],
+    answer:
+      "GitHub: github.com/ArpitBansal047\n\nPublic repos include Cryptoverse and Streamer. YOU is work in progress with a limited public write-up on this site.",
+  },
+  {
+    id: "billing-domain",
+    category: "Experience",
+    question: "Do you have telecom or billing domain experience?",
+    keywords: ["billing", "telecom", "bss", "oss", "invoicing", "domain", "amdocs"],
+    answer:
+      "Yes — 3+ years in telecom billing at Amdocs.\n\nI've worked on End-of-Cycle billing automation (Cipher EOC), charge-code tooling, Jenkins regression for invoicing chains (APEye), and internal developer platforms for account engineers.",
+  },
+  {
+    id: "references",
+    category: "Availability",
+    question: "Can you provide references?",
+    keywords: ["references", "referral", "manager", "recommendation", "background check"],
+    answer:
+      "Yes — I can share professional references at the right stage of the process.\n\nReach out via email or LinkedIn and we can coordinate after we've aligned on the role.",
+  },
+  {
+    id: "interview-format",
+    category: "Availability",
+    question: "How do you prefer to interview?",
+    keywords: ["interview", "call", "meet", "schedule", "video", "phone screen"],
+    answer:
+      "A short intro call works well first, then technical rounds that reflect real work — coding, system discussion, or walkthrough of past projects.\n\nEmail, WhatsApp, or the contact form on this site are the fastest ways to schedule.",
+  },
+  {
+    id: "leetcode-dsa",
+    category: "Skills",
+    question: "How is your DSA and problem-solving?",
+    keywords: ["dsa", "leetcode", "algorithms", "coding interview", "problem solving", "data structures"],
+    answer:
+      "Strong fundamentals from a Computer Engineering degree at Thapar and daily production engineering.\n\nI use DSA where it matters in systems work — parsing, automation pipelines, and efficient data handling in billing tooling.",
+  },
+  {
+    id: "cryptoverse",
+    category: "Projects",
+    question: "Tell me about Cryptoverse.",
+    keywords: ["cryptoverse", "crypto", "dashboard", "redux", "fintech"],
+    answer:
+      "Cryptoverse is a unified crypto dashboard I built with React and Redux Toolkit Query.\n\nIt handles 10K+ API calls per day with client-side caching, portfolio tracking, charts, and news — GitHub: github.com/ArpitBansal047/cryptoverse.",
   },
 ];

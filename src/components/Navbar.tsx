@@ -15,7 +15,6 @@ import "./styles/NavbarControls.css";
 gsap.registerPlugin(ScrollSmoother, ScrollTrigger);
 
 const NAV_LINKS = [
-  { href: "#about", label: "ABOUT" },
   { href: "#career", label: "CAREER" },
   { href: "#apps", label: "PROJECTS" },
   { href: "#techstack", label: "STACK" },

@@ -59,12 +59,6 @@ export type Certificate = {
   themeColor: string;
 };
 
-export type WorkHighlight = {
-  name: string;
-  summary: string;
-  image: string;
-};
-
 export type Experience = {
   role: string;
   company: string;
@@ -72,7 +66,6 @@ export type Experience = {
   location: string;
   bullets: string[];
   kind: "work" | "education";
-  highlights?: WorkHighlight[];
   badge?: "chess" | "badminton" | "book";
 };
 
@@ -98,7 +91,6 @@ export type BeyondItem = {
   linkVariant?: "youtube";
   image?: string;
   imageClass?: string;
-  duolingo?: boolean;
 };
 
 export type CertificateSection = "technical" | "non-technical";
@@ -135,8 +127,6 @@ export const heroMetrics: HeroMetric[] = [
 export const site = {
   name: "Arpit Bansal",
   tabTitle: "Arpit Bansal — Software Developer",
-  headline:
-    "I build full-stack apps, GenAI automation tools & developer platforms.",
   title: "Software Developer",
   location: "Pune, Maharashtra, India",
   availability: "Open to full-time roles",
@@ -149,14 +139,16 @@ export const site = {
   linkedin: "https://www.linkedin.com/in/arpit-bansal-103731192",
   youtube: "https://www.youtube.com/@arpitbansal3263",
   profileImage: "/images/profile.jpg",
-  heroDeveloperImage: "/images/hero-coding.jfif",
 };
 
 export const portfolioSiteMeta = {
-  stack: ["React 18", "TypeScript", "Vite", "GSAP", "Three.js", "React Three Fiber"],
   builtWith: ["React 18", "TS", "Vite", "GSAP", "R3F"],
-  description:
-    "This portfolio is a React 18 + TypeScript SPA with Vite, GSAP scroll animations, and React Three Fiber physics for the interactive tech stack.",
+};
+
+export const portfolioNotes = {
+  amdocsConfidential: "Internal work — no public live demos.",
+  youWip: "Work in progress — limited public detail.",
+  techStackViewport: "Richest on larger screens; touch and drag still work on mobile.",
 };
 
 export const aboutParagraphs = [
@@ -475,8 +467,6 @@ export const skillCategories = [
 ];
 
 export const beyondCode = {
-  title: "Beyond Code",
-  subtitle: "Leadership and teamwork outside the IDE — skills I bring back to engineering.",
   items: [
     {
       emoji: "🏆",
@@ -542,17 +532,6 @@ export const certificates: Certificate[] = [
     themeColor: "#3b82f6",
   },
   {
-    title: "Data Science & Machine Learning",
-    issuer: "Udemy · Jose Portilla",
-    file: "/certificates/Udemy - Data Science and Machine Learning (Jose Portilla).pdf",
-    type: "pdf",
-    emoji: "🤖",
-    topic: "ML / AI",
-    section: "technical",
-    impactLine: "Foundation for GenAI tooling, data pipelines, and structured analysis.",
-    themeColor: "#22c55e",
-  },
-  {
     title: "Software Engineering 101",
     issuer: "Udemy · Kurt Anderson",
     file: "/certificates/Udemy - Software Engineering 101 (Kurt Anderson).pdf",
@@ -584,17 +563,6 @@ export const certificates: Certificate[] = [
     section: "non-technical",
     impactLine: "Informed the mental-health UX research behind the YOU wellness platform.",
     themeColor: "#a855f7",
-  },
-  {
-    title: "Buddhism and Modern Psychology",
-    issuer: "Coursera",
-    file: "/certificates/Coursera - Buddhism and Modern Psychology.png",
-    type: "png",
-    emoji: "🪷",
-    topic: "Mindfulness",
-    section: "non-technical",
-    impactLine: "Mindfulness research applied to grounding exercises in YOU.",
-    themeColor: "#14b8a6",
   },
   {
     title: "Spanish Vocabulary: Meeting People",

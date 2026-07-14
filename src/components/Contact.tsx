@@ -63,6 +63,13 @@ const Contact = () => {
             <h4>Location</h4>
             <p>{site.location}</p>
           </article>
+          <article className="contact-detail">
+            <h4>Availability Status</h4>
+            <span className="contact-open-pill" role="status">
+              <span className="contact-open-pill__status" aria-hidden="true" />
+              {site.availability}
+            </span>
+          </article>
         </section>
 
         <footer className="contact-footer-row">

@@ -8,7 +8,7 @@ import "./styles/ProjectCarousel.css";
 type ProjectCarouselProps = {
   id: string;
   title: React.ReactNode;
-  subtitle: string;
+  subtitle?: string;
   projects: Project[];
   showGithub?: boolean;
   compact?: boolean;
@@ -31,7 +31,7 @@ const ProjectCarousel = ({
   return (
     <section className="project-carousel section-container" id={id} data-cursor="disable">
       {title}
-      <p className="project-carousel-subtitle">{subtitle}</p>
+      {subtitle && <p className="project-carousel-subtitle">{subtitle}</p>}
 
       <section className="project-carousel-stage">
         <button

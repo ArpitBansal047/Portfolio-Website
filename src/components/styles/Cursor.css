@@ -1,5 +1,5 @@
 .cursor-main {
-  --size: 36px;
+  --size: 38px;
   --cursor-color: #c8894a;
   --cursor-fill: rgba(200, 137, 74, 0.32);
   --steam-color: rgba(255, 255, 255, 0.92);
@@ -40,8 +40,8 @@
   position: absolute;
   top: 11px;
   left: 50%;
-  width: 17px;
-  height: 16px;
+  width: 19px;
+  height: 18px;
   border: 2px solid var(--cursor-color);
   border-radius: 5px;
   background: var(--cursor-fill);
@@ -63,9 +63,9 @@
 .cursor-coffee__handle {
   position: absolute;
   top: 14px;
-  left: calc(50% + 8px);
+  left: calc(50% + 9px);
   width: 6px;
-  height: 10px;
+  height: 11px;
   border: 2px solid var(--cursor-color);
   border-left: none;
   border-radius: 0 5px 5px 0;
@@ -93,14 +93,14 @@
 }
 
 .cursor-icons .cursor-coffee__cup {
-  width: 15px;
-  height: 14px;
+  width: 16px;
+  height: 15px;
   border-radius: 4px;
 }
 
 .cursor-icons .cursor-coffee__handle {
   width: 5px;
-  height: 9px;
+  height: 10px;
   left: calc(50% + 7px);
   border-radius: 0 4px 4px 0;
 }
@@ -118,7 +118,7 @@
   }
 
   .cursor-main {
-    --size: 36px;
+    --size: 38px;
   }
 }
 

@@ -18,6 +18,7 @@ type ProjectShowcaseProps = {
   scrollTriggerId: string;
   title: React.ReactNode;
   subtitle: string;
+  footnote?: string;
   projects: Project[];
   variant?: "default" | "amdocs";
   enablePin?: boolean;
@@ -29,6 +30,7 @@ const ProjectShowcase = ({
   scrollTriggerId,
   title,
   subtitle,
+  footnote,
   projects,
   variant = "default",
   enablePin = true,
@@ -131,6 +133,7 @@ const ProjectShowcase = ({
       <section className={`work-container work-container--${scrollTriggerId} section-container`}>
         {title}
         <p className="work-subtitle">{subtitle}</p>
+        {footnote && <p className="section-footnote">{footnote}</p>}
         <section className="work-scroll-wrap">
           <section
             ref={scrollRef}

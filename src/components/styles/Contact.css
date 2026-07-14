@@ -47,14 +47,45 @@
   border-color: #e6edf3;
 }
 
-.contact-social-row__link--linkedin:hover {
+.contact-social-row__link--linkedin {
+  color: #ffffff;
+  border-color: var(--linkUnderline);
+}
+
+.contact-social-row__link--linkedin svg {
   color: #0a66c2;
-  border-color: #0a66c2;
+  flex-shrink: 0;
+}
+
+.contact-social-row__link--linkedin:hover {
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.65);
+}
+
+.contact-social-row__link--whatsapp {
+  color: #ffffff;
+  border-color: var(--linkUnderline);
+}
+
+.contact-social-row__link--whatsapp svg {
+  color: #25d366;
+  flex-shrink: 0;
 }
 
 .contact-social-row__link--whatsapp:hover {
-  color: #25d366;
-  border-color: #25d366;
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.65);
+}
+
+[data-theme="light"] .contact-social-row__link--linkedin,
+[data-theme="light"] .contact-social-row__link--whatsapp {
+  color: var(--textPrimary);
+}
+
+[data-theme="light"] .contact-social-row__link--linkedin:hover,
+[data-theme="light"] .contact-social-row__link--whatsapp:hover {
+  color: var(--textPrimary);
+  border-color: currentColor;
 }
 
 .contact-form-wrap {
@@ -222,6 +253,41 @@
   grid-column: 1 / -1;
 }
 
+.contact-open-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--textPrimary);
+  background: rgba(10, 8, 14, 0.88);
+  border: 1px solid rgba(167, 139, 250, 0.35);
+  box-shadow:
+    0 0 14px rgba(167, 139, 250, 0.18),
+    inset 0 0 12px rgba(167, 139, 250, 0.06);
+  line-height: 1;
+}
+
+.contact-open-pill__status {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #4ade80;
+  box-shadow: 0 0 8px rgba(74, 222, 128, 0.65);
+  flex-shrink: 0;
+}
+
+[data-theme="light"] .contact-open-pill {
+  background: rgba(255, 255, 255, 0.92);
+  color: var(--textPrimary);
+  border-color: rgba(109, 40, 217, 0.28);
+}
+
 .contact-footer-row {
   margin-top: 32px;
   padding-top: 28px;
@@ -319,6 +385,12 @@
     margin-bottom: 28px;
   }
 
+  .contact-open-pill {
+    white-space: normal;
+    text-align: left;
+    max-width: 100%;
+  }
+
   .contact-form {
     grid-template-columns: 1fr;
   }
@@ -330,6 +402,20 @@
   .contact-section {
     margin-top: 48px;
     padding-bottom: 40px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .contact-social-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 14px;
+  }
+
+  .contact-social-row__link {
+    justify-content: center;
+    width: 100%;
+    padding-bottom: 4px;
   }
 }
 

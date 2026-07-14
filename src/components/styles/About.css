@@ -62,15 +62,17 @@
   display: none;
 }
 
-.about-me p.para {
+.about-me p.about-para {
   font-size: clamp(15px, 1.75vw, 22px);
   font-weight: 400;
-  line-height: 1.5;
+  line-height: 1.55;
   letter-spacing: 0.2px;
-  margin: 0 0 0.85em;
+  margin: 0 0 1em;
+  text-align: left;
+  text-wrap: pretty;
 }
 
-.about-me p.para:last-of-type {
+.about-me p.about-para:last-of-type {
   margin-bottom: 0.5em;
 }
 
@@ -84,8 +86,23 @@
 @media only screen and (max-width: 1024px) {
   .about-layout {
     flex-direction: column;
-    text-align: center;
     gap: 24px;
+  }
+
+  .about-me {
+    width: 100%;
+    max-width: min(540px, 92vw);
+    margin: 0 auto;
+    padding: 0 var(--page-pad, 16px);
+    box-sizing: border-box;
+  }
+
+  .section-title--about {
+    text-align: center;
+  }
+
+  .about-meta {
+    text-align: center;
   }
 
   .about-photo img {

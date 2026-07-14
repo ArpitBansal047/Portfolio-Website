@@ -227,3 +227,28 @@
   color: #0b080c;
   background: var(--accentColor);
 }
+
+.section-footnote {
+  margin: -8px auto 18px;
+  max-width: 56ch;
+  font-size: 11px;
+  line-height: 1.5;
+  color: var(--textMuted);
+  text-align: center;
+  font-style: italic;
+}
+
+.work-container .section-footnote {
+  text-align: left;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.techstack-title-wrap .section-footnote {
+  margin-top: 4px;
+  margin-bottom: 0;
+}
+
+[data-theme="light"] .section-footnote {
+  color: #52525b;
+}

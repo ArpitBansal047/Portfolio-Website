@@ -192,8 +192,6 @@ const BeyondCode = () => {
 
         <SectionTitle id="beyond" lead="B" accent="EYOND CODE" className="nav-scroll-target" />
 
-        {beyondCode.subtitle && <p className="section-lead beyond-subtitle">{beyondCode.subtitle}</p>}
-
       </section>
 
 
