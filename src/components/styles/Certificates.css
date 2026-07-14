@@ -132,7 +132,7 @@
 
   .certs-section {
 
-    --cert-scale: 0.88;
+    --cert-scale: 0.68;
 
   }
 
@@ -144,7 +144,7 @@
 
   .certs-section {
 
-    --cert-scale: 0.78;
+    --cert-scale: 0.56;
 
   }
 
@@ -154,7 +154,29 @@
 
     grid-template-columns: 1fr;
 
-    max-width: min(100%, 280px);
+    max-width: min(100%, 240px);
+
+  }
+
+}
+
+
+
+@media only screen and (max-width: 479px) {
+
+  .certs-section {
+
+    --cert-scale: 0.48;
+
+  }
+
+
+
+  .certs-grid {
+
+    max-width: min(100%, 210px);
+
+    gap: calc(8px * var(--cert-scale));
 
   }
 

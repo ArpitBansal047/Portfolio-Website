@@ -2,6 +2,7 @@ import { useEffect, useRef } from "react";
 import SectionTitle from "./SectionTitle";
 import ClickableImage from "./ClickableImage";
 import { educationBulletIcons, educationExperiences } from "../data/portfolio";
+import { useHorizontalOverflow } from "./utils/useHorizontalOverflow";
 import "./styles/SectionSpacing.css";
 import "./styles/Career.css";
 import "./styles/SectionTitle.css";
@@ -45,6 +46,7 @@ const EducationBulletIcon = ({ badge }: { badge?: keyof typeof educationBulletIc
 
 const CareerTimeline = () => {
   const scrollRef = useRef<HTMLElement>(null);
+  const hasOverflow = useHorizontalOverflow(scrollRef, [educationExperiences.length]);
 
   useEffect(() => {
     const el = scrollRef.current;
@@ -115,10 +117,13 @@ const CareerTimeline = () => {
               </article>
             ))}
           </section>
-          <p className="education-scroll-hint" aria-hidden="true">
-            Scroll for more
-          </p>
         </section>
+        <p
+          className={`education-scroll-hint${hasOverflow ? " education-scroll-hint--visible" : ""}`}
+          aria-hidden={!hasOverflow}
+        >
+          Scroll for more
+        </p>
       </section>
     </section>
   );

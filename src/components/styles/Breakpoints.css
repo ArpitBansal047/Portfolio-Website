@@ -24,14 +24,30 @@
 @media screen and (max-width: 767px) {
   body {
     --cWidth: calc(100% - 24px);
+    --floater-inset-left: 28px;
+    --floater-inset-bottom: 20px;
   }
 
   .section-container {
     width: 100%;
     max-width: 100%;
-    padding-left: var(--page-pad);
+    padding-left: calc(var(--page-pad) + 10px);
     padding-right: var(--page-pad);
     box-sizing: border-box;
+  }
+
+  .landing-section {
+    padding-left: calc(var(--page-pad) + 10px);
+  }
+
+  .sticky-recruiter-cta {
+    left: max(6px, env(safe-area-inset-left, 0px));
+    bottom: calc(var(--floater-inset-bottom) + env(safe-area-inset-bottom, 0px));
+  }
+
+  .recruiter-chat-fab {
+    right: max(10px, env(safe-area-inset-right, 0px));
+    bottom: calc(var(--floater-inset-bottom) + env(safe-area-inset-bottom, 0px));
   }
 
   .section-heading,

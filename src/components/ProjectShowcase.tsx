@@ -8,6 +8,7 @@ import { Project } from "../data/portfolio";
 import { MdArrowOutward } from "react-icons/md";
 import { SiGithub } from "react-icons/si";
 import CaseStudyButton from "./CaseStudyButton";
+import { useHorizontalOverflow } from "./utils/useHorizontalOverflow";
 
 gsap.registerPlugin(useGSAP);
 
@@ -35,6 +36,7 @@ const ProjectShowcase = ({
   const usePin = enablePin && !flowLayout;
   const scrollRef = useRef<HTMLElement>(null);
   const isScrollOnly = flowLayout && variant === "amdocs";
+  const hasOverflow = useHorizontalOverflow(scrollRef, [projects.length, flowLayout, variant]);
 
   useEffect(() => {
     if (!flowLayout) return;
@@ -194,8 +196,8 @@ const ProjectShowcase = ({
             ))}
           </section>
         </section>
-        {isScrollOnly && projects.length > 1 && (
-          <p className="work-scroll-hint">
+        {isScrollOnly && hasOverflow && (
+          <p className="work-scroll-hint work-scroll-hint--visible" aria-hidden={false}>
             Scroll right for more tools
           </p>
         )}

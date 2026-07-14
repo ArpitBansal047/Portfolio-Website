@@ -1,69 +1,87 @@
 .cursor-main {
-  --size: 0px;
-  --cursor-color: #e8b87a;
-  --cursor-glow: rgba(232, 184, 122, 0.65);
-  --steam-color: rgba(255, 255, 255, 0.95);
+  --size: 36px;
+  --cursor-color: #c8894a;
+  --cursor-fill: rgba(200, 137, 74, 0.32);
+  --steam-color: rgba(255, 255, 255, 0.92);
   position: fixed;
   top: calc(var(--size) / -2);
   left: calc(var(--size) / -2);
   width: var(--size);
   height: var(--size);
-  border-radius: 0;
   pointer-events: none;
   z-index: 2147483000;
   background: transparent;
-  box-shadow: none;
-  mix-blend-mode: normal;
-  isolation: isolate;
   opacity: 1;
-  filter: drop-shadow(0 0 6px rgba(232, 184, 122, 0.55));
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.28));
 }
 
-/* Coffee Compile — cup + rising steam */
-.cursor-main::before {
-  content: "";
+.cursor-coffee {
   position: absolute;
-  top: 54%;
-  left: 46%;
-  width: calc(var(--size) * 0.54);
-  height: calc(var(--size) * 0.44);
-  border: 2.5px solid var(--cursor-color);
-  border-top: none;
-  border-radius: 0 0 6px 6px;
-  background: rgba(232, 184, 122, 0.42);
-  box-shadow:
-    0 0 12px var(--cursor-glow),
-    0 0 4px rgba(255, 255, 255, 0.35);
-  transform: translate(-50%, -50%);
-  opacity: 1;
+  inset: 0;
+  display: block;
 }
 
-.cursor-main::after {
-  content: "";
+.cursor-coffee__steam {
   position: absolute;
-  top: 16%;
+  top: 0;
   left: 50%;
-  width: 3px;
-  height: calc(var(--size) * 0.24);
+  width: 2px;
+  height: 8px;
   border-radius: 999px;
   background: var(--steam-color);
-  box-shadow:
-    -6px 2px 0 0 var(--steam-color),
-    6px 1px 0 0 var(--steam-color);
   transform: translateX(-50%);
-  opacity: 1;
+  box-shadow:
+    -5px 2px 0 0 var(--steam-color),
+    5px 1px 0 0 var(--steam-color);
   animation: cursor-steam 1.2s ease-in-out infinite;
+}
+
+.cursor-coffee__cup {
+  position: absolute;
+  top: 11px;
+  left: 50%;
+  width: 17px;
+  height: 16px;
+  border: 2px solid var(--cursor-color);
+  border-radius: 5px;
+  background: var(--cursor-fill);
+  transform: translateX(-50%);
+  box-sizing: border-box;
+}
+
+.cursor-coffee__cup::before {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  right: 3px;
+  height: 2px;
+  border-radius: 1px;
+  background: color-mix(in srgb, var(--cursor-color) 55%, transparent);
+}
+
+.cursor-coffee__handle {
+  position: absolute;
+  top: 14px;
+  left: calc(50% + 8px);
+  width: 6px;
+  height: 10px;
+  border: 2px solid var(--cursor-color);
+  border-left: none;
+  border-radius: 0 5px 5px 0;
+  background: transparent;
+  box-sizing: border-box;
 }
 
 @keyframes cursor-steam {
   0%,
   100% {
-    opacity: 0.75;
-    transform: translateX(-50%) translateY(0) scaleY(0.9);
+    opacity: 0.7;
+    transform: translateX(-50%) translateY(0);
   }
   50% {
     opacity: 1;
-    transform: translateX(-50%) translateY(-4px) scaleY(1.08);
+    transform: translateX(-50%) translateY(-3px);
   }
 }
 
@@ -74,46 +92,38 @@
   transition: all 0.5s ease-out, height 0.5s ease-in-out;
 }
 
-.cursor-icons::before {
-  top: 54%;
-  left: 46%;
-  width: calc(var(--size) * 0.44);
-  height: calc(var(--size) * 0.36);
-  border: 2.5px solid var(--cursor-color);
-  border-top: none;
-  border-radius: 0 0 5px 5px;
-  background: rgba(232, 184, 122, 0.38);
-  transform: translate(-50%, -50%) rotate(0deg);
-  box-shadow: 0 0 14px var(--cursor-glow);
-  opacity: 1;
+.cursor-icons .cursor-coffee__cup {
+  width: 15px;
+  height: 14px;
+  border-radius: 4px;
 }
 
-.cursor-icons::after {
-  animation: cursor-steam 1s ease-in-out infinite;
+.cursor-icons .cursor-coffee__handle {
+  width: 5px;
+  height: 9px;
+  left: calc(50% + 7px);
+  border-radius: 0 4px 4px 0;
 }
 
 [data-theme="light"] .cursor-main {
-  --cursor-color: #b45309;
-  --cursor-glow: rgba(180, 83, 9, 0.55);
-  --steam-color: rgba(39, 39, 42, 0.9);
-  filter: drop-shadow(0 0 5px rgba(180, 83, 9, 0.45));
+  --cursor-color: #9a3412;
+  --cursor-fill: rgba(154, 52, 18, 0.22);
+  --steam-color: rgba(39, 39, 42, 0.88);
 }
 
-@media (pointer: fine) and (min-width: 600px) {
+@media (hover: hover) and (pointer: fine) {
   html,
   html * {
     cursor: none !important;
   }
-}
 
-@media only screen and (min-width: 600px) {
   .cursor-main {
-    --size: 32px;
+    --size: 36px;
   }
 }
 
-@media (pointer: coarse) {
+@media (hover: none), (pointer: coarse) {
   .cursor-main {
-    display: none;
+    display: none !important;
   }
 }

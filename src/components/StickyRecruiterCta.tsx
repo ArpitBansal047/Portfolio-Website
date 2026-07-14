@@ -1,9 +1,27 @@
 import { useEffect, useState } from "react";
 import { gsap } from "gsap";
-import { LuFileText } from "react-icons/lu";
 import { site } from "../data/portfolio";
 import { smoother } from "./utils/scrollSmoother";
 import "./styles/StickyRecruiterCta.css";
+
+const ResumeDocIcon = () => (
+  <svg
+    className="sticky-recruiter-cta__icon"
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    aria-hidden="true"
+  >
+    <path
+      d="M8 3h7l5 5v13a1 1 0 0 1-1 1H8a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Z"
+      stroke="currentColor"
+      strokeWidth="1.8"
+      strokeLinejoin="round"
+    />
+    <path d="M15 3v5h5" stroke="currentColor" strokeWidth="1.8" strokeLinejoin="round" />
+    <path d="M9 12h6M9 15h6M9 18h4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+  </svg>
+);
 
 const StickyRecruiterCta = () => {
   const [visible, setVisible] = useState(false);
@@ -32,11 +50,18 @@ const StickyRecruiterCta = () => {
         href={site.resumePath}
         download
         className="sticky-recruiter-cta__link"
+        aria-label="Download resume"
         data-cursor="disable"
         tabIndex={visible ? 0 : -1}
       >
-        <span>RESUME</span>
-        <LuFileText aria-hidden="true" />
+        <ResumeDocIcon />
+        <span className="sticky-recruiter-cta__label" aria-hidden="true">
+          {"RESUME".split("").map((letter, index) => (
+            <span key={index} className="sticky-recruiter-cta__letter">
+              {letter}
+            </span>
+          ))}
+        </span>
       </a>
     </aside>
   );

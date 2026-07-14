@@ -6,8 +6,6 @@ import "./styles/Landing.css";
 const Landing = () => {
   return (
     <section className="landing-section" id="landingDiv">
-      <div className="landing-mesh" aria-hidden="true" />
-
       <div className="landing-hero-grid">
         <section className="landing-left">
           <p className="landing-greeting">Hello! I&apos;m</p>

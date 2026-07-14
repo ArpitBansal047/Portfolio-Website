@@ -53,7 +53,7 @@
   width: 100%;
   max-width: 100%;
   min-width: 0;
-  overflow: hidden;
+  overflow: visible;
 }
 
 .education-scroll {
@@ -88,9 +88,22 @@
   padding: 0 var(--page-pad, 16px);
 }
 
-@media only screen and (max-width: 1920px) {
-  .education-scroll-hint {
-    display: block;
+.education-scroll-hint--visible {
+  display: block;
+  color: var(--textPrimary);
+  opacity: 0.78;
+  margin-top: 12px;
+  margin-bottom: 4px;
+  position: relative;
+  z-index: 4;
+}
+
+@media only screen and (max-width: 767px) {
+  .education-scroll-hint--visible {
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    opacity: 0.9;
+    padding-bottom: 8px;
   }
 }
 
@@ -231,15 +244,16 @@
 
 .yhills-card__kind {
   display: inline-block;
-  font-size: 11px;
+  font-size: 12px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #0b080c;
+  color: #ffffff;
   background: var(--accentColor);
-  padding: 4px 10px;
+  padding: 5px 12px;
   border-radius: 999px;
   margin: 0 0 8px;
-  font-weight: 600;
+  font-weight: 700;
+  border: 1px solid color-mix(in srgb, var(--accentColor) 70%, #000000);
 }
 
 .yhills-card__period {

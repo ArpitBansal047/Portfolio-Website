@@ -132,6 +132,10 @@ const Navbar = () => {
         aria-label="Mobile navigation"
         aria-hidden={!menuOpen}
       >
+        <ul className="navbar-links navbar-links--mobile">
+          <NavLinkItems />
+        </ul>
+        <div className="navbar-divider--mobile" aria-hidden="true" />
         <div className="navbar-controls navbar-controls--mobile">
           <span className="navbar-menu-label">Preferences</span>
           <div className="navbar-controls-row">
@@ -139,9 +143,6 @@ const Navbar = () => {
             <SoundToggle />
           </div>
         </div>
-        <ul className="navbar-links navbar-links--mobile">
-          <NavLinkItems />
-        </ul>
       </nav>
 
       {menuOpen && (

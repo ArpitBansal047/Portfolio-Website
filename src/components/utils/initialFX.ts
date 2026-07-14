@@ -81,7 +81,6 @@ function revealDesktopLanding(landingTagline: SplitText) {
       ".hero-code-editor",
       ".hero-stats-bar",
       ".hero-sphere-top",
-      ".landing-mesh",
     ],
     { opacity: 0, y: 16 },
     {
@@ -130,7 +129,6 @@ function revealCompactLanding(landingTagline: SplitText) {
       ".hero-code-editor",
       ".hero-stats-bar",
       ".hero-sphere-top",
-      ".landing-mesh",
     ],
     { opacity: 0, y: 8 },
     {
