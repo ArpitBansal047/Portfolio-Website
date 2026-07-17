@@ -96,6 +96,8 @@ const BeyondCard = ({ item }: { item: BeyondItem }) => {
 
             downloadName={`${item.title.replace(/\s+/g, "-").toLowerCase()}.png`}
 
+            blurFill
+
           />
 
         ) : (

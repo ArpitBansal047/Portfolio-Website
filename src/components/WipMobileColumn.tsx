@@ -94,6 +94,7 @@ const WipMobileColumn = ({ project }: WipMobileColumnProps) => {
               src={assetUrl(shot.src)}
               alt={shot.label}
               downloadName={`${project.id}-${shot.label.replace(/\s+/g, "-").toLowerCase()}.png`}
+              blurFill
             />
           </figure>
 

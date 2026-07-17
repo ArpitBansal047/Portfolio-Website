@@ -139,7 +139,7 @@
   display: inline-flex;
 }
 
-.company-logo-clickable img {
+.company-logo-clickable .clickable-image__main {
   display: block;
   object-fit: contain;
   background: #fff;
@@ -148,12 +148,12 @@
   box-sizing: border-box;
 }
 
-.company-logo-clickable--md img {
+.company-logo-clickable--md .clickable-image__main {
   width: 56px;
   height: 56px;
 }
 
-.company-logo-clickable--lg img {
+.company-logo-clickable--lg .clickable-image__main {
   width: 72px;
   height: 72px;
 }

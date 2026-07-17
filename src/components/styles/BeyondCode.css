@@ -141,7 +141,7 @@
   border-radius: 0;
 }
 
-.beyond-card-media .clickable-image img {
+.beyond-card-media .clickable-image__main {
   width: 100%;
   height: 100%;
   max-width: 100%;
@@ -151,9 +151,10 @@
   display: block;
   border: none;
   border-radius: 0;
+  background: transparent;
 }
 
-.beyond-card-media .beyond-img-zoom img {
+.beyond-card-media .beyond-img-zoom .clickable-image__main {
   object-fit: cover;
   object-position: center 8%;
   transform: scale(0.915);

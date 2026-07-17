@@ -76,7 +76,7 @@ export const educationBulletIcons = {
 } as const;
 
 export const duolingoMeta = {
-  streakLine: "2,051 day streak on Duolingo for learning Spanish",
+  streakLine: "3,000 day streak on Duolingo for learning Spanish",
   scoreLine: "Current score 63 — Limited working proficiency",
 };
 
@@ -541,7 +541,7 @@ export const certificates: Certificate[] = [
     emoji: "🇪🇸",
     topic: "Language",
     section: "non-technical",
-    impactLine: "Pairs with a 2,051-day Duolingo streak — continuous learning habit.",
+    impactLine: "Pairs with a 3,000-day Duolingo streak — continuous learning habit.",
     themeColor: "#ef4444",
   },
 ];

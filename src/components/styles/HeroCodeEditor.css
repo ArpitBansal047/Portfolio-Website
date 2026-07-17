@@ -253,6 +253,26 @@
     max-height: clamp(200px, 34vh, 280px);
   }
 
+  .hero-code-editor__chrome {
+    flex-wrap: nowrap;
+    gap: 8px;
+    padding: 8px 10px;
+  }
+
+  .hero-code-editor__tab {
+    font-size: 10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .hero-code-editor__compile {
+    font-size: 7px;
+    padding: 2px 5px;
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+  }
+
   .hero-code-editor::before {
     inset: -4px;
     filter: blur(5px);

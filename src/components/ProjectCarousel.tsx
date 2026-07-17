@@ -110,6 +110,7 @@ const ProjectCarousel = ({
             image={project.image}
             alt={project.name}
             link={project.liveUrl || project.githubUrl}
+            blurFill
           />
         </article>
 

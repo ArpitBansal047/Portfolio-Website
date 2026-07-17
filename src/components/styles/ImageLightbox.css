@@ -100,6 +100,97 @@
   outline-offset: 4px;
 }
 
+.clickable-image__main {
+  display: block;
+  max-width: 100%;
+}
+
+.clickable-image--blur-fill {
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.32);
+}
+
+/*
+  Dark: blurred ss tinted dark, blended with black letterbox.
+  Light: see [data-theme="light"] — white + ss colors.
+*/
+.clickable-image--blur-fill .clickable-image__blur {
+  position: absolute;
+  inset: -32%;
+  width: 164%;
+  height: 164%;
+  object-fit: cover;
+  object-position: center;
+  transform: scale(1.08);
+  filter: blur(40px) saturate(1.04) brightness(0.52) contrast(0.92);
+  opacity: 0.68;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.clickable-image--blur-fill::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: rgba(0, 0, 0, 0.36);
+  backdrop-filter: blur(20px) saturate(0.85) brightness(0.68);
+  -webkit-backdrop-filter: blur(20px) saturate(0.85) brightness(0.68);
+  pointer-events: none;
+}
+
+.clickable-image--blur-fill::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.26) 0%,
+    rgba(0, 0, 0, 0.1) 50%,
+    rgba(0, 0, 0, 0.2) 100%
+  );
+  pointer-events: none;
+}
+
+.clickable-image--blur-fill .clickable-image__main {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  background: transparent;
+}
+
+.clickable-image--blur-fill .clickable-image__hint {
+  z-index: 3;
+}
+
+[data-theme="light"] .clickable-image--blur-fill {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+[data-theme="light"] .clickable-image--blur-fill .clickable-image__blur {
+  filter: blur(40px) saturate(0.78) brightness(1.22) contrast(0.92);
+  opacity: 0.54;
+}
+
+[data-theme="light"] .clickable-image--blur-fill::before {
+  background: rgba(255, 255, 255, 0.14);
+  backdrop-filter: blur(20px) saturate(0.72) brightness(1.1);
+  -webkit-backdrop-filter: blur(20px) saturate(0.72) brightness(1.1);
+}
+
+[data-theme="light"] .clickable-image--blur-fill::after {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.12) 0%,
+    rgba(255, 255, 255, 0.04) 50%,
+    rgba(255, 255, 255, 0.1) 100%
+  );
+}
+
 .clickable-image__hint {
   position: absolute;
   bottom: 10px;

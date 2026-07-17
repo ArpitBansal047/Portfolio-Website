@@ -293,17 +293,18 @@
   overflow: hidden;
   border-radius: 8px;
   border: 1px solid var(--borderColor);
-  background: #111;
+  background: transparent;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.wip-ss-frame .clickable-image img {
+.wip-ss-frame .clickable-image__main {
   width: 100%;
   height: 100%;
   object-fit: contain;
   object-position: center center;
+  background: transparent;
 }
 
 .wip-ss-arrow {
@@ -456,11 +457,12 @@
     margin-inline: auto;
   }
 
-  .wip-ss-frame .clickable-image img {
+  .wip-ss-frame .clickable-image__main {
     width: 100%;
     height: 100%;
     object-fit: contain;
     object-position: center center;
+    background: transparent;
   }
 
   .wip-ss-controls {
@@ -580,26 +582,26 @@
   }
 
   .wip-app-text .expandable-work-detail--compact h4 {
-    font-size: 7px;
+    font-size: 9px;
   }
 
   .wip-app-text .expandable-work-detail--compact p {
-    font-size: clamp(7px, 1.9vw, 8px);
+    font-size: clamp(9px, 2.1vw, 10px);
   }
 
   .wip-app-text .expandable-work-detail--compact .work-tag {
-    font-size: 6px;
+    font-size: 8px;
     padding: 2px 4px;
   }
 
   .wip-app-text .case-study-btn {
-    font-size: 8px;
+    font-size: 10px;
     padding: 4px 7px;
     margin-top: 4px;
   }
 
   .wip-tag {
-    font-size: clamp(8px, 2.1vw, 9px);
+    font-size: clamp(10px, 2.3vw, 11px);
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
@@ -607,7 +609,7 @@
   }
 
   .wip-desc {
-    font-size: clamp(8px, 2vw, 9px);
+    font-size: clamp(10px, 2.2vw, 11px);
     line-height: 1.35;
     display: -webkit-box;
     -webkit-line-clamp: 3;
@@ -618,7 +620,7 @@
 
   .wip-bullets {
     display: block;
-    font-size: clamp(7px, 1.85vw, 8px);
+    font-size: clamp(9px, 2.05vw, 10px);
     line-height: 1.3;
     padding-left: 0.95rem;
     margin: 0;
@@ -633,7 +635,7 @@
   }
 
   .wip-link {
-    font-size: clamp(7px, 1.85vw, 8px);
+    font-size: clamp(9px, 2.05vw, 10px);
   }
 
   .wip-tags {
@@ -645,7 +647,7 @@
   }
 
   .wip-tags span {
-    font-size: clamp(6px, 1.55vw, 7px);
+    font-size: clamp(8px, 1.75vw, 9px);
     padding: 2px 4px;
   }
 
@@ -694,7 +696,7 @@
     aspect-ratio: 9 / 19.5;
   }
 
-  .wip-ss-frame .clickable-image img {
+  .wip-ss-frame .clickable-image__main {
     object-fit: contain;
     object-position: center center;
     width: 100%;

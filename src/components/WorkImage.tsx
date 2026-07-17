@@ -10,9 +10,11 @@ interface Props {
   link?: string;
   /** When true, image is display-only (no external link overlay). */
   staticOnly?: boolean;
+  blurFill?: boolean;
 }
 
 const WorkImage = (props: Props) => {
+  const blurFill = props.blurFill ?? props.staticOnly ?? false;
   const [isVideo, setIsVideo] = useState(false);
   const [video, setVideo] = useState("");
 
@@ -34,6 +36,7 @@ const WorkImage = (props: Props) => {
             alt={props.alt || "Project screenshot"}
             downloadName={`${props.alt || "project"}.png`}
             externalUrl={props.link}
+            blurFill={blurFill}
           />
         </section>
       </section>
@@ -52,6 +55,7 @@ const WorkImage = (props: Props) => {
           alt={props.alt || "Project screenshot"}
           downloadName={`${props.alt || "project"}.png`}
           externalUrl={props.link}
+          blurFill={blurFill}
         />
         {props.link && (
           <a
