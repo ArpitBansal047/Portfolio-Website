@@ -243,16 +243,67 @@
   margin: 16px 0 0;
 }
 
+@media only screen and (min-width: 768px) and (max-width: 1399px) {
+  .project-carousel-card {
+    min-height: clamp(260px, 24.5vh, 332px);
+    padding: clamp(14px, 1.6vw, 20px);
+    gap: clamp(14px, 1.8vw, 20px);
+  }
+
+  .project-carousel-title {
+    margin-bottom: 12px;
+    column-gap: clamp(14px, 3.6vw, 40px);
+  }
+
+  .project-carousel-number {
+    font-size: clamp(29px, 3.6vw, 37px);
+  }
+
+  .project-carousel-name {
+    font-size: clamp(13px, 1.85vw, 17px);
+  }
+
+  .project-carousel-category {
+    font-size: clamp(9px, 1.25vw, 11px);
+  }
+
+  .project-carousel-info > h4 {
+    font-size: clamp(10px, 1.25vw, 11px);
+  }
+
+  .project-carousel-info > p,
+  .project-carousel-glance,
+  .project-carousel-card--compact .project-carousel-summary {
+    font-size: clamp(9px, 1.2vw, 11px);
+  }
+
+  .project-carousel-tag {
+    font-size: clamp(7px, 1vw, 9px);
+    padding: 2px 6px;
+  }
+
+  .project-carousel-btn {
+    font-size: clamp(9px, 1.2vw, 11px);
+    padding: 5px 9px;
+  }
+
+  .project-carousel-card .work-image {
+    height: clamp(152px, 19vw, 215px);
+    min-height: clamp(145px, 18vw, 205px);
+    max-height: 215px;
+  }
+}
+
 @media only screen and (max-width: 1023px) {
   .project-carousel-stage {
-    gap: clamp(12px, 3vw, 18px);
-    padding-inline: max(var(--page-pad, 12px), 14px);
+    gap: clamp(8px, 2vw, 14px);
+    padding-inline: max(var(--page-pad, 12px), 10px);
   }
 
   .project-carousel-arrow {
-    width: 36px;
-    height: 36px;
-    font-size: 22px;
+    width: 28px;
+    height: 28px;
+    font-size: 18px;
   }
 
   .project-carousel-card {
@@ -266,10 +317,10 @@
   .project-carousel-card .work-image {
     order: -1;
     align-self: auto;
-    height: clamp(210px, 54vw, 300px);
-    min-height: clamp(200px, 52vw, 290px);
-    max-height: 300px;
-    margin: 0 0 12px;
+    height: clamp(175px, 45vw, 255px);
+    min-height: clamp(165px, 43vw, 245px);
+    max-height: 255px;
+    margin: 0 0 10px;
     border-radius: 10px;
   }
 
@@ -293,14 +344,14 @@
   }
 
   .project-carousel-info > h4 {
-    font-size: clamp(12px, 2.8vw, 14px);
-    margin: 6px 0 0;
+    font-size: clamp(11px, 2.5vw, 13px);
+    margin: 5px 0 0;
   }
 
   .project-carousel-info > p {
-    font-size: clamp(11px, 2.6vw, 13px);
-    line-height: 1.4;
-    margin: 3px 0 0;
+    font-size: clamp(10px, 2.3vw, 12px);
+    line-height: 1.35;
+    margin: 2px 0 0;
   }
 
   .project-carousel-info > p:not(.project-carousel-glance):not(.project-carousel-summary) {
@@ -311,8 +362,8 @@
   }
 
   .project-carousel-glance {
-    font-size: clamp(11px, 2.5vw, 13px);
-    margin: 0 0 6px;
+    font-size: clamp(10px, 2.2vw, 12px);
+    margin: 0 0 5px;
     -webkit-line-clamp: 2;
     display: -webkit-box;
     -webkit-box-orient: vertical;
@@ -320,7 +371,7 @@
   }
 
   .project-carousel-card--compact .project-carousel-summary {
-    font-size: clamp(11px, 2.6vw, 13px);
+    font-size: clamp(10px, 2.3vw, 12px);
     line-height: 1.4;
     margin: 0 0 8px;
     display: -webkit-box;
@@ -339,16 +390,16 @@
   }
 
   .project-carousel-number {
-    font-size: clamp(28px, 7vw, 40px);
+    font-size: clamp(24px, 6.2vw, 36px);
   }
 
   .project-carousel-name {
-    font-size: clamp(17px, 4.2vw, 22px);
+    font-size: clamp(15px, 3.8vw, 20px);
   }
 
   .project-carousel-category {
-    margin-top: 4px;
-    font-size: clamp(11px, 2.8vw, 13px);
+    margin-top: 3px;
+    font-size: clamp(10px, 2.5vw, 12px);
   }
 
   .project-carousel-actions {
@@ -366,16 +417,22 @@
 
 @media only screen and (max-width: 900px) {
   .project-carousel-card .work-image {
-    height: clamp(200px, 50vw, 280px);
-    min-height: clamp(190px, 48vw, 270px);
-    max-height: 280px;
+    height: clamp(165px, 42vw, 240px);
+    min-height: clamp(155px, 40vw, 230px);
+    max-height: 240px;
   }
 }
 
 @media only screen and (max-width: 480px) {
   .project-carousel-stage {
-    grid-template-columns: 28px 1fr 28px;
-    gap: 6px;
+    grid-template-columns: 22px 1fr 22px;
+    gap: 4px;
+  }
+
+  .project-carousel-arrow {
+    width: 24px;
+    height: 24px;
+    font-size: 16px;
   }
 
   .project-carousel-card {
@@ -412,9 +469,9 @@
   }
 
   .project-carousel-card .work-image {
-    height: clamp(180px, 48vw, 250px);
-    min-height: clamp(170px, 46vw, 240px);
-    max-height: 250px;
+    height: clamp(150px, 42vw, 220px);
+    min-height: clamp(140px, 40vw, 210px);
+    max-height: 220px;
     margin-bottom: 4px;
   }
 

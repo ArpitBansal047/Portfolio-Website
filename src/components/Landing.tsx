@@ -1,6 +1,5 @@
 import { heroMetrics, site } from "../data/portfolio";
 import HeroCodeEditor from "./HeroCodeEditor";
-import HeroSphere from "./HeroSphere";
 import "./styles/Landing.css";
 
 const Landing = () => {
@@ -55,8 +54,6 @@ const Landing = () => {
           </section>
         </section>
       </div>
-
-      <HeroSphere />
     </section>
   );
 };

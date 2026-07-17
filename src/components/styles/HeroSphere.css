@@ -1,4 +1,4 @@
-/* Landing sphere decoration — top half only, laptop+ */
+/* Landing sphere — viewport bottom-left, side-by-side hero only (≥1100px) */
 
 .hero-sphere-zone {
   position: relative;
@@ -8,24 +8,28 @@
 .hero-sphere-zone .landing-section {
   position: relative;
   z-index: 3;
-  overflow-x: clip;
 }
 
 .hero-sphere-top {
+  display: none;
   position: absolute;
-  left: 0;
+  /* Cancel section horizontal inset → viewport left edge */
+  left: calc(-1 * var(--page-pad, 20px));
   bottom: 0;
-  width: clamp(100px, 10vw, 180px);
-  max-width: 22vw;
+  width: clamp(130px, 15vw, 240px);
   pointer-events: none;
   line-height: 0;
   z-index: 1;
+  margin: 0;
+  padding: 0;
+  transform: none;
 }
 
 .hero-sphere-top__img {
   display: block;
   width: 100%;
   height: auto;
+  vertical-align: bottom;
 }
 
 .hero-sphere-top__img--light {
@@ -50,22 +54,44 @@
   filter: drop-shadow(0 0 8px rgba(24, 24, 27, 0.06));
 }
 
-@media screen and (max-width: 1279px) {
+@media screen and (max-width: 1099px) {
   .hero-sphere-top {
     display: none;
   }
 }
 
-@media screen and (min-width: 1280px) and (max-width: 1599px) {
+@media screen and (min-width: 1100px) {
+  .hero-sphere-zone {
+    overflow: visible;
+  }
+
+  .landing-section {
+    overflow: visible;
+  }
+
   .hero-sphere-top {
-    width: clamp(96px, 8vw, 140px);
-    max-width: 18vw;
+    display: block;
+  }
+}
+
+/* Tablet / medium side-by-side: sit on hero content bottom-left */
+@media screen and (min-width: 1100px) and (max-width: 1279px) {
+  .hero-sphere-top {
+    width: clamp(120px, 14vw, 200px);
+    bottom: 0;
+  }
+}
+
+/* Desktop full-viewport hero: push through section bottom padding to viewport corner */
+@media screen and (min-width: 1280px) {
+  .hero-sphere-top {
+    width: clamp(160px, 16vw, 280px);
+    bottom: calc(-1 * (var(--gap-major-half) + clamp(32px, 4.5vw, 56px)));
   }
 }
 
 @media screen and (min-width: 1600px) {
   .hero-sphere-top {
-    width: clamp(130px, 11vw, 200px);
-    max-width: 220px;
+    width: clamp(190px, 17vw, 320px);
   }
 }

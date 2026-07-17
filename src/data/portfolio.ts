@@ -95,10 +95,17 @@ export type BeyondItem = {
 
 export type CertificateSection = "technical" | "non-technical";
 
+export type HeroMetricAnimation =
+  | { kind: "percent"; target: number }
+  | { kind: "hours-compare"; from: number; to: number }
+  | { kind: "percent-range"; min: number; max: number }
+  | { kind: "count-plus"; target: number };
+
 export type HeroMetric = {
   value: string;
   title: string;
   detail: string;
+  animation: HeroMetricAnimation;
 };
 
 export const heroMetrics: HeroMetric[] = [
@@ -106,21 +113,25 @@ export const heroMetrics: HeroMetric[] = [
     value: "90%",
     title: "Manual Work Cut",
     detail: "BPT GenAI tool",
+    animation: { kind: "percent", target: 90 },
   },
   {
     value: "5h → 1h",
     title: "Faster Test Cycles",
     detail: "Jenkins orchestration",
+    animation: { kind: "hours-compare", from: 5, to: 1 },
   },
   {
     value: "15–20%",
     title: "Productivity Target",
     detail: "ComcastHub unified dev hub",
+    animation: { kind: "percent-range", min: 15, max: 20 },
   },
   {
     value: "10+",
     title: "Devs Use It Daily",
     detail: "APEye regression tool",
+    animation: { kind: "count-plus", target: 10 },
   },
 ];
 
@@ -428,7 +439,7 @@ export const beyondCode = {
   items: [
     {
       emoji: "🏆",
-      title: "Comcast Sports League (CSL) 2026",
+      title: "Comcast Sports League 2026",
       metric: "Organizer · 500+ participants",
       description: "Organizing our annual multi-sport league at work.",
       leadershipImpact:

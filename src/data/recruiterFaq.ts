@@ -352,14 +352,6 @@ export const recruiterFaq: FaqItem[] = [
       "Yes — I can share professional references at the right stage of the process.\n\nReach out via email or LinkedIn and we can coordinate after we've aligned on the role.",
   },
   {
-    id: "interview-format",
-    category: "Availability",
-    question: "How do you prefer to interview?",
-    keywords: ["interview", "call", "meet", "schedule", "video", "phone screen"],
-    answer:
-      "A short intro call works well first, then technical rounds that reflect real work — coding, system discussion, or walkthrough of past projects.\n\nEmail, WhatsApp, or the contact form on this site are the fastest ways to schedule.",
-  },
-  {
     id: "leetcode-dsa",
     category: "Skills",
     question: "How is your DSA and problem-solving?",

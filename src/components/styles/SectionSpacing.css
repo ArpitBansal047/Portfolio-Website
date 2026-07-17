@@ -3,66 +3,43 @@
   (same total gap as Beyond Code ↔ Contact: half + half = --gap-section).
 */
 :root {
-  --gap-section: clamp(168px, 21vw, 264px);
+  --gap-section: clamp(220px, 26vw, 320px);
   --gap-major-half: calc(var(--gap-section) * 0.5);
   --gap-beyond-contact-half: calc(var(--gap-major-half) * 0.62);
-  --gap-subsection: clamp(58px, 8.4vw, 96px);
-  --gap-subsection-lg: clamp(88px, 11vw, 144px);
+  --gap-subsection: clamp(72px, 10vw, 120px);
+  --gap-subsection-lg: clamp(108px, 13vw, 176px);
+  --gap-about-career: calc(var(--gap-major-half) * 0.45);
 }
 
 @media screen and (max-width: 1279px) {
   :root {
-    --gap-section: clamp(128px, 17vw, 210px);
-    --gap-subsection: clamp(48px, 7vw, 80px);
-    --gap-subsection-lg: clamp(72px, 9vw, 120px);
+    --gap-section: clamp(168px, 22vw, 260px);
+    --gap-subsection: clamp(60px, 9vw, 96px);
+    --gap-subsection-lg: clamp(92px, 11vw, 148px);
   }
 }
 
 @media screen and (max-width: 767px) {
   :root {
-    --gap-section: clamp(104px, 22vw, 168px);
-    --gap-subsection: clamp(40px, 8vw, 64px);
-    --gap-subsection-lg: clamp(56px, 10vw, 96px);
+    --gap-section: clamp(132px, 28vw, 208px);
+    --gap-subsection: clamp(52px, 10vw, 80px);
+    --gap-subsection-lg: clamp(72px, 12vw, 112px);
   }
 }
 
 .landing-section {
-  padding-bottom: var(--gap-major-half);
-}
-
-@media screen and (max-width: 1279px) {
-  .landing-section {
-    padding-bottom: clamp(16px, 2.5vh, 28px);
-  }
-}
-
-@media screen and (min-width: 768px) and (max-width: 1279px) {
-  .landing-section {
-    padding-bottom: clamp(20px, 3vh, 32px);
-  }
-}
-
-@media screen and (min-width: 1280px) {
-  .landing-section {
-    padding-bottom: clamp(12px, 2vh, 20px);
-  }
+  padding-bottom: calc(var(--gap-major-half) + clamp(32px, 4.5vw, 56px));
 }
 
 .about-section {
   margin-bottom: 0;
   padding-top: var(--gap-major-half);
-  padding-bottom: var(--gap-major-half);
-}
-
-@media screen and (min-width: 768px) and (max-width: 1279px) {
-  .about-section {
-    padding-top: clamp(28px, 4.5vw, 48px);
-  }
+  padding-bottom: var(--gap-about-career);
 }
 
 .career-block {
   margin-top: 0;
-  padding-top: var(--gap-major-half);
+  padding-top: var(--gap-about-career);
   padding-bottom: 0;
 }
 

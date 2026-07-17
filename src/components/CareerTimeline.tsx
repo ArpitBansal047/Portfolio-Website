@@ -56,6 +56,15 @@ const CareerTimeline = () => {
       el.scrollLeft = 0;
     };
 
+    resetScroll();
+    window.addEventListener("resize", resetScroll);
+
+    if (!hasOverflow) {
+      return () => {
+        window.removeEventListener("resize", resetScroll);
+      };
+    }
+
     const onWheel = (event: WheelEvent) => {
       const canScrollLeft = el.scrollLeft > 0;
       const canScrollRight = el.scrollLeft + el.clientWidth < el.scrollWidth - 1;
@@ -72,15 +81,13 @@ const CareerTimeline = () => {
       }
     };
 
-    resetScroll();
-    window.addEventListener("resize", resetScroll);
     el.addEventListener("wheel", onWheel, { passive: false });
 
     return () => {
       window.removeEventListener("resize", resetScroll);
       el.removeEventListener("wheel", onWheel);
     };
-  }, []);
+  }, [hasOverflow]);
 
   return (
     <section className="career-section education-section section-container" id="education">
@@ -92,7 +99,7 @@ const CareerTimeline = () => {
         <section className="education-scroll-wrap">
           <section
             ref={scrollRef}
-            className="career-scroll career-scroll--horizontal education-scroll"
+            className={`career-scroll career-scroll--horizontal education-scroll${hasOverflow ? "" : " education-scroll--fit"}`}
           >
             <section className="education-scroll-track">
               {educationExperiences.map((exp) => (

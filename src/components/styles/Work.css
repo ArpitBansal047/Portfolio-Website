@@ -539,6 +539,36 @@
   font-size: clamp(16px, 2vw, 20px);
 }
 
+.work-section--amdocs.work-section--flow .work-flex.work-flex--fit {
+  justify-content: center;
+  overflow-x: visible;
+  scroll-snap-type: none;
+  padding-right: 0;
+  margin-left: 0;
+  gap: clamp(12px, 1.4vw, 20px);
+}
+
+.work-section--amdocs.work-section--flow .work-scroll-wrap:has(.work-flex--fit) {
+  overflow: visible;
+}
+
+.work-section--amdocs.work-section--flow .work-flex.work-flex--scroll {
+  justify-content: flex-start;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scroll-padding-inline: var(--page-pad, 16px);
+  padding-right: var(--page-pad, 16px);
+  touch-action: pan-x pan-y;
+}
+
+.work-section--amdocs.work-section--flow .work-container {
+  width: var(--cWidth);
+  max-width: var(--cMaxWidth);
+  margin-inline: auto;
+  box-sizing: border-box;
+}
+
 .work-section--amdocs.work-section--flow {
   padding-bottom: clamp(24px, 4vh, 48px);
 }
@@ -554,16 +584,16 @@
 }
 
 .work-section--amdocs.work-section--flow .work-box {
-  width: min(440px, 84vw);
-  padding: 16px 20px;
-  gap: 10px;
+  width: min(370px, 76vw);
+  padding: 14px 16px;
+  gap: 8px;
   border-right-color: var(--borderColor);
 }
 
 .work-section--amdocs.work-section--flow .work-image {
-  height: clamp(140px, 17vw, 185px);
-  min-height: 140px;
-  max-height: 185px;
+  height: clamp(120px, 15vw, 165px);
+  min-height: 120px;
+  max-height: 165px;
   overflow: hidden;
   border-radius: 10px;
   background: var(--surfaceElevated);
@@ -658,24 +688,122 @@
   color: #3f3f46;
 }
 
-@media screen and (min-width: 1024px) and (max-width: 1599px) {
+@media screen and (min-width: 768px) and (max-width: 1399px) {
   .work-section--amdocs.work-section--flow .work-box {
-    width: min(420px, 86vw);
-    padding: 14px 18px;
-    gap: 8px;
+    width: min(340px, 72vw);
+    padding: 8px 12px;
+    gap: 5px;
   }
 
   .work-section--amdocs.work-section--flow .work-image {
-    height: clamp(120px, 24vw, 155px);
-    min-height: 120px;
-    max-height: 155px;
+    height: clamp(95px, 14vw, 125px);
+    min-height: 95px;
+    max-height: 125px;
+  }
+
+  .work-section--amdocs.work-section--flow .work-title h3 {
+    font-size: clamp(16px, 2.3vw, 21px);
+    line-height: 1.08;
+  }
+
+  .work-section--amdocs.work-section--flow .work-title h4 {
+    font-size: clamp(11px, 1.45vw, 13px);
+    line-height: 1.2;
+  }
+
+  .work-section--amdocs.work-section--flow .work-title p {
+    font-size: 9px;
+    line-height: 1.3;
+  }
+
+  .work-section--amdocs.work-section--flow .work-info h4 {
+    font-size: 11px;
+    margin-top: 0;
+    margin-bottom: 2px;
+  }
+
+  .work-section--amdocs.work-section--flow .work-info p,
+  .work-section--amdocs.work-section--flow .work-info .expandable-work-detail p {
+    font-size: 9px;
+    line-height: 1.35;
+    margin: 2px 0 5px;
+  }
+
+  .work-section--amdocs.work-section--flow .work-tags {
+    margin: 3px 0 5px;
+    gap: 4px;
+  }
+
+  .work-section--amdocs.work-section--flow .work-tag {
+    font-size: 8px;
+    padding: 2px 5px;
+  }
+
+  .work-section--amdocs.work-section--flow .work-title {
+    margin-bottom: 3px;
+  }
+}
+
+@media screen and (min-width: 1024px) and (max-width: 1599px) {
+  .work-section--amdocs.work-section--flow .work-box {
+    width: min(340px, 72vw);
+    padding: 12px 14px;
+    gap: 7px;
+  }
+
+  .work-section--amdocs.work-section--flow .work-image {
+    height: clamp(100px, 20vw, 130px);
+    min-height: 100px;
+    max-height: 130px;
   }
 
   .work-section--amdocs.work-section--flow .work-info p {
-    font-size: 11px;
+    font-size: 10px;
   }
 
   .work-section--amdocs .work-subtitle {
     margin-bottom: clamp(16px, 2.5vh, 24px);
+  }
+}
+
+@media screen and (min-width: 1400px) {
+  .work-section--amdocs.work-section--flow .work-scroll-wrap {
+    width: 100%;
+    max-width: var(--cMaxWidth);
+    margin-inline: auto;
+    padding-inline: var(--page-pad, 24px);
+    box-sizing: border-box;
+  }
+
+  .work-section--amdocs.work-section--flow .work-flex.work-flex--scroll {
+    padding-left: 0;
+    padding-right: var(--page-pad, 24px);
+    scroll-padding-inline: var(--page-pad, 24px);
+  }
+
+  .work-section--amdocs.work-section--flow .work-flex.work-flex--fit {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .work-section--amdocs.work-section--flow .work-box:first-child {
+    scroll-margin-left: 0;
+  }
+
+  .work-section--amdocs.work-section--flow .work-box:last-child {
+    border-right: none;
+    margin-right: 0;
+  }
+}
+
+@media screen and (min-width: 1100px) and (max-width: 1399px) {
+  .work-section--amdocs.work-section--flow .work-scroll-wrap {
+    padding-inline: var(--page-pad, 20px);
+    box-sizing: border-box;
+  }
+
+  .work-section--amdocs.work-section--flow .work-flex.work-flex--scroll {
+    padding-right: var(--page-pad, 20px);
+    scroll-padding-inline: var(--page-pad, 20px);
   }
 }

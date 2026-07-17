@@ -137,7 +137,7 @@ const ProjectShowcase = ({
         <section className="work-scroll-wrap">
           <section
             ref={scrollRef}
-            className={`work-flex work-flex--${scrollTriggerId}`}
+            className={`work-flex work-flex--${scrollTriggerId}${isScrollOnly ? (hasOverflow ? " work-flex--scroll" : " work-flex--fit") : ""}`}
           >
             {projects.map((project) => (
               <section

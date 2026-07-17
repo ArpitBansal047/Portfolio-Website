@@ -103,7 +103,7 @@ const ContactForm = () => {
             <textarea
               name="message"
               required
-              rows={4}
+              rows={3}
               placeholder="Role, project, or how you'd like to connect…"
               disabled={status === "sending"}
             />

@@ -44,6 +44,27 @@
   padding: 4px 0;
 }
 
+@media screen and (min-width: 768px) {
+  .beyond-heading .section-title {
+    font-size: clamp(24px, 3.2vw, 36px);
+    letter-spacing: 0.1em;
+  }
+
+  .beyond-card-body h3 {
+    font-size: clamp(12px, 1.15vw, 14px);
+  }
+
+  .beyond-card-media .beyond-emoji {
+    font-size: clamp(32px, 3.8vw, 44px);
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .beyond-heading .section-title {
+    font-size: clamp(26px, 2.8vw, 40px);
+  }
+}
+
 /* 4 square tiles — 67% image / 33% text, full image (no crop) */
 .beyond-subtitle {
   max-width: 36em;
