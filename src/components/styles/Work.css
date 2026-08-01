@@ -617,6 +617,31 @@
   border-radius: 0;
 }
 
+.work-section--amdocs.work-section--flow .work-image--contain,
+.work-section--amdocs.work-section--flow .work-image--contain.work-image--static-only {
+  background: #f4f4f5;
+}
+
+.work-section--amdocs.work-section--flow .work-image--contain .clickable-image,
+.work-section--amdocs.work-section--flow .work-image--contain .work-image-in {
+  background: #f4f4f5;
+}
+
+.work-section--amdocs.work-section--flow .work-image--contain .clickable-image__main {
+  object-fit: contain;
+  object-position: center;
+  padding: 1.5rem 1.75rem;
+  box-sizing: border-box;
+  background: #f4f4f5;
+}
+
+[data-theme="light"] .work-section--amdocs.work-section--flow .work-image--contain,
+[data-theme="light"] .work-section--amdocs.work-section--flow .work-image--contain .clickable-image,
+[data-theme="light"] .work-section--amdocs.work-section--flow .work-image--contain .work-image-in,
+[data-theme="light"] .work-section--amdocs.work-section--flow .work-image--contain .clickable-image__main {
+  background: #ffffff;
+}
+
 [data-theme="light"] .work-section--amdocs.work-section--flow .work-image,
 [data-theme="light"] .work-section--amdocs.work-section--flow .work-image .work-image-in,
 [data-theme="light"] .work-section--amdocs.work-section--flow .work-image .clickable-image,

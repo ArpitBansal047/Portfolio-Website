@@ -63,6 +63,11 @@ const Navbar = () => {
 
     document.addEventListener("click", onNavClick);
 
+    const onHashChange = () => {
+      if (window.location.hash) scrollToSection(window.location.hash);
+    };
+    window.addEventListener("hashchange", onHashChange);
+
     window.addEventListener("resize", () => {
       ScrollSmoother.refresh(true);
       if (window.innerWidth > 768) setMenuOpen(false);
@@ -70,6 +75,7 @@ const Navbar = () => {
 
     return () => {
       document.removeEventListener("click", onNavClick);
+      window.removeEventListener("hashchange", onHashChange);
     };
   }, []);
 

@@ -29,7 +29,7 @@ const HeroCodeEditorHighlighted = () => (
     {"\n"}
     {"    "}
     <span className="tok-kw">this</span>.<span className="tok-prop">experience</span> ={" "}
-    <span className="tok-str">&apos;3+ YOE · telecom billing &amp; dev tooling&apos;</span>;
+    <span className="tok-str">&apos;3+ YOE · full-stack billing, REST APIs &amp; GenAI&apos;</span>;
     {"\n"}
     {"    "}
     <span className="tok-kw">this</span>.<span className="tok-prop">education</span> ={" "}
@@ -44,7 +44,7 @@ const HeroCodeEditorHighlighted = () => (
     {"      "}
     <span className="tok-prop">backend</span>: [<span className="tok-str">&apos;Node.js&apos;</span>,{" "}
     <span className="tok-str">&apos;Python&apos;</span>, <span className="tok-str">&apos;Java&apos;</span>,{" "}
-    <span className="tok-str">&apos;Oracle&apos;</span>],
+    <span className="tok-str">&apos;C++&apos;</span>, <span className="tok-str">&apos;Oracle&apos;</span>],
     {"\n"}
     {"      "}
     <span className="tok-prop">frontend</span>: [<span className="tok-str">&apos;Next.js 14&apos;</span>,{" "}
@@ -60,13 +60,13 @@ const HeroCodeEditorHighlighted = () => (
     <span className="tok-prop">comcastHub</span>: <span className="tok-str">&apos;15-20% dev productivity ↑&apos;</span>,
     {"\n"}
     {"      "}
-    <span className="tok-prop">cipherEOC</span>: <span className="tok-str">&apos;90min → 40min daily billing&apos;</span>,
+    <span className="tok-prop">cipherEOC</span>: <span className="tok-str">&apos;85% EOC automation · 90→40min&apos;</span>,
     {"\n"}
     {"      "}
-    <span className="tok-prop">bptChargeCode</span>: <span className="tok-str">&apos;Excel → SQL, 90% less manual work&apos;</span>,
+    <span className="tok-prop">eipCredit</span>: <span className="tok-str">&apos;31M+ Charter subscribers&apos;</span>,
     {"\n"}
     {"      "}
-    <span className="tok-prop">apeye</span>: <span className="tok-str">&apos;5hr → 1hr test cycles · 10+ daily users&apos;</span>
+    <span className="tok-prop">bptChargeCode</span>: <span className="tok-str">&apos;Excel → SQL, 90% less manual work&apos;</span>
     {"\n    };\n\n"}
     {"    "}
     <span className="tok-kw">this</span>.<span className="tok-prop">sideQuests</span> = [
@@ -93,7 +93,7 @@ const HeroCodeEditorHighlighted = () => (
     <span className="tok-fn">isHireable</span>() {"{\n"}
     {"    "}
     <span className="tok-kw">return</span> <span className="tok-kw">this</span>.<span className="tok-prop">openToRoles</span> &amp;&amp;{" "}
-    <span className="tok-kw">this</span>.<span className="tok-prop">impact</span>.<span className="tok-prop">apeye</span>.<span className="tok-fn">includes</span>(<span className="tok-str">&apos;10+&apos;</span>);
+    <span className="tok-kw">this</span>.<span className="tok-prop">impact</span>.<span className="tok-prop">eipCredit</span>.<span className="tok-fn">includes</span>(<span className="tok-str">&apos;31M&apos;</span>);
     {"\n  }\n}\n\n"}
     <span className="tok-comment">{"// npm run hire-arpit --save-team-hours"}</span>
     {"\n"}

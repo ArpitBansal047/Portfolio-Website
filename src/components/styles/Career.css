@@ -59,16 +59,16 @@
 }
 
 .education-scroll-track {
-  display: inline-flex;
+  display: flex;
   flex-direction: row;
-  align-items: stretch;
-  gap: 20px;
+  align-items: flex-start;
+  gap: clamp(16px, 2vw, 24px);
   position: relative;
   width: max-content;
+  max-width: none;
   padding-bottom: 28px;
-  padding-right: var(--page-pad, 20px);
+  padding-right: var(--page-pad, 16px);
   box-sizing: border-box;
-  vertical-align: top;
 }
 
 .education-scroll-track::after {
@@ -88,14 +88,19 @@
   flex-direction: column;
   align-items: stretch;
   position: relative;
-  flex-shrink: 0;
-  min-width: min(62vw, 240px);
+  flex: 0 0 auto;
+  align-self: flex-start;
+  width: min(78vw, 300px);
+  min-width: min(78vw, 300px);
+  max-width: min(78vw, 300px);
   scroll-snap-align: start;
   z-index: 1;
 }
 
 .education-tile-column .career-card {
-  flex: 1 1 auto;
+  flex: 0 0 auto;
+  height: auto;
+  min-height: 0;
   margin-bottom: 0;
   z-index: 1;
 }
@@ -135,18 +140,55 @@
   opacity: 0.85;
 }
 
+@media only screen and (max-width: 1099px) {
+  /* Always horizontal scroll below desktop — never stretch/fit */
+  .education-section .career-scroll--horizontal.education-scroll,
+  .education-section .career-scroll--horizontal.education-scroll.education-scroll--fit {
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    scroll-snap-type: x mandatory !important;
+    touch-action: pan-x pan-y;
+  }
+
+  .education-scroll-track,
+  .education-section .career-scroll--horizontal.education-scroll.education-scroll--fit .education-scroll-track {
+    width: max-content !important;
+    max-width: none !important;
+    align-items: flex-start;
+    padding-right: var(--page-pad, 16px);
+  }
+
+  .education-tile-column,
+  .education-section .career-scroll--horizontal.education-scroll.education-scroll--fit .education-tile-column {
+    flex: 0 0 auto !important;
+    align-self: flex-start !important;
+    width: min(42vw, 300px) !important;
+    min-width: min(42vw, 300px) !important;
+    max-width: min(42vw, 300px) !important;
+  }
+
+  .education-tile-column .career-card {
+    flex: 0 0 auto !important;
+    height: auto !important;
+    min-height: 0 !important;
+  }
+}
+
 @media only screen and (max-width: 767px) {
   .education-scroll-hint--visible {
     font-size: 12px;
     letter-spacing: 0.08em;
   }
 
-  .education-tile-column {
-    min-width: min(62vw, 240px);
+  .education-tile-column,
+  .education-section .career-scroll--horizontal.education-scroll.education-scroll--fit .education-tile-column {
+    width: min(78vw, 280px) !important;
+    min-width: min(78vw, 280px) !important;
+    max-width: min(78vw, 280px) !important;
   }
 
   .education-tile-column .career-card {
-    padding: 16px 14px;
+    padding: 14px 12px;
     font-size: 0.92em;
   }
 
@@ -154,12 +196,6 @@
     width: 10px;
     height: 10px;
     margin: 10px auto 4px;
-  }
-}
-
-@media only screen and (min-width: 768px) {
-  .education-tile-column {
-    min-width: min(30vw, 274px);
   }
 }
 
@@ -173,16 +209,6 @@
     padding-left: 0;
     padding-right: 0;
     scroll-padding-inline: var(--page-pad, 16px);
-  }
-
-  .education-scroll-track {
-    padding-right: var(--page-pad, 16px);
-  }
-}
-
-@media only screen and (min-width: 1024px) and (max-width: 1399px) {
-  .education-tile-column {
-    min-width: min(24.5vw, 288px);
   }
 }
 
@@ -202,11 +228,28 @@
   min-width: 0;
 }
 
-.education-section .career-scroll--horizontal.education-scroll.education-scroll--fit {
-  overflow-x: visible;
-  overflow-y: visible;
-  scroll-snap-type: none;
-  touch-action: auto;
+/* Fit mode only used on wide desktop when JS says no overflow */
+@media only screen and (min-width: 1100px) {
+  .education-section .career-scroll--horizontal.education-scroll.education-scroll--fit {
+    overflow-x: visible;
+    overflow-y: visible;
+    scroll-snap-type: none;
+    touch-action: auto;
+  }
+
+  .education-section .career-scroll--horizontal.education-scroll.education-scroll--fit .education-scroll-track {
+    width: 100%;
+    max-width: 100%;
+    display: flex;
+    padding-right: 0;
+  }
+
+  .education-section .career-scroll--horizontal.education-scroll.education-scroll--fit .education-tile-column {
+    flex: 1 1 0;
+    min-width: 0;
+    width: auto;
+    max-width: none;
+  }
 }
 
 @media only screen and (min-width: 1100px) {
@@ -217,8 +260,8 @@
   }
 
   .education-scroll-track {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    display: flex;
+    flex-direction: row;
     width: 100%;
     max-width: 100%;
     padding-right: 0;
@@ -226,7 +269,9 @@
   }
 
   .education-tile-column {
+    flex: 1 1 0;
     min-width: 0;
+    width: auto;
     max-width: none;
     scroll-snap-align: none;
     overflow: visible;
@@ -240,13 +285,17 @@
 
 @media only screen and (min-width: 1400px) {
   .education-tile-column {
+    flex: 1 1 0;
     min-width: 0;
+    width: auto;
   }
 }
 
 @media only screen and (min-width: 1280px) {
   .education-tile-column {
+    flex: 1 1 0;
     min-width: 0;
+    width: auto;
   }
 }
 
@@ -334,10 +383,10 @@
 }
 
 .yhills-card {
-  width: min(468px, 92%);
-  max-width: 480px;
+  width: min(540px, 94%);
+  max-width: 560px;
   margin: 0 auto;
-  padding: clamp(15px, 2.6vw, 20px);
+  padding: clamp(18px, 2.8vw, 24px);
   border: 1px solid var(--borderColor);
   border-radius: 12px;
   background: var(--cardOverlay);
@@ -346,24 +395,24 @@
 
 @media only screen and (min-width: 1024px) {
   .yhills-card-wrap {
-    max-width: 520px;
+    max-width: 600px;
     margin-inline: auto;
   }
 
   .yhills-card {
-    width: min(520px, 100%);
-    max-width: 520px;
+    width: min(600px, 100%);
+    max-width: 600px;
   }
 }
 
 @media only screen and (min-width: 1400px) {
   .yhills-card-wrap {
-    max-width: 580px;
+    max-width: 640px;
   }
 
   .yhills-card {
-    width: min(580px, 100%);
-    max-width: 580px;
+    width: min(640px, 100%);
+    max-width: 640px;
   }
 }
 
@@ -410,7 +459,7 @@
 
 .yhills-card__company {
   margin: 0;
-  font-size: clamp(12px, 1.65vw, 14px);
+  font-size: clamp(14px, 1.85vw, 17px);
   font-weight: 600;
   color: var(--textPrimary);
   line-height: 1.25;
@@ -418,7 +467,7 @@
 
 .yhills-card__role {
   margin: 0;
-  font-size: clamp(11px, 1.45vw, 12px);
+  font-size: clamp(13px, 1.65vw, 15px);
   font-weight: 500;
   line-height: 1.35;
   color: var(--textPrimary);
@@ -536,11 +585,11 @@
   }
 
   .yhills-card__company {
-    font-size: clamp(12px, 3.2vw, 14px);
+    font-size: clamp(14px, 3.4vw, 16px);
   }
 
   .yhills-card__role {
-    font-size: clamp(11px, 2.9vw, 12px);
+    font-size: clamp(12px, 3vw, 14px);
   }
 
   .yhills-card__period,

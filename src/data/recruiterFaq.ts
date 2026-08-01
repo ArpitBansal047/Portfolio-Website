@@ -53,7 +53,7 @@ export const recruiterFaq: FaqItem[] = [
     question: "What's your experience at Amdocs?",
     keywords: ["amdocs", "years", "telecom", "billing", "pune", "work history", "company"],
     answer:
-      "I've spent 3+ years at Amdocs in Pune, working on telecom billing and internal developer platforms.\n\nToday I'm a Software Developer (since July 2025). Before that I was a Software Engineer Associate (July 2023 to July 2025). My day-to-day is building tools that other engineers rely on — not slide decks.",
+      "I've spent 3+ years at Amdocs in Pune as a full-stack Software Developer — production work across React, Node.js, Java, Python, and C++, plus GenAI (Gemini 1.5 Pro).\n\nToday I'm a Software Developer (since July 2025). Before that I was a Software Engineer Associate (July 2023 to July 2025). I maintain and optimize large-scale billing, REST API, and reconciliation systems serving millions of customers.",
   },
   {
     id: "strongest-project",
@@ -85,7 +85,7 @@ export const recruiterFaq: FaqItem[] = [
     question: "What is your current job title?",
     keywords: ["title", "role", "position", "designation", "current job"],
     answer:
-      "I'm a Software Developer at Amdocs (since July 2025).\n\nBefore that I was a Software Engineer Associate from July 2023 to July 2025.",
+      "I'm a Software Developer at Amdocs (since July 2025).\n\nBefore that I was a Software Engineer Associate from July 2023 to July 2025. Day to day I work full-stack across React, Node, Java, Python, and C++.",
   },
   {
     id: "why-amdocs-impact",
@@ -93,7 +93,7 @@ export const recruiterFaq: FaqItem[] = [
     question: "What impact have you delivered at Amdocs?",
     keywords: ["impact", "results", "metrics", "achievements", "delivered", "wins"],
     answer:
-      "A few numbers that matter to teams I work with:\n\n• Cipher EOC automation covers 75% of daily workflows — runtime reduced to ~40 minutes.\n• BPT Charge Code Tool reduced manual SQL work by ~90% using GenAI.\n• APEye shortened regression cycles from 5 hours to 1 hour — used daily by 10+ developers.\n• ComcastHub targets a 15–20% productivity lift by unifying scattered dev tools.",
+      "A few numbers that matter to teams I work with:\n\n• Cipher EOC automates 85% of daily billing workflows — runtime cut from 90 to ~40 minutes.\n• Unlimited Premium EIP credit engine for Charter reaches 31M+ customers.\n• BPT Charge Code Tool cut manual SQL work and deploy errors by ~90% using GenAI.\n• ComcastHub targets a 15–20% productivity lift on AWS with Jest-backed UI reliability.\n• APEye collapsed Invoicing regression cycles from 5 hours to 1 hour.\n• BriteBill reconciliation (C++) supported a 10M+ customer migration; Service Promotion REST APIs cover 1.4M+ subscribers.",
   },
   {
     id: "genai-production",
@@ -109,7 +109,7 @@ export const recruiterFaq: FaqItem[] = [
     question: "What's your primary tech stack?",
     keywords: ["stack", "technologies", "tools", "react", "python", "typescript", "skills"],
     answer:
-      "Day to day I work across React 18, TypeScript, Next.js 14, Python, Node.js, Java, AWS, Docker, Jenkins, Oracle, Firebase, and REST/microservices patterns.\n\nI pick tools based on what the team already runs in production — not hype.",
+      "Day to day I work across React 18, TypeScript, Next.js 14, Python, Node.js, Core Java, C++, AWS, Docker, Jenkins, Oracle/PostgreSQL/MySQL, Firebase, REST/microservices, plus GenAI tooling (Gemini 1.5 Pro, Cursor, Copilot, MCP).\n\nI pick tools based on what the team already runs in production — not hype.",
   },
   {
     id: "system-design",
@@ -149,7 +149,7 @@ export const recruiterFaq: FaqItem[] = [
     question: "Tell me about Streamer.",
     keywords: ["streamer", "streaming", "rtmp", "video", "twitch", "websocket"],
     answer:
-      "Streamer is an earlier full-stack experiment — a live streaming prototype.\n\nIt uses React + Node.js with WebSocket metadata, OBS RTMP integration, Google OAuth 2.0, and FLV.js playback. I ran 50+ live test events with roughly 99% uptime across three services.",
+      "Streamer is an earlier full-stack experiment — a multi-channel live streaming prototype.\n\nI built it with React and Node.js, WebSocket streaming, OBS integration for real-time video distribution, and Google OAuth 2.0 — architected for high-availability multi-channel broadcasting.",
   },
   {
     id: "comcasthub",
@@ -157,7 +157,7 @@ export const recruiterFaq: FaqItem[] = [
     question: "What is ComcastHub?",
     keywords: ["comcasthub", "comcast", "internal", "developer hub", "nextjs"],
     answer:
-      "ComcastHub is the official internal account developer website I led.\n\nBuilt with Next.js 14, React 18, TypeScript, Tailwind, and Framer Motion — it unifies scattered dev tools into one hub, deployed on AWS, with Jest covering critical navigation flows.",
+      "ComcastHub is the official internal account developer website I led.\n\nBuilt with Next.js, React, TypeScript, and Tailwind — centralized tooling targeting a 15–20% productivity boost, deployed on AWS for scale, with Jest covering critical UI flows.",
   },
   {
     id: "apeye",
@@ -221,7 +221,7 @@ export const recruiterFaq: FaqItem[] = [
     question: "Why should we hire you?",
     keywords: ["why hire", "why you", "value", "differentiator", "strengths"],
     answer:
-      "I ship tools that save teams hours every week — with numbers to back it up (~90% manual work cut on BPT, 75% Cipher EOC automation, 80% faster test cycles on APEye).\n\nI combine full-stack delivery, GenAI, and DevOps in production telecom billing environments, and I communicate clearly with both engineers and stakeholders.",
+      "I ship tools that save teams hours every week — with numbers to back it up (~90% manual work cut on BPT, 85% Cipher EOC automation, 31M+ Charter EIP credits, 5h→1h APEye cycles).\n\nI combine full-stack delivery, GenAI, and DevOps in production telecom billing environments, and I communicate clearly with both engineers and stakeholders.",
   },
   {
     id: "team-size",
@@ -229,7 +229,7 @@ export const recruiterFaq: FaqItem[] = [
     question: "Have you worked in teams?",
     keywords: ["team", "collaboration", "cross functional", "agile", "people"],
     answer:
-      "Yes — most of my impact has been collaborative.\n\nCipher EOC, billing workflows, and cross-functional platform work involved teams across the account. APEye and ComcastHub serve 10+ developers daily.",
+      "Yes — most of my impact has been collaborative.\n\nCipher EOC, Charter EIP billing, BriteBill migration, and Service Promotion work involved teams across the account. APEye and ComcastHub are used by developers and ops daily.",
   },
   {
     id: "internship",
@@ -341,7 +341,7 @@ export const recruiterFaq: FaqItem[] = [
     question: "Do you have telecom or billing domain experience?",
     keywords: ["billing", "telecom", "bss", "oss", "invoicing", "domain", "amdocs"],
     answer:
-      "Yes — 3+ years in telecom billing at Amdocs.\n\nI've worked on End-of-Cycle billing automation (Cipher EOC), charge-code tooling, Jenkins regression for invoicing chains (APEye), and internal developer platforms for account engineers.",
+      "Yes — 3+ years in telecom billing at Amdocs.\n\nI've worked on End-of-Cycle billing automation (Cipher EOC — 85%), Charter EIP credit engines (31M+), BriteBill C++ reconciliation (10M+), Service Promotion REST APIs (1.4M+), GenAI charge-code tooling, Jenkins regression for invoicing (APEye), and ComcastHub for account developers.",
   },
   {
     id: "references",

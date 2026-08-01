@@ -11,10 +11,13 @@ interface Props {
   /** When true, image is display-only (no external link overlay). */
   staticOnly?: boolean;
   blurFill?: boolean;
+  imageFit?: "cover" | "contain";
 }
 
 const WorkImage = (props: Props) => {
   const blurFill = props.blurFill ?? props.staticOnly ?? false;
+  const fitClass =
+    props.imageFit === "contain" ? " work-image--contain" : "";
   const [isVideo, setIsVideo] = useState(false);
   const [video, setVideo] = useState("");
 
@@ -29,14 +32,14 @@ const WorkImage = (props: Props) => {
 
   if (props.staticOnly) {
     return (
-      <section className="work-image work-image--static-only">
+      <section className={`work-image work-image--static-only${fitClass}`}>
         <section className="work-image-in work-image-in--static">
           <ClickableImage
             src={props.image}
             alt={props.alt || "Project screenshot"}
             downloadName={`${props.alt || "project"}.png`}
             externalUrl={props.link}
-            blurFill={blurFill}
+            blurFill={blurFill && props.imageFit !== "contain"}
           />
         </section>
       </section>
@@ -44,7 +47,7 @@ const WorkImage = (props: Props) => {
   }
 
   return (
-    <section className="work-image">
+    <section className={`work-image${fitClass}`}>
       <section
         className="work-image-in work-image-in--static"
         onMouseEnter={handleMouseEnter}
@@ -55,7 +58,7 @@ const WorkImage = (props: Props) => {
           alt={props.alt || "Project screenshot"}
           downloadName={`${props.alt || "project"}.png`}
           externalUrl={props.link}
-          blurFill={blurFill}
+          blurFill={blurFill && props.imageFit !== "contain"}
         />
         {props.link && (
           <a

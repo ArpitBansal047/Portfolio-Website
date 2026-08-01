@@ -6,6 +6,7 @@ import Contact from "./Contact";
 import DuolingoFlyer from "./DuolingoFlyer";
 import Cursor from "./Cursor";
 import Landing from "./Landing";
+import LinkedInMail from "./LinkedInMail";
 import Navbar from "./Navbar";
 import RecruiterChatbot, { RecruiterChatFab } from "./RecruiterChatbot";
 import SkillsRegion from "./SkillsRegion";
@@ -53,6 +54,7 @@ const MainContainer = () => {
               </section>
               <BeyondCode />
             </section>
+            <LinkedInMail />
             <Contact />
           </section>
         </section>

@@ -6,7 +6,7 @@
   letter-spacing: 0.12em;
   text-transform: uppercase;
   text-align: center;
-  font-family: "Geist", sans-serif;
+  font-family: "Geist Variable", "Geist", system-ui, -apple-system, "Segoe UI", sans-serif;
 }
 
 .section-title span {
@@ -31,7 +31,7 @@
   text-transform: uppercase;
   text-align: center;
   color: var(--accentColor);
-  font-family: "Geist", sans-serif;
+  font-family: "Geist Variable", "Geist", system-ui, -apple-system, "Segoe UI", sans-serif;
 }
 
 .section-subtitle-sm {

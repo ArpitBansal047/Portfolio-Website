@@ -1,19 +1,24 @@
 .certs-section {
+  /* ID 03 — Nordic Storm & Ochre (both modes) */
+  --cert-canvas: #0f1419;
+  --cert-accent: #6a7f93;
+  --cert-btn: #b08741;
+  --cert-btn-text: #0f1419;
 
   padding: 0 var(--page-pad, 16px);
-
   max-width: none;
-
   width: 100%;
-
   margin: 0;
-
   box-sizing: border-box;
-
   --cert-scale: 0.935;
-
   text-align: center;
+}
 
+[data-theme="light"] .certs-section {
+  --cert-canvas: #f1f5f9;
+  --cert-accent: #6a7f93;
+  --cert-btn: #b08741;
+  --cert-btn-text: #0f1419;
 }
 
 
@@ -620,63 +625,33 @@
 
 
 .cert-card {
-
-  --cert-accent: var(--accentColor);
-
   display: flex;
-
   flex-direction: column;
-
-  border: 1px solid var(--borderColor);
-
+  border: 1px solid var(--cert-accent);
   border-radius: calc(12px * var(--cert-scale));
-
   overflow: hidden;
-
-  background: var(--surfaceColor);
-
+  background: color-mix(in srgb, var(--cert-canvas) 72%, var(--surfaceColor));
   transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
-
-  box-shadow: 0 1px 0 color-mix(in srgb, var(--cert-accent) 18%, transparent);
-
+  box-shadow: 0 1px 0 color-mix(in srgb, var(--cert-btn) 22%, transparent);
 }
-
-
 
 .cert-card::before {
-
   content: "";
-
   display: block;
-
   height: 3px;
-
   background: var(--cert-accent);
-
-  opacity: 0.55;
-
+  opacity: 0.75;
   transition: opacity 0.2s;
-
 }
-
-
 
 .cert-card:hover {
-
-  border-color: color-mix(in srgb, var(--cert-accent) 55%, var(--borderColor));
-
+  border-color: color-mix(in srgb, var(--cert-accent) 45%, var(--borderColor));
   transform: translateY(-3px);
-
-  box-shadow: 0 10px 28px color-mix(in srgb, var(--cert-accent) 22%, transparent);
-
+  box-shadow: 0 10px 28px color-mix(in srgb, var(--cert-accent) 16%, transparent);
 }
 
-
-
 .cert-card:hover::before {
-
   opacity: 1;
-
 }
 
 
@@ -718,31 +693,20 @@
 
 
 .cert-topic {
-
   position: absolute;
-
   top: calc(8px * var(--cert-scale));
-
   left: calc(8px * var(--cert-scale));
-
+  z-index: 3;
   font-size: calc(9px * var(--cert-scale));
-
   font-weight: 700;
-
   letter-spacing: 0.08em;
-
   text-transform: uppercase;
-
   padding: calc(3px * var(--cert-scale)) calc(8px * var(--cert-scale));
-
   border-radius: 999px;
-
-  background: color-mix(in srgb, var(--surfaceColor) 88%, transparent);
-
+  background: var(--surfaceColor);
   color: var(--cert-accent);
-
   border: 1px solid color-mix(in srgb, var(--cert-accent) 40%, transparent);
-
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.18);
 }
 
 
@@ -911,9 +875,9 @@
 
   text-decoration: none;
 
-  background: var(--cert-accent);
+  background: var(--cert-btn);
 
-  color: #ffffff;
+  color: var(--cert-btn-text);
 
   font-weight: 600;
 
@@ -942,9 +906,9 @@
 
 
 .cert-action--download {
-  background-color: var(--cert-accent) !important;
-  color: #ffffff !important;
-  border: 1px solid color-mix(in srgb, var(--cert-accent) 70%, #000000);
+  background-color: var(--cert-btn) !important;
+  color: var(--cert-btn-text) !important;
+  border: 1px solid color-mix(in srgb, var(--cert-btn) 70%, #000000);
 }
 
 .cert-action--download:hover {
@@ -985,17 +949,31 @@
 
 
 .cert-card--png .cert-thumb {
-
-  opacity: 0.55;
-
+  opacity: 0.92;
+  object-fit: cover;
+  background: #fff;
+  z-index: 0;
 }
 
-
-
 .cert-card--png:hover .cert-thumb {
+  opacity: 1;
+}
 
-  opacity: 0.78;
+.cert-card--png .cert-emoji {
+  opacity: 0.12;
+  font-size: calc(22px * var(--cert-scale));
+  z-index: 1;
+}
 
+.cert-card--png:hover .cert-emoji {
+  opacity: 0.05;
+}
+
+.cert-card--png .cert-topic {
+  z-index: 4;
+  background: var(--surfaceColor);
+  color: var(--cert-accent);
+  border-color: color-mix(in srgb, var(--cert-accent) 40%, var(--borderColor));
 }
 
 [data-theme="light"] .cert-visual {

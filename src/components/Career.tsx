@@ -2,7 +2,6 @@ import CompanyLogo from "./CompanyLogo";
 import ProjectShowcase from "./ProjectShowcase";
 import SectionTitle from "./SectionTitle";
 import { amdocsMeta, amdocsProjects, portfolioNotes } from "../data/portfolio";
-import CareerYHills from "./CareerYHills";
 import "./styles/Career.css";
 import "./styles/SectionTitle.css";
 import "./styles/SectionSpacing.css";
@@ -47,8 +46,6 @@ const Career = () => {
         footnote={portfolioNotes.amdocsConfidential}
         projects={amdocsProjects}
       />
-
-      <CareerYHills />
     </section>
   );
 };

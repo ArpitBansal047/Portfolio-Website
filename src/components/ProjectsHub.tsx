@@ -6,9 +6,9 @@ import "./styles/SectionTitle.css";
 
 const ProjectsHub = () => {
   return (
-    <section className="projects-hub" id="projects">
+    <section className="projects-hub">
       <section className="projects-hub-heading section-container">
-        <SectionTitle lead="P" accent="ERSONAL PROJECTS" />
+        <SectionTitle lead="P" accent="ERSONAL PROJECTS" id="projects" className="nav-scroll-target" />
       </section>
       <WipProjects />
       <Work />

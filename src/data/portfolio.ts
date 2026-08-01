@@ -23,6 +23,8 @@ export type Project = {
   impactBrief?: string;
   stack: string[];
   image: string;
+  /** Logo / diagram cards should contain instead of cover-crop. */
+  imageFit?: "cover" | "contain";
   previewUrl?: string;
   liveUrl?: string;
   githubUrl?: string;
@@ -76,7 +78,7 @@ export const educationBulletIcons = {
 } as const;
 
 export const duolingoMeta = {
-  streakLine: "3,000 day streak on Duolingo for learning Spanish",
+  streakLine: "2,100 day streak on Duolingo for learning Spanish",
   scoreLine: "Current score 63 — Limited working proficiency",
 };
 
@@ -128,10 +130,10 @@ export const heroMetrics: HeroMetric[] = [
     animation: { kind: "percent-range", min: 15, max: 20 },
   },
   {
-    value: "10+",
-    title: "Devs Use It Daily",
-    detail: "APEye regression tool",
-    animation: { kind: "count-plus", target: 10 },
+    value: "31M+",
+    title: "Subscribers Touched",
+    detail: "Charter EIP credit engine",
+    animation: { kind: "count-plus", target: 31 },
   },
 ];
 
@@ -150,7 +152,28 @@ export const site = {
   linkedin: "https://www.linkedin.com/in/arpit-bansal-103731192",
   youtube: "https://www.youtube.com/@arpitbansal3263",
   profileImage: "/images/profile.jpg",
+  /** Live site origin — used for deep links you can paste in LinkedIn */
+  origin: "https://arpit29.netlify.app",
 };
+
+/** Deep links — paste in LinkedIn / Slack. Local: http://localhost:5173/#… */
+export const deepLinks = {
+  home: `${site.origin}/`,
+  about: `${site.origin}/#about`,
+  career: `${site.origin}/#career`,
+  amdocs: `${site.origin}/#amdocs-work`,
+  projects: `${site.origin}/#projects`,
+  apps: `${site.origin}/#apps`,
+  you: `${site.origin}/#you`,
+  websites: `${site.origin}/#websites`,
+  education: `${site.origin}/#education`,
+  techstack: `${site.origin}/#techstack`,
+  certificates: `${site.origin}/#certificates`,
+  beyond: `${site.origin}/#beyond`,
+  feed: `${site.origin}/#infeed`,
+  infeed: `${site.origin}/#infeed`,
+  contact: `${site.origin}/#contact`,
+} as const;
 
 export const portfolioSiteMeta = {
   builtWith: ["React 18", "TS", "Vite", "GSAP", "R3F"],
@@ -163,8 +186,8 @@ export const portfolioNotes = {
 };
 
 export const aboutParagraphs = [
-  "I'm Arpit Bansal, a Software Developer at Amdocs in Pune. I build billing platforms, internal dev tools, and GenAI automation that other engineers rely on in production — not slide decks or throwaway demos.",
-  "I like owning problems end to end: talking to the people who use the tool, shipping something stable, and iterating from real feedback. Open to full-time roles across India, including remote-friendly teams.",
+  "I'm Arpit Bansal, a Software Developer at Amdocs in Pune (3+ years). I build production systems across React, Node.js, Java, Python, and C++ — with hands-on GenAI (Gemini 1.5 Pro) — spanning large-scale billing, REST APIs, and reconciliation for millions of customers.",
+  "I collaborate closely with billing and operations teams, and I also ship AI-native products independently from scratch. Open to full-time roles across India, including remote-friendly teams.",
 ];
 
 export const amdocsMeta = {
@@ -189,30 +212,91 @@ export const amdocsProjects: Project[] = [
     problemBrief:
       "Account developers lost 2–3 hrs/week juggling scattered internal tools with no unified hub.",
     impact:
-      "Helped lead design and development of the official account website (Next.js 14, React 18, TypeScript, Tailwind, Framer Motion), unifying dev tools and targeting a 15–20% productivity boost.",
+      "Led development of ComcastHub (Next.js, React, TypeScript, Tailwind) — centralized developer tooling targeting a 15–20% productivity boost, deployed on AWS with Jest for UI reliability.",
     impactBrief:
-      "Led ComcastHub (Next.js 14, TypeScript) unifying dev tools — targeting 15–20% productivity boost.",
-    stack: ["Next.js 14", "React 18", "TypeScript", "Tailwind", "Framer Motion"],
+      "Led ComcastHub on AWS (Next.js/React/TS) — 15–20% productivity target, Jest-backed UI reliability.",
+    stack: ["Next.js 14", "React 18", "TypeScript", "Tailwind", "AWS", "Jest"],
     image: "/images/amdocs/comcasthub.png",
     caseStudy: {
       problemDetail:
         "Developers juggled 8+ internal tools across tabs — losing 2–3 hours weekly to context switching and inconsistent UX.",
       approach: [
-        "Mapped top daily workflows into 4 hub modules after developer interviews.",
+        "Mapped top daily workflows into hub modules after developer interviews.",
         "Built Next.js 14 App Router with TypeScript and shared Tailwind design tokens.",
         "Deployed on AWS with Jest coverage on critical navigation flows.",
       ],
       stackRationale: [
         { tech: "Next.js 14", why: "Fast SSR pages for internal tools", alternative: "CRA" },
-        { tech: "AWS", why: "Team-standard cloud hosting", alternative: "On-prem" },
+        { tech: "AWS", why: "Team-standard cloud hosting & scale", alternative: "On-prem" },
         { tech: "Jest", why: "Catch shared-nav regressions early", alternative: "Manual QA only" },
       ],
-      outcomes: ["Unified dev hub", "15–20% productivity target", "Safer UI releases"],
+      outcomes: ["Unified dev hub", "15–20% productivity target", "Safer UI releases on AWS"],
+    },
+  },
+  {
+    id: "cipher-eoc",
+    number: "02",
+    name: "Cipher EOC",
+    category: "Billing Automation · Streamlit",
+    problem:
+      "Daily End-of-Cycle billing workflows took ~90 minutes of manual steps across Oracle, SSH, and browser tasks.",
+    problemBrief:
+      "Daily End-of-Cycle billing workflows took ~90 minutes of manual Oracle, SSH, and browser steps.",
+    impact:
+      "Automated 85% of daily billing workflows with Cipher EOC (Python/Streamlit) — cutting execution from 90 to 40 minutes using Oracle DB, Paramiko SSH, and Selenium Edge, validated with PyTest.",
+    impactBrief:
+      "Cipher EOC automates 85% of EOC workflows — daily runtime cut from 90 to ~40 minutes.",
+    stack: ["Python", "Streamlit", "Oracle", "Selenium", "Paramiko", "PyTest"],
+    image: "/images/amdocs/cipher-eoc.png",
+    caseStudy: {
+      problemDetail:
+        "End-of-Cycle billing required ~90 minutes of manual Oracle queries, SSH steps, and browser tasks every day.",
+      approach: [
+        "Built Streamlit UI so operators trigger workflows with one click.",
+        "Automated Oracle DB, Paramiko SSH, and Selenium Edge browser steps.",
+        "PyTest suite for regression on critical automation paths.",
+      ],
+      stackRationale: [
+        { tech: "Streamlit", why: "Fast internal UI for ops teams", alternative: "React" },
+        { tech: "Selenium", why: "Legacy browser-only billing screens", alternative: "API-only" },
+      ],
+      outcomes: ["85% workflow automation", "90 → 40 min daily runs", "PyTest-validated paths"],
+    },
+  },
+  {
+    id: "eip-credit",
+    number: "03",
+    name: "Unlimited Premium EIP Credit",
+    category: "Billing Engine · Charter",
+    problem:
+      "Promo offsets and installment charges for Unlimited Premium needed a reliable way to credit only eligible active subscriber lines at Charter scale.",
+    problemBrief:
+      "Charter needed config-driven EIP credits that net installment charges against promo offsets for eligible lines only.",
+    impact:
+      "Implemented a config-driven Unlimited Premium EIP credit engine for Charter (31M+ customers) in the Amdocs billing layer — netting installment charges against promo offsets and crediting only eligible active subscriber lines.",
+    impactBrief:
+      "Config-driven EIP credit engine for Charter 31M+ customers — eligible active lines only.",
+    stack: ["Java", "Billing Layer", "Config-driven", "Charter"],
+    image: "/images/amdocs/eip-charter.png",
+    imageFit: "cover",
+    caseStudy: {
+      problemDetail:
+        "Unlimited Premium promotions required installment charges to be offset by promo credits without over-crediting inactive or ineligible lines across a national Charter base.",
+      approach: [
+        "Modeled eligibility rules as config so promo offsets stay maintainable.",
+        "Netted installment charges against promo credits in the billing layer.",
+        "Credited only active subscriber lines that matched eligibility criteria.",
+      ],
+      stackRationale: [
+        { tech: "Config-driven rules", why: "Promo logic changes without redeploying core billing", alternative: "Hard-coded Java" },
+        { tech: "Amdocs billing layer", why: "Runs inside production rating/credit path", alternative: "Offline batch-only" },
+      ],
+      outcomes: ["31M+ customer footprint", "Eligible-line-only credits", "Promo offset accuracy"],
     },
   },
   {
     id: "bpt-charge",
-    number: "02",
+    number: "04",
     name: "BPT Charge Code Tool",
     category: "GenAI · Python Automation",
     problem:
@@ -220,9 +304,9 @@ export const amdocsProjects: Project[] = [
     problemBrief:
       "Teams manually converted Excel charge-code inputs into SQL — slow, repetitive, and error-prone.",
     impact:
-      "Developed a GenAI-powered Python script that ingests Excel and auto-generates SQL for related tables — 90% less manual effort, 75% faster setup, and eliminated copy-paste errors.",
+      "Developed the GenAI-powered BPT Charge Code Tool in Python to automate Excel parsing and relational SQL script generation — reducing manual data entry and deployment errors by 90%.",
     impactBrief:
-      "Built GenAI Python automation for Excel → SQL — 90% less manual work, 75% faster setup.",
+      "GenAI Python tool: Excel → relational SQL — 90% less manual entry and deploy errors.",
     stack: ["Python", "GenAI", "SQL", "Excel"],
     image: "/images/amdocs/bpt-charge.webp",
     caseStudy: {
@@ -237,42 +321,74 @@ export const amdocsProjects: Project[] = [
         { tech: "Python", why: "Fast Excel parsing and script generation", alternative: "Java" },
         { tech: "GenAI", why: "Handles variable Excel layouts", alternative: "Pure rules" },
       ],
-      outcomes: ["90% less manual entry", "75% faster setup", "Zero copy-paste SQL errors"],
+      outcomes: ["90% less manual entry", "Fewer deployment errors", "Faster charge-code setup"],
     },
   },
   {
-    id: "cipher-eoc",
-    number: "03",
-    name: "Cipher EOC",
-    category: "Billing Automation · Streamlit",
+    id: "britebill-recon",
+    number: "05",
+    name: "BriteBill Reconciliation",
+    category: "Migration · C++ Daemon",
     problem:
-      "Daily End-of-Cycle billing workflows took ~90 minutes of manual steps across Oracle, SSH, and browser tasks.",
+      "Comcast BriteBill migration needed automated reconciliation so rejected accounts were flagged for reprocessing instead of silent data gaps.",
     problemBrief:
-      "Daily End-of-Cycle billing workflows took ~90 minutes of manual Oracle, SSH, and browser steps.",
+      "BriteBill migration for 10M+ customers needed automated file ingest and reject flagging.",
     impact:
-      "Collaborated on a Python/Streamlit tool that automates 75% of EOC workflows — daily runs now finish in ~40 minutes (Oracle/oracledb, Paramiko, Selenium, pandas).",
+      "Established the reconciliation subsystem for Amdocs Comcast BriteBill migration (10M+ customers) — a C++ daemon ingesting reconciliation files and auto-flagging rejected accounts for reprocessing.",
     impactBrief:
-      "Python/Streamlit tool automates 75% of EOC workflows — daily runtime reduced to ~40 minutes.",
-    stack: ["Python", "Streamlit", "Oracle", "Selenium", "pandas"],
-    image: "/images/amdocs/cipher-eoc.png",
+      "C++ reconciliation daemon for BriteBill migration — 10M+ customers, auto-flag rejects.",
+    stack: ["C++", "Reconciliation", "BriteBill", "File ingest"],
+    image: "/images/amdocs/britebill-recon.jpg",
+    imageFit: "cover",
     caseStudy: {
       problemDetail:
-        "End-of-Cycle billing required ~90 minutes of manual Oracle queries, SSH steps, and browser tasks every day.",
+        "During Comcast BriteBill migration, reconciliation files had to be ingested continuously so rejected accounts were not lost in the pipeline.",
       approach: [
-        "Built Streamlit UI so operators trigger workflows with one click.",
-        "Automated Oracle/oracledb, Paramiko SSH, and Selenium browser steps.",
-        "PyTest suite for regression on critical automation paths.",
+        "Built a C++ daemon to ingest reconciliation files on an ongoing basis.",
+        "Auto-flagged rejected accounts for reprocessing workflows.",
+        "Tuned for Comcast-scale volume (10M+ customers).",
       ],
       stackRationale: [
-        { tech: "Streamlit", why: "Fast internal UI for ops teams", alternative: "React" },
-        { tech: "Selenium", why: "Legacy browser-only billing screens", alternative: "API-only" },
+        { tech: "C++", why: "High-throughput file ingest in existing Amdocs runtime", alternative: "Python batch" },
+        { tech: "Daemon process", why: "Continuous reconciliation without manual kicks", alternative: "Cron-only scripts" },
       ],
-      outcomes: ["75% workflow automation", "Daily runs under 40 minutes", "Over half the time saved"],
+      outcomes: ["10M+ customer migration support", "Auto-flagged rejects", "Fewer silent data gaps"],
+    },
+  },
+  {
+    id: "service-promo",
+    number: "06",
+    name: "Service Promotion APIs",
+    category: "REST · Java Microservices",
+    problem:
+      "A national carrier needed subscriber-scoped promo lifecycle APIs — create, retrieve, and plan-state configuration — inside a multi-tenant Service Promotion Framework.",
+    problemBrief:
+      "National carrier needed Add/Get Service Promotion REST APIs for 1.4M+ subscribers.",
+    impact:
+      "Engineered Add and Get Service Promotion REST endpoints in Java within a multi-tenant Service Promotion Framework — subscriber-scoped promo lifecycle (creation, retrieval, plan-state) for a 1.4M+ national carrier base.",
+    impactBrief:
+      "Java REST Add/Get Service Promotion APIs — multi-tenant promo lifecycle for 1.4M+ subs.",
+    stack: ["Java", "REST APIs", "Multi-tenant", "Service Promotion"],
+    image: "/images/amdocs/service-promo-comcast.png",
+    imageFit: "cover",
+    caseStudy: {
+      problemDetail:
+        "Promo lifecycle logic had to stay subscriber-scoped and multi-tenant-safe for a national carrier with 1.4M+ subscribers.",
+      approach: [
+        "Implemented Add and Get Service Promotion REST endpoints in Java.",
+        "Encoded creation, retrieval, and plan-state configuration in the framework.",
+        "Kept tenant isolation and subscriber scoping as first-class constraints.",
+      ],
+      stackRationale: [
+        { tech: "Java", why: "Matches Amdocs service-layer standards", alternative: "Node.js" },
+        { tech: "REST", why: "Clear contract for promo consumers", alternative: "SOAP-only" },
+      ],
+      outcomes: ["1.4M+ subscriber base", "Add/Get promo APIs", "Multi-tenant safety"],
     },
   },
   {
     id: "apeye",
-    number: "04",
+    number: "07",
     name: "APEye",
     category: "DevOps · Jenkins Orchestration",
     problem:
@@ -280,16 +396,16 @@ export const amdocsProjects: Project[] = [
     problemBrief:
       "Manual Jenkins regression runs stretched validation cycles to half a workday.",
     impact:
-      "Built 1-click orchestration via Jenkins API and a RunJobs extension for Invoicing chains — cycles now finish in about an hour; 10+ developers use it daily.",
+      "Extended APEye’s job orchestration with a custom Jenkins integration and RunJobs extension to onboard Invoicing test jobs — collapsing regression cycles from 5 hours to 1 hour.",
     impactBrief:
-      "1-click Jenkins orchestration with RunJobs extension — validation cycles now finish in about an hour.",
+      "Jenkins RunJobs extension for Invoicing — regression cycles collapsed from 5h to 1h.",
     stack: ["Jenkins", "Python", "CI/CD", "RunJobs"],
     image: "/images/amdocs/apeye.png",
     caseStudy: {
       problemDetail:
         "Developers triggered regression jobs by hand — multi-hour cycles blocking releases.",
       approach: [
-        "Built one-click orchestration over Jenkins REST API.",
+        "Extended APEye orchestration over Jenkins REST API.",
         "Added RunJobs extension for Invoicing-specific job chains.",
         "Surfaced job status in a lightweight internal UI.",
       ],
@@ -297,7 +413,7 @@ export const amdocsProjects: Project[] = [
         { tech: "Jenkins", why: "Enterprise CI standard at Amdocs", alternative: "GitHub Actions" },
         { tech: "Python", why: "Quick Jenkins API integration", alternative: "Java EJB" },
       ],
-      outcomes: ["Half-day cycles cut to one hour", "80% faster turnaround", "10+ daily active users"],
+      outcomes: ["5h → 1h regression cycles", "80% faster turnaround", "Invoicing jobs onboarded"],
     },
   },
 ];
@@ -376,13 +492,13 @@ export const projects: Project[] = [
     id: "streamer",
     number: "02",
     name: "Streamer",
-    category: "Live Video · RTMP Platform",
-    glance: "Twitch-style RTMP prototype · 50+ live tests, ~99% uptime",
+    category: "Live Video · Multi-channel",
+    glance: "Multi-channel live streaming · WebSocket + OBS + Google OAuth",
     problem:
-      "Live streaming is hard to learn end-to-end — auth, RTMP ingest, WebSocket metadata, and browser playback usually live in separate repos.",
+      "Live streaming is hard to learn end-to-end — auth, real-time video distribution, WebSocket metadata, and multi-channel broadcasting usually live in separate repos.",
     impact:
-      "Built a Twitch-style prototype: React frontend, Node-Media-Server for RTMP, Google OAuth 2.0 sign-in, OBS integration, WebSocket live viewer counts, and FLV.js playback — 50+ live test events at ~99% uptime across three services.",
-    stack: ["React", "Redux", "FLV.js", "OBS", "Node-Media-Server"],
+      "Architected a multi-channel streaming prototype with React and Node.js — WebSocket streaming, OBS integration for real-time video distribution, and Google OAuth 2.0 — built for high-availability multi-channel broadcasting.",
+    stack: ["React", "Node.js", "WebSockets", "OBS", "OAuth 2.0"],
     image: "/images/projects/streamer.png",
     githubUrl: "https://github.com/ArpitBansal047/streamer",
     status: "live",
@@ -395,17 +511,17 @@ export const wipProjects: WipProject[] = [
     name: "YOU",
     tagline: "AI clinical wellness · GenAI + Firebase · Mar 2026 — Present",
     description:
-      "Most people who need mental-health support never reach a therapist — cost, stigma, and no one to talk to at 2 AM. YOU combines GenAI journaling, peer communities, emergency support, and therapist booking in one secure app.",
+      "Real-time wellness platform with chat, clinical journaling, and automated therapist matching — built so people who need support aren’t stuck waiting for a 9–5 appointment.",
     descriptionBrief:
-      "Most people who need mental-health support never reach a therapist — cost, stigma, and no one to talk to at 2 AM.",
+      "Real-time GenAI wellness platform — chat, clinical journaling, and automated therapist matching.",
     impact:
-      "One app covering journaling, peer communities, emergency support, and therapist booking — architected for 10K+ accounts with secure PII isolation.",
+      "Pioneered a GenAI clinical wellness platform with under-150ms Firebase sync, Gemini 1.5 Pro journal pipelines, and PHQ-9-based therapist matching secured with JWT.",
     impactBrief:
-      "Single secure app for crisis support, community, and therapist booking — built to scale past 10K accounts.",
+      "GenAI clinical wellness — Firebase realtime chat, Gemini journals, PHQ-9 matching with JWT.",
     bullets: [
-      "React 18/TypeScript + Firebase — realtime clinical notes and chats with Firestore security rules for secure PII.",
-      "Gemini 1.5 Pro for 24/7 grounding exercises and journal analysis; Stitch + Framer Motion for UI.",
-      "PHQ-9 assessment flow with JWT sessions — faster therapist matching in testing.",
+      "React/TypeScript + Firebase realtime chat under 150 ms sync; Firestore Security Rules with RBAC for PII.",
+      "Gemini 1.5 Pro AI backend processes journals and streams grounding exercises for 24/7 care access.",
+      "Automated PHQ-9-based therapist-matching workflow secured with JWT authentication.",
     ],
     stack: ["React 18", "TypeScript", "Firebase", "Gemini 1.5", "Stitch", "Framer Motion"],
     screenshots: [
@@ -487,7 +603,7 @@ export const certificates: Certificate[] = [
     topic: "Frontend",
     section: "technical",
     impactLine: "Production React patterns — hooks, Redux, and scalable component design.",
-    themeColor: "#61dafb",
+    themeColor: "#f4f4f5",
   },
   {
     title: "The Complete SQL Bootcamp",
@@ -498,7 +614,7 @@ export const certificates: Certificate[] = [
     topic: "Databases",
     section: "technical",
     impactLine: "PostgreSQL and Oracle query work in billing systems — joins, indexes, optimization.",
-    themeColor: "#3b82f6",
+    themeColor: "#f4f4f5",
   },
   {
     title: "Software Engineering 101",
@@ -509,7 +625,7 @@ export const certificates: Certificate[] = [
     topic: "Engineering",
     section: "technical",
     impactLine: "SDLC, planning, and engineering process — how I approach production delivery.",
-    themeColor: "#f59e0b",
+    themeColor: "#f4f4f5",
   },
   {
     title: "An Entire MBA in 1 Course",
@@ -520,28 +636,28 @@ export const certificates: Certificate[] = [
     topic: "Business",
     section: "non-technical",
     impactLine: "Business context for internal platforms and stakeholder trade-offs.",
-    themeColor: "#ec4899",
+    themeColor: "#f4f4f5",
   },
   {
     title: "The Science of Well-Being",
-    issuer: "Yale University · Coursera",
+    issuer: "Coursera · Yale University",
     file: "/certificates/Coursera - The Science of Well Being.png",
     type: "png",
     emoji: "🧠",
     topic: "Psychology",
     section: "non-technical",
     impactLine: "Informed the mental-health UX research behind the YOU wellness platform.",
-    themeColor: "#a855f7",
+    themeColor: "#f4f4f5",
   },
   {
     title: "Spanish: Meeting people",
-    issuer: "UC Davis · Coursera",
+    issuer: "Coursera · UC Davis",
     file: "/certificates/Coursera - Spanish (Meeting People).pdf",
     type: "pdf",
     emoji: "🇪🇸",
     topic: "Language",
     section: "non-technical",
-    impactLine: "Pairs with a 3,000-day Duolingo streak — continuous learning habit.",
-    themeColor: "#ef4444",
+    impactLine: "Pairs with a 2,100-day Duolingo streak — continuous learning habit.",
+    themeColor: "#f4f4f5",
   },
 ];

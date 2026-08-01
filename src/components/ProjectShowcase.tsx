@@ -209,6 +209,7 @@ const ProjectShowcase = ({
                   alt={project.name}
                   link={project.liveUrl || project.githubUrl}
                   staticOnly={isScrollOnly}
+                  imageFit={project.imageFit}
                 />
               </section>
             ))}

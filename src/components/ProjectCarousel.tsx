@@ -6,7 +6,7 @@ import WorkImage from "./WorkImage";
 import "./styles/ProjectCarousel.css";
 
 type ProjectCarouselProps = {
-  id: string;
+  id?: string;
   title: React.ReactNode;
   subtitle?: string;
   projects: Project[];

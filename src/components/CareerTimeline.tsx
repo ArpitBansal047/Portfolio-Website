@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import SectionTitle from "./SectionTitle";
 import ClickableImage from "./ClickableImage";
 import { educationBulletIcons, educationExperiences } from "../data/portfolio";
@@ -47,6 +47,15 @@ const EducationBulletIcon = ({ badge }: { badge?: keyof typeof educationBulletIc
 const CareerTimeline = () => {
   const scrollRef = useRef<HTMLElement>(null);
   const hasOverflow = useHorizontalOverflow(scrollRef, [educationExperiences.length]);
+  const [scrollMode, setScrollMode] = useState(true);
+
+  useEffect(() => {
+    const mq = window.matchMedia("(max-width: 1099px)");
+    const sync = () => setScrollMode(mq.matches || hasOverflow);
+    sync();
+    mq.addEventListener("change", sync);
+    return () => mq.removeEventListener("change", sync);
+  }, [hasOverflow]);
 
   useEffect(() => {
     const el = scrollRef.current;
@@ -59,7 +68,7 @@ const CareerTimeline = () => {
     resetScroll();
     window.addEventListener("resize", resetScroll);
 
-    if (!hasOverflow) {
+    if (!scrollMode) {
       return () => {
         window.removeEventListener("resize", resetScroll);
       };
@@ -87,19 +96,19 @@ const CareerTimeline = () => {
       window.removeEventListener("resize", resetScroll);
       el.removeEventListener("wheel", onWheel);
     };
-  }, [hasOverflow]);
+  }, [scrollMode]);
 
   return (
-    <section className="career-section education-section section-container" id="education">
+    <section className="career-section education-section section-container">
       <section className="section-heading">
-        <SectionTitle lead="E" accent="DUCATION" />
+        <SectionTitle lead="E" accent="DUCATION" id="education" className="nav-scroll-target" />
       </section>
 
       <section className="career-container">
         <section className="education-scroll-wrap">
           <section
             ref={scrollRef}
-            className={`career-scroll career-scroll--horizontal education-scroll${hasOverflow ? "" : " education-scroll--fit"}`}
+            className={`career-scroll career-scroll--horizontal education-scroll${scrollMode ? "" : " education-scroll--fit"}`}
           >
             <section className="education-scroll-track">
               {educationExperiences.map((exp) => (
@@ -136,8 +145,8 @@ const CareerTimeline = () => {
           </section>
         </section>
         <p
-          className={`education-scroll-hint${hasOverflow ? " education-scroll-hint--visible" : ""}`}
-          aria-hidden={!hasOverflow}
+          className={`education-scroll-hint${scrollMode ? " education-scroll-hint--visible" : ""}`}
+          aria-hidden={!scrollMode}
         >
           Scroll for more
         </p>

@@ -1,4 +1,4 @@
-import { useMemo, useState, type CSSProperties } from "react";
+import { useMemo, useState } from "react";
 import SectionTitle from "./SectionTitle";
 import { certificates, type Certificate, type CertificateSection } from "../data/portfolio";
 import { MdOutlineDownload, MdOutlineVisibility } from "react-icons/md";
@@ -21,7 +21,6 @@ const CertCard = ({
   <article
     className={`cert-card${cert.type === "png" ? " cert-card--png" : ""}`}
     key={cert.title}
-    style={{ "--cert-accent": cert.themeColor } as CSSProperties}
   >
     <button
       type="button"
@@ -48,7 +47,6 @@ const CertCard = ({
           href={cert.file}
           download
           className="cert-action cert-action--download"
-          style={{ "--cert-accent": cert.themeColor } as CSSProperties}
           data-cursor="disable"
           aria-label={`Download ${cert.title}`}
         >
@@ -93,8 +91,8 @@ const Certificates = () => {
   };
 
   return (
-    <section className="certs-section section-container" id="certificates">
-      <SectionTitle lead="C" accent="ERTIFICATIONS" />
+    <section className="certs-section section-container">
+      <SectionTitle lead="C" accent="ERTIFICATIONS" id="certificates" className="nav-scroll-target" />
 
       {grouped.map(({ section, items }) => (
         <section className="certs-group" key={section}>

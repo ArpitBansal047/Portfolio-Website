@@ -3,11 +3,21 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { smoother } from "./scrollSmoother";
 import { setAllTimeline } from "./scrollTimelines";
+import { scrollToSection } from "./scrollToSection";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const isCompactLanding = () =>
   window.matchMedia("(max-width: 1099px)").matches;
+
+const scrollToHashIfPresent = () => {
+  const hash = window.location.hash;
+  if (!hash || hash.length < 2) return;
+  // Wait for layout + ScrollTrigger after load animation
+  window.setTimeout(() => {
+    scrollToSection(hash);
+  }, 1400);
+};
 
 export function initialFX() {
   document.body.style.overflowY = "auto";
@@ -23,6 +33,8 @@ export function initialFX() {
     ScrollTrigger.refresh(true);
     setAllTimeline();
   }, 1200);
+
+  scrollToHashIfPresent();
 
   const landingTagline = new SplitText(".landing-tagline", {
     type: "chars,lines",

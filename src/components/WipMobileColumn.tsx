@@ -36,7 +36,8 @@ const WipMobileColumn = ({ project }: WipMobileColumnProps) => {
 
   return (
     <article
-      className={`wip-app-panel wip-app-panel--${project.id}${detailOpen ? " wip-app-panel--detail-open" : ""}`}
+      id={project.id}
+      className={`wip-app-panel wip-app-panel--${project.id} nav-scroll-target${detailOpen ? " wip-app-panel--detail-open" : ""}`}
     >
       <h3 className="wip-app-title">{project.name}</h3>
 
