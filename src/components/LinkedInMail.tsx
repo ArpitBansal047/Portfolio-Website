@@ -269,7 +269,10 @@ const LinkedInMail = () => {
       const nextId = letters[clamped]?.id ?? focusId;
       const slot = node.querySelectorAll<HTMLElement>(".mail-stack__slot")[clamped];
       if (!slot) return;
+
+      // Center card (~80% on mobile) so neighbors peek ~10% each side
       const target = slot.offsetLeft - (node.clientWidth - slot.clientWidth) / 2;
+
       animateScrollLeft(node, Math.max(0, target), SCROLL_MS);
       setFocusId(nextId);
       if (withSound && nextId !== lastSoundId.current) {
@@ -289,8 +292,14 @@ const LinkedInMail = () => {
 
   useEffect(() => {
     scrollToIndex(focusIndex, false);
-    // eslint-disable-next-line react-hooks/exhaustive-deps -- initial center only
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- initial frame (latest letter)
   }, []);
+
+  useEffect(() => {
+    const onResize = () => scrollToIndex(focusIndex, false);
+    window.addEventListener("resize", onResize);
+    return () => window.removeEventListener("resize", onResize);
+  }, [focusIndex, scrollToIndex]);
 
   useEffect(() => {
     const node = stackRef.current;
