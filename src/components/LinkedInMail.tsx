@@ -103,11 +103,12 @@ const Postcard = ({
   const isLive = letter.status === "live" && Boolean(letter.url);
 
   const goToSiteAnchor = () => {
-    if (!letter.siteAnchor) return;
+    const anchor = letter.siteAnchor;
+    if (!anchor) return;
     onClose();
     window.setTimeout(() => {
-      window.history.replaceState(null, "", letter.siteAnchor);
-      scrollToSection(letter.siteAnchor);
+      window.history.replaceState(null, "", anchor);
+      scrollToSection(anchor);
     }, 80);
   };
 
