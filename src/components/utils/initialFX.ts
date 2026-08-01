@@ -3,21 +3,12 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { smoother } from "./scrollSmoother";
 import { setAllTimeline } from "./scrollTimelines";
-import { scrollToSection } from "./scrollToSection";
+import { scrollToHashWhenReady } from "./scrollToSection";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const isCompactLanding = () =>
   window.matchMedia("(max-width: 1099px)").matches;
-
-const scrollToHashIfPresent = () => {
-  const hash = window.location.hash;
-  if (!hash || hash.length < 2) return;
-  // Wait for layout + ScrollTrigger after load animation
-  window.setTimeout(() => {
-    scrollToSection(hash);
-  }, 1400);
-};
 
 export function initialFX() {
   document.body.style.overflowY = "auto";
@@ -32,9 +23,12 @@ export function initialFX() {
   setTimeout(() => {
     ScrollTrigger.refresh(true);
     setAllTimeline();
+    // After ScrollTrigger layout, resolve deep links like #you on cold load
+    scrollToHashWhenReady();
   }, 1200);
 
-  scrollToHashIfPresent();
+  // Also start waiting immediately — succeeds once #you (etc.) is in the DOM
+  scrollToHashWhenReady();
 
   const landingTagline = new SplitText(".landing-tagline", {
     type: "chars,lines",

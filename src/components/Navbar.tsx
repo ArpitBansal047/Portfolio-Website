@@ -5,7 +5,7 @@ import { gsap } from "gsap";
 import { ScrollSmoother } from "gsap/ScrollSmoother";
 import { LuMenu, LuX } from "react-icons/lu";
 import { site } from "../data/portfolio";
-import { scrollToSection } from "./utils/scrollToSection";
+import { scrollToSection, scrollToHashWhenReady } from "./utils/scrollToSection";
 import { setSmoother } from "./utils/scrollSmoother";
 import ThemeToggle from "./ThemeToggle";
 import SoundToggle from "./SoundToggle";
@@ -50,7 +50,10 @@ const Navbar = () => {
     });
 
     setSmoother(instance);
-    instance.scrollTop(0);
+    // Keep deep-link targets (#you, etc.) — only reset when no hash
+    if (!window.location.hash) {
+      instance.scrollTop(0);
+    }
     instance.paused(true);
 
     const onNavClick = (e: Event) => {
@@ -64,9 +67,13 @@ const Navbar = () => {
     document.addEventListener("click", onNavClick);
 
     const onHashChange = () => {
-      if (window.location.hash) scrollToSection(window.location.hash);
+      if (window.location.hash) scrollToHashWhenReady(window.location.hash);
     };
     window.addEventListener("hashchange", onHashChange);
+    // Cold open with /#you (etc.) — retry until section is mounted
+    if (window.location.hash) {
+      scrollToHashWhenReady(window.location.hash);
+    }
 
     window.addEventListener("resize", () => {
       ScrollSmoother.refresh(true);

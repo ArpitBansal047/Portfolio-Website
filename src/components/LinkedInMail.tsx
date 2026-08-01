@@ -10,7 +10,7 @@ import {
 import { site } from "../data/portfolio";
 import { lockPageScroll, unlockPageScroll } from "../utils/lightboxScroll";
 import { playMailScrollSound, unlockMailScrollSound } from "../utils/mailScrollSound";
-import { scrollToSection } from "./utils/scrollToSection";
+import { scrollToHashWhenReady } from "./utils/scrollToSection";
 import "./styles/LinkedInMail.css";
 import "./styles/SectionTitle.css";
 import "./styles/ProjectsHub.css";
@@ -108,7 +108,7 @@ const Postcard = ({
     onClose();
     window.setTimeout(() => {
       window.history.replaceState(null, "", anchor);
-      scrollToSection(anchor);
+      scrollToHashWhenReady(anchor);
     }, 80);
   };
 

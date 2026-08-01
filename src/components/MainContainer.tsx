@@ -14,6 +14,7 @@ import StickyRecruiterCta from "./StickyRecruiterCta";
 import "./styles/BeyondCode.css";
 import "./styles/SectionSpacing.css";
 import setSplitText from "./utils/splitText";
+import { scrollToHashWhenReady } from "./utils/scrollToSection";
 import { useEffect, useState } from "react";
 
 const MainContainer = () => {
@@ -29,6 +30,12 @@ const MainContainer = () => {
   useEffect(() => {
     (window as Window & { openRecruiterChat?: () => void }).openRecruiterChat = () =>
       setChatOpen(true);
+  }, []);
+
+  useEffect(() => {
+    if (window.location.hash) {
+      scrollToHashWhenReady(window.location.hash);
+    }
   }, []);
 
   return (
